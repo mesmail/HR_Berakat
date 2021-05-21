@@ -1,0 +1,86 @@
+<div style="margin-top: 16px;">
+  <div class="row">
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <app-dashboard-chart
+        [props]="doughnut"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <app-dashboard-chart
+        [props]="mix2"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <app-dashboard-chart
+        [props]="bar"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-md-6"
+    >
+      <app-dashboard-chart
+        [props]="mix1"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-md-6"
+    >
+      <app-dashboard-chart
+        [props]="polar"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <app-dashboard-chart
+        [props]="horizontalBar"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <app-dashboard-chart
+        [props]="line"
+      ></app-dashboard-chart>
+    </div>
+
+    <div
+      style="margin-bottom: 1em;"
+      class="col-xs-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <app-dashboard-chart
+        [props]="radar"
+      ></app-dashboard-chart>
+    </div>
+  </div>
+
+  <p
+    style="
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+      color: grey;
+    "
+  >
+    <app-i18n key="dashboard.message"></app-i18n>
+  </p>
+</div>

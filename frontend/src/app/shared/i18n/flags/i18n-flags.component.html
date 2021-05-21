@@ -1,0 +1,9 @@
+<div class="i18n-flags">
+  <img
+    *ngFor="let language of languages"
+    [alt]="language.label"
+    [title]="language.label"
+    [src]="language.flag"
+    (click)="doChangeLanguage(language.id)"
+  />
+</div>

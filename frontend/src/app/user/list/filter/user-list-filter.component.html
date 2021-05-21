@@ -1,0 +1,133 @@
+<div class="filter">
+  <app-filter-preview
+    [values]="form.value"
+    [fields]="fields"
+    [expanded]="expanded"
+    (click)="doToggleExpanded()"
+    (remove)="doRemove($event)"
+  ></app-filter-preview>
+  <form
+    (ngSubmit)="doFilter()"
+    [formGroup]="form"
+    #ngForm="ngForm"
+    *ngIf="form && expanded"
+  >
+    <div class="row">
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field
+          floatLabel="always"
+          appearance="outline"
+        >
+          <mat-label>{{ fields.email.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.email.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.email.name)"
+              [label]="fields.email.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field
+          floatLabel="always"
+          appearance="outline"
+        >
+          <mat-label>{{ fields.fullName.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.fullName.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.fullName.name)"
+              [label]="fields.fullName.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field
+          floatLabel="always"
+          appearance="outline"
+        >
+          <mat-label>{{ fields.status.label }}</mat-label>
+          <mat-select
+            [formControlName]="fields.status.name"
+          >
+            <mat-option>--</mat-option>
+            <mat-option
+              *ngFor="let option of fields.status.options"
+              [value]="option.id"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.status.name)"
+              [label]="fields.status.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field
+          floatLabel="always"
+          appearance="outline"
+        >
+          <mat-label>{{ fields.role.label }}</mat-label>
+          <mat-select [formControlName]="fields.role.name">
+            <mat-option>--</mat-option>
+            <mat-option
+              *ngFor="let option of fields.role.options"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.role.name)"
+              [label]="fields.role.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="filter-buttons">
+      <button
+        mat-raised-button
+        [disabled]="loading"
+        color="primary"
+        type="submit"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-search"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.search"></app-i18n>
+      </button>
+      <button
+        mat-flat-button
+        [disabled]="loading"
+        (click)="doReset()"
+        type="button"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-undo"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.reset"></app-i18n>
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,7 @@
+<div *ngIf="initialized">
+  <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="!initialized">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

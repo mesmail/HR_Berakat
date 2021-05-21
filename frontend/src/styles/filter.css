@@ -1,0 +1,58 @@
+.filter {
+  margin-bottom: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  overflow-y: auto;
+}
+
+.filter .filter-buttons {
+  text-align: right;
+}
+
+.filter .filter-buttons > * {
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.filter .mat-form-field {
+  width: 100%;
+}
+
+.filter-preview {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.filter-preview-left {
+  display: flex;
+  align-items: center;
+}
+
+.filter-preview-right {
+  color: #606266;
+}
+
+.filter-preview .mat-chip {
+  margin: 4px;
+}
+
+.filter-preview-values {
+  margin-left: 16px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.filter-preview-values {
+  margin-left: 8px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.filter form {
+  padding: 16px;
+}

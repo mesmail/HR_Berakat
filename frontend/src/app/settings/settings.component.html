@@ -1,0 +1,144 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="settings.title"></app-i18n>
+  </h1>
+
+  <app-settings-toolbar></app-settings-toolbar>
+
+  <div *ngIf="initLoading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <form
+    class="form"
+    (ngSubmit)="doSave()"
+    [formGroup]="form"
+    *ngIf="!initLoading"
+    #ngForm="ngForm"
+  >
+    <mat-form-field appearance="outline">
+      <span matPrefix>
+        <div
+          style="margin-right: 16px;"
+          [ngClass]="classForColor(form.value.primaryColor)"
+        >
+          &#160;
+        </div>
+      </span>
+
+      <mat-select
+        [placeholder]="fields.primaryColor.label"
+        [formControlName]="fields.primaryColor.name"
+      >
+        <mat-option
+          *ngFor="let option of primaryColorOptions"
+          [value]="option.id"
+        >
+          <div class="settings-option-wrapper">
+            <div
+              style="margin-right: 8px;"
+              [ngClass]="classForColor(option.id)"
+            ></div>
+            {{ option.label }}
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <span matPrefix>
+        <div
+          style="margin-right: 16px;"
+          [ngClass]="
+            classForColor(form.value.secondaryColor)
+          "
+        >
+          &#160;
+        </div>
+      </span>
+
+      <mat-select
+        [placeholder]="fields.secondaryColor.label"
+        [formControlName]="fields.secondaryColor.name"
+      >
+        <mat-option
+          *ngFor="let option of secondaryColorOptions"
+          [value]="option.id"
+        >
+          <div class="settings-option-wrapper">
+            <div
+              style="margin-right: 8px;"
+              [ngClass]="classForColor(option.id)"
+            ></div>
+            {{ option.label }}
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <app-image-form-field
+      [formControl]="form.get(fields.logos.name)"
+      [label]="fields.logos.label"
+      [storage]="fields.logos.storage"
+      [required]="fields.logos.required"
+      [max]="fields.logos.max"
+      [submitted]="ngForm.submitted"
+    ></app-image-form-field>
+
+    <app-image-form-field
+      [formControl]="form.get(fields.backgroundImages.name)"
+      [label]="fields.backgroundImages.label"
+      [storage]="fields.backgroundImages.storage"
+      [required]="fields.backgroundImages.required"
+      [max]="fields.backgroundImages.max"
+      [submitted]="ngForm.submitted"
+    ></app-image-form-field>
+
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        [disabled]="saveLoading"
+        color="primary"
+        type="submit"
+      >
+        <mat-icon
+          inline
+          fontSet="far"
+          fontIcon="fa-save"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.save"></app-i18n>
+      </button>
+      <button
+        mat-flat-button
+        [disabled]="saveLoading"
+        (click)="doReset()"
+        type="button"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-undo"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.reset"></app-i18n>
+      </button>
+      <button
+        mat-flat-button
+        [disabled]="saveLoading"
+        type="button"
+        [routerLink]="['/']"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-times"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.cancel"></app-i18n>
+      </button>
+    </div>
+  </form>
+</div>

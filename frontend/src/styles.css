@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~flexboxgrid/dist/flexboxgrid.min.css';
+@import '~ng-pick-datetime/assets/style/picker.min.css';
+@import './styles/layout.css';
+@import './styles/plan.css';
+@import './styles/auth.css';
+@import './styles/form.css';
+@import './styles/filter.css';
+@import './styles/errors.css';
+@import './styles/colors.css';
+@import './styles/settings.css';
+@import './styles/table.css';
+@import './styles/view.css';

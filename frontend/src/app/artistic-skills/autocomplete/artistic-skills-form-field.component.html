@@ -1,0 +1,32 @@
+<div>
+  <app-autocomplete-form-field
+    *ngIf="mode === 'single'"
+    [control]="control"
+    [label]="label"
+    [required]="required"
+    [fetchFn]="fetchFn"
+    [appAutofocus]="appAutofocus"
+    [serverSideSearch]="serverSideSearch"
+    [submitted]="submitted"
+    (createModalOpen)="createModalOpen()"
+    [showCreate]="showCreate && hasPermissionToCreate"
+    [hint]="hint"
+    [placeholder]="placeholder"
+  ></app-autocomplete-form-field>
+
+  <app-autocomplete-multiple-form-field
+    *ngIf="mode === 'multiple'"
+    [control]="control"
+    [label]="label"
+    [required]="required"
+    [fetchFn]="fetchFn"
+    [appAutofocus]="appAutofocus"
+    [serverSideSearch]="serverSideSearch"
+    [ngForm]="ngForm"
+    (createModalOpen)="createModalOpen()"
+    [showCreate]="showCreate && hasPermissionToCreate"
+    [submitted]="submitted"
+    [hint]="hint"
+    [placeholder]="placeholder"
+  ></app-autocomplete-multiple-form-field>
+</div>

@@ -1,0 +1,14 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="user.new.title"></app-i18n>
+  </h1>
+
+  <app-user-new-form
+    [saveLoading]="saveLoading"
+    (save)="doSave($event)"
+    (cancel)="doCancel()"
+    [modal]="false"
+  ></app-user-new-form>
+</div>

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.softSkills.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-soft-skills-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-soft-skills-form>
+</mat-dialog-content>

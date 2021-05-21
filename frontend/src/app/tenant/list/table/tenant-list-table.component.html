@@ -1,0 +1,156 @@
+<div class="table-responsive">
+  <table
+    style="width: 100%;"
+    mat-table
+    [dataSource]="service.rows"
+    matSort
+    (matSortChange)="service.doChangeSort($event)"
+    [matSortActive]="service.sorter.columnKey"
+    [matSortDirection]="service.sorter.order"
+  >
+    <ng-container [matColumnDef]="fields.name.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.name.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'name') }}
+        <mat-chip
+          *ngIf="invitationToken(row)"
+          color="accent"
+          selected
+          style="margin-left: 8px;"
+        >
+          <app-i18n
+            key="tenant.invitation.invited"
+          ></app-i18n>
+        </mat-chip>
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.url.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.url.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ urlOf(row) }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.plan.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.plan.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-chip-list>
+          <mat-chip
+            [color]="
+              row.plan === plans.free ? 'gray' : 'accent'
+            "
+            selected
+          >
+            {{ planLabelOf(row.plan) }}
+          </mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="_actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td
+        style="width: 180px; text-align: right;"
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span *ngIf="invitationToken(row)">
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="
+              doAcceptInvitation(invitationToken(row))
+            "
+            style="margin-right: 8px;"
+          >
+            <app-i18n
+              key="tenant.invitation.accept"
+            ></app-i18n>
+          </button>
+
+          <button
+            mat-raised-button
+            color="warn"
+            type="button"
+            (click)="
+              doDeclineInvitation(invitationToken(row))
+            "
+          >
+            <app-i18n
+              key="tenant.invitation.decline"
+            ></app-i18n>
+          </button>
+        </span>
+        <span *ngIf="!invitationToken(row)">
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="doSelectTenant(row)"
+            *ngIf="!isCurrentTenant(row)"
+            style="margin-right: 8px;"
+          >
+            <app-i18n key="tenant.select"></app-i18n>
+          </button>
+
+          <button
+            mat-icon-button
+            type="button"
+            color="primary"
+            *ngIf="hasPermissionToEdit(row)"
+            [routerLink]="['/tenant', row.id, 'edit']"
+            [matTooltip]="i18n('common.edit')"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            type="button"
+            color="primary"
+            *ngIf="hasPermissionToDestroy(row)"
+            (click)="doDestroy(row.id)"
+            [matTooltip]="i18n('common.destroy')"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: this.columns"
+    ></tr>
+  </table>
+
+  <div
+    *ngIf="!service.loading && !service.count"
+    class="mat-table-message"
+  >
+    <app-i18n key="table.noData"></app-i18n>
+  </div>
+
+  <div *ngIf="service.loading" class="mat-table-message">
+    <app-i18n key="table.loading"></app-i18n>
+  </div>
+</div>
+
+<mat-paginator
+  [disabled]="service.loading"
+  [pageIndex]="service.paginationPageIndex"
+  [pageSize]="service.paginationPageSize"
+  [pageSizeOptions]="[10, 20, 30, 40]"
+  [length]="service.count"
+  (page)="service.doChangePagination($event)"
+  showFirstLastButtons
+></mat-paginator>

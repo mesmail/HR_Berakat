@@ -1,0 +1,16 @@
+<div class="app-page-toolbar">
+  <button
+    *ngIf="hasPermissionToAuditLogs"
+    mat-flat-button
+    [routerLink]="['/audit-log']"
+    [queryParams]="{ entityNames: 'settings' }"
+  >
+    <mat-icon
+      inline
+      fontSet="fas"
+      fontIcon="fa-history"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="auditLog.menu"></app-i18n>
+  </button>
+</div>

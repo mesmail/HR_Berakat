@@ -1,0 +1,46 @@
+<div class="app-page-toolbar">
+  <button
+    *ngIf="record && hasPermissionToEdit"
+    [routerLink]="['/user', record.id, 'edit']"
+    mat-raised-button
+    color="primary"
+  >
+    <mat-icon
+      inline
+      fontSet="far"
+      fontIcon="fa-edit"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.edit"></app-i18n>
+  </button>
+
+  <button
+    *ngIf="record && hasPermissionToAuditLogs"
+    mat-flat-button
+    [routerLink]="['/audit-log']"
+    [queryParams]="{ entityId: record.id }"
+  >
+    <mat-icon
+      inline
+      fontSet="fas"
+      fontIcon="fa-history"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="auditLog.menu"></app-i18n>
+  </button>
+
+  <button
+    *ngIf="record && hasPermissionToAuditLogs"
+    mat-flat-button
+    [routerLink]="['/audit-log']"
+    [queryParams]="{ createdByEmail: record.email }"
+  >
+    <mat-icon
+      inline
+      fontSet="far"
+      fontIcon="fa-eye"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="user.view.activity"></app-i18n>
+  </button>
+</div>

@@ -1,0 +1,71 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="user.view.title"></app-i18n>
+  </h1>
+
+  <app-user-view-toolbar></app-user-view-toolbar>
+
+  <div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <app-view-item-text
+      [label]="fields.email.label"
+      [value]="presenter(record, 'email')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.firstName.label"
+      [value]="presenter(record, 'firstName')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.lastName.label"
+      [value]="presenter(record, 'lastName')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.phoneNumber.label"
+      [value]="presenter(record, 'phoneNumber')"
+      prefix="+"
+    ></app-view-item-text>
+
+    <app-view-item-images
+      [label]="fields.avatars.label"
+      [value]="presenter(record, 'avatars')"
+    ></app-view-item-images>
+
+    <app-view-item-custom
+      [label]="fields.status.label"
+      [value]="presenter(record, 'status')"
+    >
+      <strong
+        [ngClass]="{
+          'text-green':
+            record[fields.status.name] === 'active',
+          'text-yellow':
+            record[fields.status.name] === 'invited',
+          'text-red':
+            record[fields.status.name] ===
+            'empty-permissions'
+        }"
+        >{{ presenter(record, 'status') }}
+      </strong>
+    </app-view-item-custom>
+
+    <app-view-item-custom
+      [label]="fields.roles.label"
+      [value]="record.roles"
+    >
+      <span
+        *ngFor="let roleId of record.roles"
+        [matTooltip]="roleDescriptionOf(roleId)"
+      >
+        {{ roleLabelOf(roleId) }} <br />
+      </span>
+    </app-view-item-custom>
+  </div>
+</div>

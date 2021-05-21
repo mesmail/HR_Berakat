@@ -1,0 +1,33 @@
+<mat-form-field floatLabel="always" appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <mat-chip-list
+    #chipList
+    [formControl]="control"
+    [required]="required"
+  >
+    <mat-chip
+      *ngFor="let element of control.value"
+      (removed)="remove(element)"
+      [removable]="true"
+    >
+      {{ element }}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+    <input
+      matInput
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+      [appAutofocus]="appAutofocus"
+      [matChipInputAddOnBlur]="true"
+      [required]="required"
+    />
+  </mat-chip-list>
+
+  <mat-error>
+    <app-validations
+      [control]="control"
+      [label]="label"
+    ></app-validations>
+  </mat-error>
+</mat-form-field>

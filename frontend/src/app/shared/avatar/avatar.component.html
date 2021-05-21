@@ -1,0 +1,4 @@
+<div class="app-avatar" [class.app-avatar-sm]="small">
+  <mat-icon *ngIf="!src">{{ defaultIcon }}</mat-icon>
+  <img *ngIf="src" [src]="src" [alt]="alt" alt="avatar" />
+</div>

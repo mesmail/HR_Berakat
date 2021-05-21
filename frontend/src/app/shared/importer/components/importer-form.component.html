@@ -1,0 +1,26 @@
+<button
+  type="button"
+  mat-flat-button
+  color="primary"
+  (click)="fileInput.click()"
+>
+  <mat-icon
+    inline
+    fontSet="fas"
+    fontIcon="fa-file-import"
+  ></mat-icon
+  >&#160;
+  <app-i18n key="fileUploader.upload"></app-i18n>
+</button>
+
+<input
+  hidden
+  [accept]="accept"
+  type="file"
+  #fileInput
+  (change)="handleFileChange($event)"
+/>
+
+<p *ngIf="service.errorMessage" class="text-red">
+  {{ service.errorMessage }}
+</p>

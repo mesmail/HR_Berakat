@@ -1,0 +1,74 @@
+<div class="plan-card">
+  <div>
+    <div class="title">{{ label }}</div>
+    <div class="pricing">
+      {{ price }}
+      <span class="pricingPeriod">
+        <app-i18n key="plan.pricingPeriod"></app-i18n>
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <p
+      *ngIf="
+        isCurrentPlan &&
+        currentTenant.planStatus === 'cancel_at_period_end'
+      "
+      class="cancelAtPeriodEnd"
+    >
+      <app-i18n key="plan.cancelAtPeriodEnd"></app-i18n>
+    </p>
+
+    <p
+      *ngIf="
+        isCurrentPlan &&
+        currentTenant.planStatus === 'error'
+      "
+      class="somethingWrong"
+    >
+      <app-i18n key="plan.somethingWrong"></app-i18n>
+    </p>
+
+    <button
+      *ngIf="buttonState === 'payment'"
+      mat-raised-button
+      class="w-100"
+      type="button"
+      color="primary"
+      [disabled]="
+        !hasPermissionToEdit || !isPlanUser || loading
+      "
+      (click)="doCheckout(plan)"
+    >
+      <app-i18n key="plan.subscribe"></app-i18n>
+    </button>
+
+    <button
+      *ngIf="buttonState === 'manage' && isPlanUser"
+      mat-raised-button
+      class="w-100"
+      type="button"
+      color="primary"
+      [disabled]="!hasPermissionToEdit || loading"
+      (click)="doPortal()"
+    >
+      <app-i18n key="plan.manage"></app-i18n>
+    </button>
+
+    <span
+      *ngIf="buttonState === 'manage' && !isPlanUser"
+      [matTooltip]="notPlanUserTooltip"
+    >
+      <button
+        mat-raised-button
+        class="w-100"
+        type="button"
+        color="primary"
+        disabled
+      >
+        <app-i18n key="plan.manage"></app-i18n>
+      </button>
+    </span>
+  </div>
+</div>

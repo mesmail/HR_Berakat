@@ -1,0 +1,71 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="entities.jobs.view.title"></app-i18n>
+  </h1>
+
+  <app-jobs-view-toolbar></app-jobs-view-toolbar>
+
+  <div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <app-view-item-text
+      [label]="fields.positionName.label"
+      [value]="presenter(record, 'positionName')"
+    ></app-view-item-text>
+
+    <app-view-item-relation-to-one
+      [label]="fields.department.label"
+      [url]="fields.department.viewUrl"
+      [permission]="fields.department.readPermission"
+      [value]="presenter(record, 'department')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.supervisor.label"
+      [url]="fields.supervisor.viewUrl"
+      [permission]="fields.supervisor.readPermission"
+      [value]="presenter(record, 'supervisor')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-text
+      [label]="fields.jobLocation.label"
+      [value]="presenter(record, 'jobLocation')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.jobCode.label"
+      [value]="presenter(record, 'jobCode')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.releaseDate.label"
+      [value]="presenter(record, 'releaseDate')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.generalDescription.label"
+      [value]="presenter(record, 'generalDescription')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.generalGoals.label"
+      [value]="presenter(record, 'generalGoals')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.detailedGoals.label"
+      [value]="presenter(record, 'detailedGoals')"
+    ></app-view-item-text>
+
+    <app-view-item-relation-to-one
+      [label]="fields.personalAndTechnicalSkills.label"
+      [url]="fields.personalAndTechnicalSkills.viewUrl"
+      [permission]="fields.personalAndTechnicalSkills.readPermission"
+      [value]="presenter(record, 'personalAndTechnicalSkills')"
+    ></app-view-item-relation-to-one>
+  </div>
+</div>

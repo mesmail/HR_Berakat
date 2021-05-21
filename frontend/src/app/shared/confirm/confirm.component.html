@@ -1,0 +1,23 @@
+<mat-dialog-content>
+  <span *ngIf="data.title">{{ data.title }}</span>
+  <app-i18n
+    *ngIf="!data.title"
+    key="common.areYouSure"
+  ></app-i18n>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">
+    <span *ngIf="data.noLabel">{{ data.noLabel }}</span>
+    <app-i18n
+      *ngIf="!data.noLabel"
+      key="common.no"
+    ></app-i18n>
+  </button>
+  <button mat-button [mat-dialog-close]="true">
+    <span *ngIf="data.yesLabel">{{ data.yesLabel }}</span>
+    <app-i18n
+      *ngIf="!data.yesLabel"
+      key="common.yes"
+    ></app-i18n>
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,17 @@
+<div class="app-page-toolbar">
+  <span [matTooltip]="exportButtonTooltip">
+    <button
+      [disabled]="exportButtonDisabled"
+      (click)="doExport()"
+      mat-flat-button
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-file-excel"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.export"></app-i18n>
+    </button>
+  </span>
+</div>

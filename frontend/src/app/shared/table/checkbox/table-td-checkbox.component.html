@@ -1,0 +1,6 @@
+<mat-checkbox
+  (click)="$event.stopPropagation()"
+  (change)="$event ? selectedKeys.toggle(row.id) : null"
+  [checked]="selectedKeys.isSelected(row.id)"
+>
+</mat-checkbox>

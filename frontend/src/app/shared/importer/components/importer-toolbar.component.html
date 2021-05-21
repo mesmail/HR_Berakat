@@ -1,0 +1,75 @@
+<div class="app-page-toolbar">
+  <button
+    *ngIf="showDownloadTemplate"
+    mat-flat-button
+    (click)="doDownloadTemplate()"
+    [matTooltip]="service.templateHelp"
+  >
+    <mat-icon
+      inline
+      fontSet="far"
+      fontIcon="fa-file-excel"
+    ></mat-icon
+    >&#160;
+    <app-i18n
+      key="importer.form.downloadTemplate"
+    ></app-i18n>
+  </button>
+
+  <button
+    *ngIf="showImport"
+    mat-raised-button
+    color="primary"
+    (click)="doImport()"
+  >
+    <mat-icon
+      inline
+      fontSet="fas"
+      fontIcon="fa-file-import"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.import"></app-i18n>
+  </button>
+
+  <button
+    *ngIf="showPause"
+    mat-flat-button
+    (click)="doPause()"
+  >
+    <mat-icon
+      fontSet="fas"
+      fontIcon="fa-pause"
+      inline
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.pause"></app-i18n>
+  </button>
+
+  <button
+    *ngIf="showNew"
+    mat-flat-button
+    (click)="doReset()"
+  >
+    <mat-icon
+      fontSet="far"
+      fontIcon="fa-file"
+      inline
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.new"></app-i18n>
+  </button>
+
+  <button
+    *ngIf="showDiscard"
+    mat-flat-button
+    (click)="doDiscard()"
+  >
+    <mat-icon
+      inline
+      fontSet="far"
+      fontIcon="fa-trash-alt"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.discard"></app-i18n>
+  </button>
+</div>

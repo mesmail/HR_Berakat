@@ -1,0 +1,22 @@
+<span class="app-breadcrumb">
+  <span *ngFor="let item of items; let index = index">
+    <a
+      *ngIf="item.length >= 2"
+      class="app-breadcrumb-item"
+      [routerLink]="[item[1]]"
+      >{{ item[0] }}</a
+    >
+
+    <span
+      class="app-breadcrumb-item"
+      *ngIf="item.length < 2"
+      >{{ item[0] }}</span
+    >
+
+    <span
+      *ngIf="index + 1 < items.length"
+      class="app-breadcrumb-separator"
+      >/</span
+    >
+  </span>
+</span>

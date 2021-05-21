@@ -1,0 +1,20 @@
+<div
+  [formGroup]="range"
+  class="app-date-range-input-container"
+>
+  <input
+    [type]="startType"
+    class="app-date-range-input-element"
+    (focusin)="startFocused = true"
+    (focusout)="startFocused = false"
+    formControlName="start"
+  />
+  <span class="app-date-range-input-spacer">-</span>
+  <input
+    [type]="endType"
+    class="app-date-range-input-element"
+    (focusin)="endFocused = true"
+    (focusout)="endFocused = false"
+    formControlName="end"
+  />
+</div>

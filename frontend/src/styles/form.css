@@ -1,0 +1,229 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form .form-field {
+  margin-top: 8px;
+}
+
+.form .form-buttons {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.form .form-buttons.form-buttons-modal {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.form .form-buttons > * {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.app-form-field.app-form-field__boolean {
+  margin-bottom: 8px;
+}
+
+.form .app-form-error {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #f44336;
+}
+
+.form .app-form-hint {
+  margin-top: 16px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form .app-form-label {
+  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form .app-form-label.required::after {
+  content: '*';
+}
+
+.app-form-field {
+  margin-bottom: 24px;
+}
+
+.form .mat-radio-group > * {
+  margin-right: 8px;
+}
+
+.form .mat-form-field:not(.w-100),
+.form .app-form-field:not(.w-100) {
+  width: calc(100% - 40px);
+}
+
+@media only screen and (min-width: 768px) {
+  .form .mat-form-field:not(.w-100),
+  .form .app-form-field:not(.w-100) {
+    width: calc(100% - 40px);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .form .mat-form-field:not(.w-100),
+  .form .app-form-field:not(.w-100) {
+    width: 66%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .form .mat-form-field:not(.w-100),
+  .form .app-form-field:not(.w-100) {
+    width: 45%;
+  }
+}
+
+.mat-option-spinner .mat-option-text {
+  display: flex;
+  justify-content: center;
+}
+
+.form .mat-chip-list-wrapper {
+  margin-bottom: 8px;
+}
+
+.file-form-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.file-form-field-list {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  zoom: 1;
+}
+
+.file-form-field-list-item {
+  display: flex;
+  align-items: baseline;
+  height: 32px;
+  font-size: 14px;
+}
+
+.file-form-field-list .mat-icon,
+.file-form-field-list .mat-icon-button {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.file-form-field-list-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.autocomplete-form-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-form-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-form-field-image-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-form-field-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.app-integer-range-input-container {
+  display: flex;
+}
+
+.app-integer-range-input-element {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.app-integer-range-input-spacer {
+  margin-right: 24px;
+}
+
+.app-decimal-range-input-container {
+  display: flex;
+}
+
+.app-decimal-range-input-element {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.app-decimal-range-input-spacer {
+  margin-right: 24px;
+}
+
+.app-date-time-range-input-container {
+  display: flex;
+}
+
+.app-date-time-range-input-element {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.app-date-time-range-input-spacer {
+  margin-right: 24px;
+}
+
+.app-date-range-input-container {
+  display: flex;
+}
+
+.app-date-range-input-element {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.app-date-range-input-spacer {
+  margin-right: 24px;
+}
+
+.mat-form-field-image {
+  margin-bottom: 16px;
+}

@@ -1,0 +1,161 @@
+<div class="table-responsive">
+  <table
+    style="width: 100%;"
+    mat-table
+    [dataSource]="service.rows"
+    matSort
+    (matSortChange)="service.doChangeSort($event)"
+    [matSortActive]="service.sorter.columnKey"
+    [matSortDirection]="service.sorter.order"
+  >
+    <ng-container matColumnDef="_select">
+      <th mat-header-cell *matHeaderCellDef>
+        <app-table-th-checkbox
+          [rows]="service.rows"
+          [selectedKeys]="service.selectedKeys"
+        ></app-table-th-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-table-td-checkbox
+          [row]="row"
+          [selectedKeys]="service.selectedKeys"
+        ></app-table-td-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.avatars.name">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ fields.avatars.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-table-item-images
+          [value]="presenter(row, 'avatars')"
+        ></app-table-item-images>
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.email.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.email.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'email') }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.fullName.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.fullName.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'fullName') }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.roles.name">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ fields.roles.label }}
+      </th>
+      <td
+        style="padding-top: 8px; padding-bottom: 8px;"
+        mat-cell
+        *matCellDef="let row"
+      >
+        <div
+          *ngFor="let roleId of row.roles"
+          [matTooltip]="roleDescriptionOf(roleId)"
+        >
+          {{ roleLabelOf(roleId) }}
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.status.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.status.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <strong
+          [ngClass]="{
+            'text-green':
+              row[fields.status.name] === 'active',
+            'text-yellow':
+              row[fields.status.name] === 'invited',
+            'text-red':
+              row[fields.status.name] ===
+              'empty-permissions'
+          }"
+          >{{ presenter(row, 'status') }}
+        </strong>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="_actions">
+      <th
+        style="width: 120px; text-align: right;"
+        mat-header-cell
+        *matHeaderCellDef
+      ></th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          [routerLink]="['/user', row.id]"
+          [matTooltip]="i18n('common.view')"
+        >
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          *ngIf="hasPermissionToEdit"
+          [routerLink]="['/user', row.id, 'edit']"
+          [matTooltip]="i18n('common.edit')"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          *ngIf="hasPermissionToDestroy"
+          (click)="doDestroy(row.id)"
+          [matTooltip]="i18n('common.destroy')"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: this.columns"
+    ></tr>
+  </table>
+
+  <div
+    *ngIf="!service.loading && !service.count"
+    class="mat-table-message"
+  >
+    <app-i18n key="table.noData"></app-i18n>
+  </div>
+
+  <div *ngIf="service.loading" class="mat-table-message">
+    <app-i18n key="table.loading"></app-i18n>
+  </div>
+</div>
+
+<mat-paginator
+  [disabled]="service.loading"
+  [pageIndex]="service.paginationPageIndex"
+  [pageSize]="service.paginationPageSize"
+  [pageSizeOptions]="[10, 20, 30, 40]"
+  [length]="service.count"
+  (page)="service.doChangePagination($event)"
+  showFirstLastButtons
+></mat-paginator>

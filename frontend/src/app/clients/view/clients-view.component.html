@@ -1,0 +1,30 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="entities.clients.view.title"></app-i18n>
+  </h1>
+
+  <app-clients-view-toolbar></app-clients-view-toolbar>
+
+  <div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <app-view-item-text
+      [label]="fields.clientName.label"
+      [value]="presenter(record, 'clientName')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.jobCount.label"
+      [value]="presenter(record, 'jobCount')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.clientIndustry.label"
+      [value]="presenter(record, 'clientIndustry')"
+    ></app-view-item-text>
+  </div>
+</div>

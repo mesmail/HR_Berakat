@@ -1,0 +1,41 @@
+<div class="auth">
+  <div
+    class="wrapper"
+    [style.background-image]="
+      'url(' + backgroundImageUrl + ')'
+    "
+  >
+    <div class="content">
+      <div class="logo">
+        <img
+          *ngIf="logoUrl"
+          [src]="logoUrl"
+          width="240px"
+          alt=""
+        />
+        <h1 *ngIf="!logoUrl">
+          <app-i18n key="app.title"></app-i18n>
+        </h1>
+      </div>
+
+      <app-tenant-new-form
+        (viewToggle)="doToggleView()"
+        *ngIf="view === 'form'"
+      ></app-tenant-new-form>
+      <app-tenant-select-form
+        (viewToggle)="doToggleView()"
+        *ngIf="view === 'select'"
+      ></app-tenant-select-form>
+
+      <div class="other-actions">
+        <button
+          mat-button
+          color="primary"
+          (click)="signout()"
+        >
+          <app-i18n key="auth.signout"></app-i18n>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

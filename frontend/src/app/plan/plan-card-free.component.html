@@ -1,0 +1,23 @@
+<div class="plan-card">
+  <div>
+    <div class="title">{{ label }}</div>
+    <div class="pricing">
+      {{ price }}
+      <span class="pricingPeriod">
+        <app-i18n key="plan.pricingPeriod"></app-i18n>
+      </span>
+    </div>
+  </div>
+
+  <div>
+    <button
+      *ngIf="isCurrentPlan"
+      mat-raised-button
+      class="w-100"
+      type="button"
+      disabled
+    >
+      <app-i18n key="plan.current"></app-i18n>
+    </button>
+  </div>
+</div>

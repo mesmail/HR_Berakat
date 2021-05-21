@@ -1,0 +1,77 @@
+<button mat-button [matMenuTriggerFor]="menu">
+  <div
+    style="
+      display: flex;
+      align-items: center;
+      justify-items: center;
+    "
+  >
+    <app-avatar
+      [src]="currentUserAvatar"
+      [alt]="currentUserNameOrEmailPrefix"
+      small="true"
+      style="margin-right: 8px"
+    >
+    </app-avatar>
+    <div
+      style="
+        display: flex;
+        justify-items: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        line-height: 18px;
+      "
+      class="hide-xs"
+    >
+      <div>{{ currentUserNameOrEmailPrefix }}</div>
+      <div
+        *ngIf="
+          ['multi', 'multi-with-subdomain'].includes(
+            tenantMode
+          )
+        "
+        style="font-size: 12px"
+      >
+        {{ currentTenantName }}
+      </div>
+    </div>
+  </div>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button [routerLink]="['/auth/profile']" mat-menu-item>
+    <mat-icon>person</mat-icon>
+    <app-i18n key="auth.profile.title"></app-i18n>
+  </button>
+  <button
+    [routerLink]="['/auth/password-change']"
+    mat-menu-item
+  >
+    <mat-icon>lock</mat-icon>
+    <app-i18n key="auth.passwordChange.title"></app-i18n>
+  </button>
+  <button
+    *ngIf="
+      ['multi', 'multi-with-subdomain'].includes(tenantMode)
+    "
+    [routerLink]="['/tenant']"
+    mat-menu-item
+  >
+    <mat-icon>apps</mat-icon>
+    <app-i18n key="auth.tenants"></app-i18n>
+  </button>
+  <a
+    *ngIf="apiDocumentationUrl"
+    [href]="apiDocumentationUrl"
+    target="_blank"
+    rel="noopener noreferrer"
+    mat-menu-item
+  >
+    <mat-icon>code</mat-icon>
+    <app-i18n key="api.menu"></app-i18n>
+  </a>
+  <button (click)="doSignout()" mat-menu-item>
+    <mat-icon>power_settings_new</mat-icon>
+    <app-i18n key="auth.signout"></app-i18n>
+  </button>
+</mat-menu>

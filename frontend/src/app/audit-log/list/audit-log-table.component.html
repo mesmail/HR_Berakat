@@ -1,0 +1,104 @@
+<div class="table-responsive">
+  <table
+    style="width: 100%;"
+    mat-table
+    [dataSource]="service.rows"
+    matSort
+    (matSortChange)="service.doChangeSort($event)"
+    [matSortActive]="service.sorter.columnKey"
+    [matSortDirection]="service.sorter.order"
+  >
+    <ng-container [matColumnDef]="fields.timestamp.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.timestamp.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'timestamp') }}
+      </td>
+    </ng-container>
+
+    <ng-container
+      [matColumnDef]="fields.createdByEmail.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.createdByEmail.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'createdByEmail') }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.entityName.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.entityName.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'entityName') }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.action.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.action.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'action') }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.entityId.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.entityId.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'entityId') }}
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="fields.values.name">
+      <th
+        style="text-align: right;"
+        mat-header-cell
+        *matHeaderCellDef
+      ></th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          (click)="view(row[fields.values.name])"
+          [matTooltip]="i18n('common.view')"
+        >
+          <mat-icon>search</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: this.columns"
+    ></tr>
+  </table>
+
+  <div
+    *ngIf="!service.loading && !service.count"
+    class="mat-table-message"
+  >
+    <app-i18n key="table.noData"></app-i18n>
+  </div>
+
+  <div *ngIf="service.loading" class="mat-table-message">
+    <app-i18n key="table.loading"></app-i18n>
+  </div>
+</div>
+
+<mat-paginator
+  [disabled]="service.loading"
+  [pageIndex]="service.paginationPageIndex"
+  [pageSize]="service.paginationPageSize"
+  [pageSizeOptions]="[10, 20, 30, 40]"
+  [length]="service.count"
+  (page)="service.doChangePagination($event)"
+  showFirstLastButtons
+></mat-paginator>

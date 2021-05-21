@@ -1,0 +1,167 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.email.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.email.name"
+      [placeholder]="fields.email.placeholder"
+      [required]="fields.email.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.email.hint">
+      {{ fields.email.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.email.name)"
+        [label]="fields.email.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.firsrtName.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.firsrtName.name"
+      [placeholder]="fields.firsrtName.placeholder"
+      [required]="fields.firsrtName.required"
+    />
+
+    <mat-hint *ngIf="fields.firsrtName.hint">
+      {{ fields.firsrtName.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.firsrtName.name)"
+        [label]="fields.firsrtName.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.secondName.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.secondName.name"
+      [placeholder]="fields.secondName.placeholder"
+      [required]="fields.secondName.required"
+    />
+
+    <mat-hint *ngIf="fields.secondName.hint">
+      {{ fields.secondName.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.secondName.name)"
+        [label]="fields.secondName.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.phoneNumber.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.phoneNumber.name"
+      [placeholder]="fields.phoneNumber.placeholder"
+      [required]="fields.phoneNumber.required"
+    />
+
+    <mat-hint *ngIf="fields.phoneNumber.hint">
+      {{ fields.phoneNumber.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.phoneNumber.name)"
+        [label]="fields.phoneNumber.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.roles.label }}</mat-label>
+    <mat-select
+      [formControlName]="fields.roles.name"
+      [placeholder]="fields.roles.placeholder"
+      multiple
+    >
+      <mat-option>--</mat-option>
+      <mat-option
+        *ngFor="let option of fields.roles.options"
+        [value]="option.id"
+      >
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+    <mat-hint *ngIf="fields.roles.hint">
+      {{ fields.roles.hint }}
+    </mat-hint>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.roles.name)"
+        [label]="fields.roles.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>

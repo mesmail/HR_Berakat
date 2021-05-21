@@ -1,0 +1,49 @@
+<div class="table-responsive">
+  <table
+    [dataSource]="dataSource"
+    style="width: 100%"
+    matSort
+    mat-table
+  >
+    <ng-container matColumnDef="_line">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <app-i18n key="importer.line"></app-i18n>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row._line }}
+      </td>
+    </ng-container>
+
+    <ng-container
+      *ngFor="let field of service.importFields"
+      [matColumnDef]="field.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ field.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <pre style="font-family: inherit;">{{field.forImportViewTable(row[field.name])}}</pre>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="_status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        <app-i18n key="importer.status"></app-i18n>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-importer-row-status
+          [value]="row._status"
+          [errorMessage]="row._errorMessage"
+        ></app-importer-row-status>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </table>
+</div>
+
+<mat-paginator
+  [pageSizeOptions]="[10, 20, 30, 40]"
+  showFirstLastButtons
+></mat-paginator>

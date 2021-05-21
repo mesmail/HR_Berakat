@@ -1,0 +1,27 @@
+<div
+  [formGroup]="range"
+  class="app-date-time-range-input-container"
+>
+  <input
+    class="app-date-time-range-input-element"
+    (focusin)="startFocused = true"
+    (focusout)="startFocused = false"
+    formControlName="start"
+    [owlDateTime]="dtStart"
+    [owlDateTimeTrigger]="dtStart"
+  />
+
+  <owl-date-time #dtStart></owl-date-time>
+
+  <span class="app-date-time-range-input-spacer">-</span>
+  <input
+    class="app-date-time-range-input-element"
+    (focusin)="endFocused = true"
+    (focusout)="endFocused = false"
+    formControlName="end"
+    [owlDateTime]="dtEnd"
+    [owlDateTimeTrigger]="dtEnd"
+  />
+
+  <owl-date-time #dtEnd></owl-date-time>
+</div>

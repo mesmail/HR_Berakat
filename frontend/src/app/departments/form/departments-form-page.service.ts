@@ -1,0 +1,73 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { DepartmentsApi } from 'src/app/departments/departments.api';
+import { ErrorService } from 'src/app/shared/error/error.service';
+import { Snackbar } from 'src/app/shared/snackbar/snackbar.service';
+import { i18n } from 'src/i18n';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DepartmentsFormPageService {
+  initLoading = false;
+  saveLoading = false;
+  record = null;
+
+  constructor(
+    private errorService: ErrorService,
+    private snackbar: Snackbar,
+    private router: Router,
+  ) {}
+
+  async doInit(id) {
+    try {
+      this.record = null;
+      this.initLoading = true;
+
+      if (id) {
+        this.record = await DepartmentsApi.find(id);
+      }
+
+      this.initLoading = false;
+    } catch (error) {
+      this.errorService.handle(error);
+      this.record = null;
+      this.initLoading = true;
+      this.router.navigate(['/departments']);
+    }
+  }
+
+  async doCreate(values) {
+    try {
+      this.saveLoading = true;
+      await DepartmentsApi.create(values);
+      this.saveLoading = false;
+
+      this.snackbar.success(
+        i18n('entities.departments.create.success'),
+      );
+
+      this.router.navigate(['/departments']);
+    } catch (error) {
+      this.errorService.handle(error);
+      this.saveLoading = false;
+    }
+  }
+
+  async doUpdate(id, values) {
+    try {
+      this.saveLoading = true;
+      await DepartmentsApi.update(id, values);
+      this.saveLoading = false;
+
+      this.snackbar.success(
+        i18n('entities.departments.update.success'),
+      );
+
+      this.router.navigate(['/departments']);
+    } catch (error) {
+      this.errorService.handle(error);
+      this.saveLoading = false;
+    }
+  }
+}

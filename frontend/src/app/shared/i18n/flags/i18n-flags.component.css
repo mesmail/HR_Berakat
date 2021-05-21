@@ -1,0 +1,12 @@
+.i18n-flags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.i18n-flags img {
+  margin-right: 8px;
+  cursor: pointer;
+}

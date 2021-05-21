@@ -1,0 +1,69 @@
+<form
+  class="form"
+  (ngSubmit)="doSubmit()"
+  [formGroup]="form"
+>
+  <mat-form-field
+    floatLabel="always"
+    appearance="outline"
+    class="w-100"
+  >
+    <mat-label>{{ fields.tenantName.label }}</mat-label>
+    <input
+      matInput
+      type="text"
+      [formControlName]="fields.tenantName.name"
+      appAutofocus
+    />
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.tenantName.name)"
+        [label]="fields.tenantName.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    *ngIf="tenantSubdomain.isEnabled"
+    floatLabel="always"
+    appearance="outline"
+    class="w-100"
+  >
+    <mat-label>{{ fields.tenantUrl.label }}</mat-label>
+    <input
+      matInput
+      type="text"
+      [formControlName]="fields.tenantUrl.name"
+    />
+    <span matSuffix>{{ frontendUrlHost }}</span>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.tenantUrl.name)"
+        [label]="fields.tenantUrl.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="form-buttons">
+    <button
+      mat-raised-button
+      class="w-100"
+      type="submit"
+      color="primary"
+      [disabled]="loading"
+    >
+      <app-i18n key="tenant.create.button"></app-i18n>
+    </button>
+
+    <button
+      mat-raised-button
+      class="w-100"
+      type="button"
+      [disabled]="loading"
+      (click)="viewToggle.emit()"
+      *ngIf="invitedTenants.length"
+    >
+      <app-i18n key="tenant.invitation.view"></app-i18n>
+    </button>
+  </div>
+</form>

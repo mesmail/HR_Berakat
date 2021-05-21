@@ -1,0 +1,9 @@
+<mat-checkbox
+  *ngIf="rows.length"
+  (change)="$event ? masterToggle() : null"
+  [checked]="selectedKeys.hasValue() && isAllSelected"
+  [indeterminate]="
+    selectedKeys.hasValue() && !isAllSelected
+  "
+>
+</mat-checkbox>

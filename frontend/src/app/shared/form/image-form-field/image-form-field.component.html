@@ -1,0 +1,60 @@
+<div style="margin-bottom: 24px">
+  <div class="app-form-label" [class.required]="required">
+    {{ label }}
+  </div>
+
+  <button
+    mat-stroked-button
+    [disabled]="loading || isFull"
+    type="button"
+    (click)="fileInput.click()"
+  >
+    <mat-icon>add</mat-icon>
+
+    <app-i18n key="fileUploader.upload"></app-i18n>
+
+    <input
+      style="display: none"
+      [disabled]="loading || isFull"
+      type="file"
+      (change)="add($event)"
+      #fileInput
+      accept="image/*"
+    />
+  </button>
+
+  <div class="app-form-hint" *ngIf="hint">{{ hint }}</div>
+
+  <div class="app-form-error">
+    <app-validations
+      *ngIf="submitted"
+      [control]="control"
+      [label]="label"
+    ></app-validations>
+
+    {{ localError }}
+  </div>
+</div>
+
+<div class="app-form-field" *ngIf="value && value.length">
+  <div class="row">
+    <div *ngFor="let item of value" class="col-xs-6">
+      <div class="image-form-field-image-container">
+        <a [href]="item.downloadUrl" target="_blank">
+          <img
+            [src]="item.downloadUrl"
+            class="image-form-field-image"
+          />
+        </a>
+        <button
+          mat-button
+          color="accent"
+          type="button"
+          (click)="remove(item.id)"
+        >
+          <app-i18n key="common.remove"></app-i18n>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

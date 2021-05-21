@@ -1,0 +1,120 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.takeMultipleTasks.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.takeMultipleTasks.name"
+      [placeholder]="fields.takeMultipleTasks.placeholder"
+      [required]="fields.takeMultipleTasks.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.takeMultipleTasks.hint">
+      {{ fields.takeMultipleTasks.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.takeMultipleTasks.name)"
+        [label]="fields.takeMultipleTasks.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.impactSalary.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.impactSalary.name"
+      [placeholder]="fields.impactSalary.placeholder"
+      [required]="fields.impactSalary.required"
+    />
+
+    <mat-hint *ngIf="fields.impactSalary.hint">
+      {{ fields.impactSalary.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.impactSalary.name)"
+        [label]="fields.impactSalary.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.impactJobGrade.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.impactJobGrade.name"
+      [placeholder]="fields.impactJobGrade.placeholder"
+      [required]="fields.impactJobGrade.required"
+    />
+
+    <mat-hint *ngIf="fields.impactJobGrade.hint">
+      {{ fields.impactJobGrade.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.impactJobGrade.name)"
+        [label]="fields.impactJobGrade.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>

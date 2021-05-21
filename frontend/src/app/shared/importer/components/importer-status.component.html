@@ -1,0 +1,33 @@
+<div *ngIf="service.hasRows" style="margin-bottom: 24px">
+  <mat-progress-bar
+    *ngIf="isProcessing"
+    style="margin-bottom: 24px"
+    mode="determinate"
+    [value]="service.percent"
+  ></mat-progress-bar>
+
+  <div
+    [ngClass]="{
+      'app-alert': true,
+      'app-alert-success': isAllSuccess,
+      'app-alert-warning': isSomeErrors,
+      'app-alert-error': isAllErrors,
+      'app-alert-info': isAllPending
+    }"
+  >
+    <span *ngIf="isProcessing">
+      <app-i18n
+        key="importer.noNavigateAwayMessage"
+      ></app-i18n
+      >&#160;
+    </span>
+    <app-i18n
+      key="importer.total"
+      [args]="[
+        service.importedRowsCount,
+        service.pendingRowsCount,
+        service.errorRowsCount
+      ]"
+    ></app-i18n>
+  </div>
+</div>

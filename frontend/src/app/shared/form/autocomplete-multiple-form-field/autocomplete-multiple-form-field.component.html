@@ -1,0 +1,85 @@
+<mat-form-field floatLabel="always" appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+
+  <div class="autocomplete-form-field">
+    <input
+      matInput
+      [matAutocomplete]="auto"
+      [appAutofocus]="appAutofocus"
+      [required]="required"
+      (input)="debouncedSearch($event.target.value)"
+      [placeholder]="placeholder"
+      #textInput
+    />
+
+    <button
+      (click)="openCreateModal($event)"
+      mat-icon-button
+      type="button"
+      color="primary"
+      *ngIf="showCreate"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    [displayWith]="displayFn"
+    autoActiveFirstOption
+    (optionSelected)="add($event)"
+  >
+    <mat-option *ngIf="loading" class="mat-option-spinner">
+      <mat-spinner
+        color="accent"
+        diameter="50"
+      ></mat-spinner>
+    </mat-option>
+
+    <ng-container *ngIf="!loading">
+      <mat-option
+        *ngFor="let record of dataSource"
+        [value]="record"
+      >
+        <span>{{ record.label }}</span>
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+</mat-form-field>
+
+<div style="margin-top: -16px; margin-bottom: 16px">
+  <mat-chip-list
+    #chipList
+    [placeholder]="label"
+    [formControl]="control"
+  >
+    <mat-chip
+      *ngFor="let element of control.value"
+      (removed)="remove(element.id)"
+      [removable]="true"
+    >
+      {{ element.label }}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+
+  <div class="app-form-hint" *ngIf="hint">
+    {{ hint }}
+  </div>
+
+  <div
+    *ngIf="submitted"
+    class="app-form-error"
+    style="
+      padding-left: 1rem;
+      margin-top: 0px;
+      margin-bottom: 16px;
+    "
+  >
+    <app-validations
+      [control]="control"
+      [label]="label"
+      [ngForm]="ngForm"
+    ></app-validations>
+  </div>
+</div>

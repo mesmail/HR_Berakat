@@ -1,0 +1,46 @@
+<div class="app-container">
+  <mat-toolbar
+    color="primary"
+    class="app-toolbar mat-elevation-z4"
+  >
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="app-toolbar-logo">
+      <a routerLink="/">
+        <img
+          *ngIf="logoUrl"
+          [src]="logoUrl"
+          width="164px"
+          alt=""
+          style="vertical-align: middle;"
+        />
+        <app-i18n
+          *ngIf="!logoUrl"
+          key="app.title"
+        ></app-i18n>
+      </a>
+    </div>
+    <div class="app-toolbar-spacer"></div>
+    <app-i18n-select></app-i18n-select>
+    <app-menu-user></app-menu-user>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav
+      class="app-sidenav"
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+    >
+      <div class="app-sidenav-toolbar-spacer"></div>
+      <app-menu></app-menu>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="app-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

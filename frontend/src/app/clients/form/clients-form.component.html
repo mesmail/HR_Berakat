@@ -1,0 +1,122 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.clientName.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.clientName.name"
+      [placeholder]="fields.clientName.placeholder"
+      [required]="fields.clientName.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.clientName.hint">
+      {{ fields.clientName.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.clientName.name)"
+        [label]="fields.clientName.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.jobCount.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.jobCount.name"
+      [required]="fields.jobCount.required"
+      [placeholder]="fields.jobCount.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.jobCount.hint">
+      {{ fields.jobCount.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.jobCount.name)"
+        [label]="fields.jobCount.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.clientIndustry.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.clientIndustry.name"
+      [placeholder]="fields.clientIndustry.placeholder"
+      [required]="fields.clientIndustry.required"
+    />
+
+    <mat-hint *ngIf="fields.clientIndustry.hint">
+      {{ fields.clientIndustry.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.clientIndustry.name)"
+        [label]="fields.clientIndustry.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>

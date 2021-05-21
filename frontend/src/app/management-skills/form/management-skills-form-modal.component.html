@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.managementSkills.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-management-skills-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-management-skills-form>
+</mat-dialog-content>

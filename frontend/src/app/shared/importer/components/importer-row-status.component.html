@@ -1,0 +1,17 @@
+<div *ngIf="isPending">
+  <app-i18n key="importer.pending"></app-i18n>
+</div>
+
+<strong class="text-green" *ngIf="isImported">
+  <app-i18n key="importer.imported"></app-i18n>
+</strong>
+
+<p *ngIf="isError" class="text-red">
+  <strong
+    ><app-i18n key="importer.error"></app-i18n>:&#160;
+  </strong>
+  <span
+    style="white-space: pre-wrap; word-wrap: break-word;"
+    >{{ errorMessage }}</span
+  >
+</p>

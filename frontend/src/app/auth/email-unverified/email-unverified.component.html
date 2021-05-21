@@ -1,0 +1,54 @@
+<div class="auth">
+  <div
+    class="wrapper"
+    [style.background-image]="
+      'url(' + backgroundImageUrl + ')'
+    "
+  >
+    <div class="content">
+      <div class="logo">
+        <img
+          *ngIf="logoUrl"
+          [src]="logoUrl"
+          width="240px"
+          alt=""
+        />
+        <h1 *ngIf="!logoUrl">
+          <app-i18n key="app.title"></app-i18n>
+        </h1>
+      </div>
+
+      <h3 style="text-align: center; font-weight: normal;">
+        <app-i18n
+          key="auth.emailUnverified.message"
+          [args]="[email]"
+        ></app-i18n>
+      </h3>
+
+      <button
+        mat-raised-button
+        style="margin-top: 24px;"
+        class="w-100"
+        color="primary"
+        [disabled]="loading"
+        (click)="sendEmailConfirmation()"
+      >
+        <app-i18n
+          key="auth.emailUnverified.submit"
+        ></app-i18n>
+      </button>
+
+      <div class="other-actions">
+        <button
+          mat-button
+          color="primary"
+          (click)="signout()"
+        >
+          <app-i18n
+            key="auth.signinWithAnotherAccount"
+          ></app-i18n>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

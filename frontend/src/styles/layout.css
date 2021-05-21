@@ -1,0 +1,290 @@
+body {
+  font-family: Roboto, sans-serif;
+  color: rgba(0, 0, 0, 0.65);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.app-sidenav .app-menu-item-locked {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+}
+
+.app-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mat-raised-button {
+  text-transform: uppercase;
+}
+
+.mat-flat-button {
+  text-transform: uppercase;
+}
+
+@media (max-width: 576px) {
+  .hide-xs {
+    display: none;
+  }
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.app-toolbar .app-toolbar-logo a {
+  color: var(--primary-contrast-color);
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-left: 8px;
+  text-decoration: none;
+}
+
+.app-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h2.app-title {
+  margin: 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 64px;
+  text-align: center;
+}
+
+h2.app-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.app-sidenav {
+  width: 200px;
+}
+
+.app-sidenav .mat-list-item-content {
+  color: #757575;
+}
+
+.app-sidenav .mat-list-item-content:hover {
+  color: var(--primary-color);
+}
+
+.app-sidenav .is-active .mat-list-item-content {
+  color: var(--primary-color);
+}
+
+.app-sidenav .app-menu-item:focus {
+  background: inherit !important;
+}
+
+.app-sidenav .mat-list-item-content .mat-icon {
+  margin-right: 24px;
+}
+
+.app-is-mobile .app-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.mat-sidenav-content {
+  background-color: #f0f2f5;
+}
+
+.app-content {
+  margin: 24px;
+  margin-top: 88px;
+}
+
+.app-content-page {
+  margin-top: 16px;
+  padding: 24px;
+  background: #fff;
+  overflow-y: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.app-content-title {
+  margin-top: 0;
+  margin-bottom: 36px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+}
+
+.app-toolbar .mat-button {
+  font-size: 16px;
+}
+
+.app-toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.app-avatar {
+  border: 1px solid var(--primary-contrast-color);
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  background: #ccc;
+  color: #fff;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+}
+
+.app-avatar > * {
+  line-height: 32px;
+}
+
+.app-avatar.app-avatar-sm {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+}
+
+.app-avatar.app-avatar-sm > * {
+  line-height: 24px;
+}
+
+.app-avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.app-breadcrumb {
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+}
+
+.app-breadcrumb-separator {
+  margin: 0 8px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.app-breadcrumb-item {
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.app-page-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-page-toolbar {
+  margin-bottom: 24px;
+}
+
+.app-page-toolbar button {
+  margin-right: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+.app-alert {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  padding: 8px 15px 8px 15px;
+  border-radius: 5px;
+}
+
+.app-alert-error {
+  border: 1px solid #ffa39e;
+  background-color: #fff1f0;
+}
+
+.app-alert-success {
+  border: 1px solid #b7eb8f;
+  background-color: #f6ffed;
+}
+
+.app-alert-warning {
+  border: 1px solid #ffe58f;
+  background-color: #fffbe6;
+}
+
+.app-alert-info {
+  border: 1px solid #91d5ff;
+  background-color: #e6f7ff;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+}
+
+.app-sidenav-toolbar-spacer {
+  height: 64px;
+}
+
+.mat-list-item-disabled {
+  background-color: white !important;
+  opacity: 0.4;
+}

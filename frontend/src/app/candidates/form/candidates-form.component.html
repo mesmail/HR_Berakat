@@ -1,0 +1,402 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.candidateName.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.candidateName.name"
+      [placeholder]="fields.candidateName.placeholder"
+      [required]="fields.candidateName.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.candidateName.hint">
+      {{ fields.candidateName.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.candidateName.name)"
+        [label]="fields.candidateName.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <app-jobs-form-field
+    [control]="form.get(fields.currentPosition.name)"
+    [label]="fields.currentPosition.label"
+    [placeholder]="fields.currentPosition.placeholder"
+    [hint]="fields.currentPosition.hint"
+    [required]="fields.currentPosition.required"
+    [fetchFn]="fields.currentPosition.fetchFn"
+    [mapperFn]="fields.currentPosition.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-jobs-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.candidateReference.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.candidateReference.name"
+      [placeholder]="fields.candidateReference.placeholder"
+      [required]="fields.candidateReference.required"
+    />
+
+    <mat-hint *ngIf="fields.candidateReference.hint">
+      {{ fields.candidateReference.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.candidateReference.name)"
+        [label]="fields.candidateReference.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="app-form-field">
+    <div
+      class="app-form-label"
+      [class.required]="fields.gender.required"
+    >
+      {{ fields.gender.label }}
+    </div>
+
+    <mat-radio-group
+      [formControlName]="fields.gender.name"
+    >
+      <mat-radio-button
+        *ngFor="let option of fields.gender.options"
+        [value]="option.id"
+        >{{ option.label }}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <div class="app-form-hint" *ngIf="fields.gender.hint">
+      {{ fields.gender.hint }}
+    </div>
+
+    <div class="app-form-error">
+      <app-validations
+        [control]="form.get(fields.gender.name)"
+        [label]="fields.gender.label"
+        [ngForm]="ngForm"
+      ></app-validations>
+    </div>
+  </div>
+
+  <app-academic-certificates-form-field
+    [control]="form.get(fields.academicCertificateSpecialization.name)"
+    [label]="fields.academicCertificateSpecialization.label"
+    [placeholder]="fields.academicCertificateSpecialization.placeholder"
+    [hint]="fields.academicCertificateSpecialization.hint"
+    [required]="fields.academicCertificateSpecialization.required"
+    [fetchFn]="fields.academicCertificateSpecialization.fetchFn"
+    [mapperFn]="fields.academicCertificateSpecialization.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-academic-certificates-form-field>
+
+  <app-training-certificates-form-field
+    [control]="form.get(fields.trainingCertificates.name)"
+    [label]="fields.trainingCertificates.label"
+    [placeholder]="fields.trainingCertificates.placeholder"
+    [hint]="fields.trainingCertificates.hint"
+    [required]="fields.trainingCertificates.required"
+    [fetchFn]="fields.trainingCertificates.fetchFn"
+    [mapperFn]="fields.trainingCertificates.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-training-certificates-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.currentCompany.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.currentCompany.name"
+      [placeholder]="fields.currentCompany.placeholder"
+      [required]="fields.currentCompany.required"
+    />
+
+    <mat-hint *ngIf="fields.currentCompany.hint">
+      {{ fields.currentCompany.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.currentCompany.name)"
+        [label]="fields.currentCompany.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.noticePeriod.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.noticePeriod.name"
+      [required]="fields.noticePeriod.required"
+      [placeholder]="fields.noticePeriod.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.noticePeriod.hint">
+      {{ fields.noticePeriod.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.noticePeriod.name)"
+        [label]="fields.noticePeriod.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.currentSalary.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.currentSalary.name"
+      [required]="fields.currentSalary.required"
+      [placeholder]="fields.currentSalary.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.currentSalary.hint">
+      {{ fields.currentSalary.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.currentSalary.name)"
+        [label]="fields.currentSalary.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.expectedSalary.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.expectedSalary.name"
+      [required]="fields.expectedSalary.required"
+      [placeholder]="fields.expectedSalary.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.expectedSalary.hint">
+      {{ fields.expectedSalary.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.expectedSalary.name)"
+        [label]="fields.expectedSalary.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <app-soft-skills-form-field
+    [control]="form.get(fields.softSkills.name)"
+    [label]="fields.softSkills.label"
+    [placeholder]="fields.softSkills.placeholder"
+    [hint]="fields.softSkills.hint"
+    [required]="fields.softSkills.required"
+    [fetchFn]="fields.softSkills.fetchFn"
+    [mapperFn]="fields.softSkills.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-soft-skills-form-field>
+
+  <app-management-skills-form-field
+    [control]="form.get(fields.managementSkills.name)"
+    [label]="fields.managementSkills.label"
+    [placeholder]="fields.managementSkills.placeholder"
+    [hint]="fields.managementSkills.hint"
+    [required]="fields.managementSkills.required"
+    [fetchFn]="fields.managementSkills.fetchFn"
+    [mapperFn]="fields.managementSkills.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-management-skills-form-field>
+
+  <app-artistic-skills-form-field
+    [control]="form.get(fields.artisticSkills.name)"
+    [label]="fields.artisticSkills.label"
+    [placeholder]="fields.artisticSkills.placeholder"
+    [hint]="fields.artisticSkills.hint"
+    [required]="fields.artisticSkills.required"
+    [fetchFn]="fields.artisticSkills.fetchFn"
+    [mapperFn]="fields.artisticSkills.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-artistic-skills-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.candidateCreatedDate.label }}</mat-label>
+    <input
+      matInput
+      type="date"
+      [formControlName]="fields.candidateCreatedDate.name"
+      [placeholder]="fields.candidateCreatedDate.placeholder"
+      [required]="fields.candidateCreatedDate.required"
+    />
+
+    <mat-hint *ngIf="fields.candidateCreatedDate.hint">
+      {{ fields.candidateCreatedDate.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.candidateCreatedDate.name)"
+        [label]="fields.candidateCreatedDate.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <app-jobs-form-field
+    [control]="form.get(fields.jobs.name)"
+    [label]="fields.jobs.label"
+    [placeholder]="fields.jobs.placeholder"
+    [hint]="fields.jobs.hint"
+    [required]="fields.jobs.required"
+    [fetchFn]="fields.jobs.fetchFn"
+    [mapperFn]="fields.jobs.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-jobs-form-field>
+
+  <app-file-form-field
+    [formControl]="form.get(fields.resume.name)"
+    [label]="fields.resume.label"
+    [hint]="fields.resume.hint"
+    [formats]="fields.resume.formats"
+    [storage]="fields.resume.storage"
+    [required]="fields.resume.required"
+    [max]="fields.resume.max"
+    [submitted]="ngForm.submitted"
+  ></app-file-form-field>
+
+  <app-image-form-field
+    [formControl]="form.get(fields.photo.name)"
+    [label]="fields.photo.label"
+    [hint]="fields.photo.hint"
+    [storage]="fields.photo.storage"
+    [required]="fields.photo.required"
+    [max]="fields.photo.max"
+    [submitted]="ngForm.submitted"
+  ></app-image-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.tactLevel.label }}</mat-label>
+    <mat-select
+      [formControlName]="fields.tactLevel.name"
+      [placeholder]="fields.tactLevel.placeholder"
+    >
+      <mat-option>--</mat-option>
+      <mat-option
+        *ngFor="let option of fields.tactLevel.options"
+        [value]="option.id"
+      >
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+    <mat-hint *ngIf="fields.tactLevel.hint">
+      {{ fields.tactLevel.hint }}
+    </mat-hint>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.tactLevel.name)"
+        [label]="fields.tactLevel.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.yearsExperience.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.yearsExperience.name"
+      [required]="fields.yearsExperience.required"
+      [placeholder]="fields.yearsExperience.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.yearsExperience.hint">
+      {{ fields.yearsExperience.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.yearsExperience.name)"
+        [label]="fields.yearsExperience.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>

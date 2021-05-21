@@ -1,0 +1,8 @@
+<app-importer-toolbar></app-importer-toolbar>
+<app-importer-status></app-importer-status>
+<app-importer-list
+  *ngIf="service.hasRows"
+></app-importer-list>
+<app-importer-form
+  *ngIf="!service.hasRows"
+></app-importer-form>

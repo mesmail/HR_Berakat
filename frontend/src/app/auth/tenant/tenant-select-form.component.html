@@ -1,0 +1,49 @@
+<form
+  class="form"
+  (ngSubmit)="doSubmit()"
+  [formGroup]="form"
+>
+  <mat-form-field
+    floatLabel="always"
+    appearance="outline"
+    class="w-100"
+  >
+    <mat-label>{{ fields.tenantId.label }}</mat-label>
+    <mat-select [formControlName]="fields.tenantId.name">
+      <mat-option
+        *ngFor="let option of invitedTenants"
+        [value]="option.id"
+      >
+        {{ option.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.tenantId.name)"
+        [label]="fields.tenantId.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="form-buttons">
+    <button
+      mat-raised-button
+      class="w-100"
+      type="submit"
+      color="primary"
+      [disabled]="loading"
+    >
+      <app-i18n key="tenant.invitation.accept"></app-i18n>
+    </button>
+
+    <button
+      mat-raised-button
+      class="w-100"
+      type="button"
+      [disabled]="loading"
+      (click)="viewToggle.emit()"
+    >
+      <app-i18n key="tenant.new.title"></app-i18n>
+    </button>
+  </div>
+</form>
