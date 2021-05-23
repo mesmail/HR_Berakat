@@ -15,6 +15,7 @@ import { ArtisticSkillsService } from 'src/app/artistic-skills/artistic-skills.s
 import { ClientsService } from 'src/app/clients/clients.service';
 import { UsersNewService } from 'src/app/users-new/users-new.service';
 import { JobFrameworksService } from 'src/app/job-frameworks/job-frameworks.service';
+import { LeaveApplicationFormService } from 'src/app/leave-application-form/leave-application-form.service';
 
 @Component({
   selector: 'app-menu',
@@ -38,6 +39,7 @@ export class MenuComponent implements OnInit {
     public clientsService: ClientsService,
     public usersNewService: UsersNewService,
     public jobFrameworksService: JobFrameworksService,
+    public leaveApplicationFormService: LeaveApplicationFormService,
   ) {}
 
   ngOnInit(): void {}

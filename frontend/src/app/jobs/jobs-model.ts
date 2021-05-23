@@ -5,6 +5,7 @@ import IdField from 'src/app/shared/fields/id-field';
 import DateTimeRangeField from 'src/app/shared/fields/date-time-range-field';
 import StringField from 'src/app/shared/fields/string-field';
 import { DepartmentsField } from 'src/app/departments/departments-field';
+import { LeaveApplicationFormField } from 'src/app/leave-application-form/leave-application-form-field';
 import { SoftSkillsField } from 'src/app/soft-skills/soft-skills-field';
 import { UserField } from 'src/app/user/user-field';
 
@@ -18,9 +19,7 @@ function placeholder(name) {
 
 const fields = {
   id: new IdField('id', label('id')),
-  positionName: new StringField('positionName', label('positionName'), {
-    "placeholder": placeholder('positionName')
-  }),
+  positionName: new StringField('positionName', label('positionName'), {}),
   department: DepartmentsField.relationToOne('department', label('department'), {
     "placeholder": placeholder('department')
   }),
@@ -45,6 +44,7 @@ const fields = {
   detailedGoals: new StringField('detailedGoals', label('detailedGoals'), {
     "placeholder": placeholder('detailedGoals')
   }),
+  leaves: LeaveApplicationFormField.relationToMany('leaves', label('leaves'), {}),
   personalAndTechnicalSkills: SoftSkillsField.relationToOne('personalAndTechnicalSkills', label('personalAndTechnicalSkills'), {}),
   createdAt: new DateTimeField(
     'createdAt',

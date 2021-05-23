@@ -1,0 +1,271 @@
+<div class="table-responsive">
+  <table
+    style="width: 100%;"
+    mat-table
+    [dataSource]="service.rows"
+    matSort
+    (matSortChange)="service.doChangeSort($event)"
+    [matSortActive]="service.sorter.columnKey"
+    [matSortDirection]="service.sorter.order"
+  >
+    <ng-container matColumnDef="_select">
+      <th mat-header-cell *matHeaderCellDef>
+        <app-table-th-checkbox
+          [rows]="service.rows"
+          [selectedKeys]="service.selectedKeys"
+        ></app-table-th-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-table-td-checkbox
+          [row]="row"
+          [selectedKeys]="service.selectedKeys"
+        ></app-table-td-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container
+      [matColumnDef]="fields.name.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.name.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'name') }}
+      </td>
+    </ng-container>
+    <ng-container [matColumnDef]="fields.position.name">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ fields.position.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-table-item-relation-to-one
+          [url]="fields.position.viewUrl"
+          [permission]="fields.position.readPermission"
+          [value]="presenter(row, 'position')"
+        ></app-table-item-relation-to-one>
+      </td>
+    </ng-container>
+    <ng-container [matColumnDef]="fields.department.name">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ fields.department.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-table-item-relation-to-one
+          [url]="fields.department.viewUrl"
+          [permission]="fields.department.readPermission"
+          [value]="presenter(row, 'department')"
+        ></app-table-item-relation-to-one>
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.date.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.date.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'date') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.contactNo.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.contactNo.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'contactNo') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.employeeNo.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.employeeNo.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'employeeNo') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.absenceWork.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.absenceWork.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'absenceWork') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.period.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.period.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'period') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.specify.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.specify.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'specify') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.reasons.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.reasons.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'reasons') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.others.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.others.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'others') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.noDays.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.noDays.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'noDays') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.noTaken.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.noTaken.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'noTaken') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.noBalance.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.noBalance.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'noBalance') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.remarks.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.remarks.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'remarks') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.status.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.status.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'status') }}
+      </td>
+    </ng-container>
+    <ng-container [matColumnDef]="fields.jobs.name">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ fields.jobs.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <app-table-item-relation-to-one
+          [url]="fields.jobs.viewUrl"
+          [permission]="fields.jobs.readPermission"
+          [value]="presenter(row, 'jobs')"
+        ></app-table-item-relation-to-one>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="_actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td
+        style="width: 180px; text-align: right;"
+        mat-cell
+        *matCellDef="let row"
+      >
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          [routerLink]="['/leave-application-form', row.id]"
+          [matTooltip]="i18n('common.view')"
+        >
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          *ngIf="hasPermissionToEdit"
+          [routerLink]="['/leave-application-form', row.id, 'edit']"
+          [matTooltip]="i18n('common.edit')"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          type="button"
+          color="primary"
+          *ngIf="hasPermissionToDestroy"
+          (click)="doDestroy(row.id)"
+          [matTooltip]="i18n('common.destroy')"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: this.columns"
+    ></tr>
+  </table>
+
+  <div
+    *ngIf="!service.loading && !service.count"
+    class="mat-table-message"
+  >
+    <app-i18n key="table.noData"></app-i18n>
+  </div>
+
+  <div *ngIf="service.loading" class="mat-table-message">
+    <app-i18n key="table.loading"></app-i18n>
+  </div>
+</div>
+
+<mat-paginator
+  [disabled]="service.loading"
+  [pageIndex]="service.paginationPageIndex"
+  [pageSize]="service.paginationPageSize"
+  [pageSizeOptions]="[10, 20, 30, 40]"
+  [length]="service.count"
+  (page)="service.doChangePagination($event)"
+  showFirstLastButtons
+></mat-paginator>

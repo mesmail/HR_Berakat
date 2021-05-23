@@ -1,8 +1,7 @@
-import ClientsRepository from '../database/repositories/clientsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import ClientsRepository from '../database/repositories/clientsRepository';
 
 export default class ClientsService {
   options: IServiceOptions;

@@ -1,8 +1,7 @@
-import ArtisticSkillsRepository from '../database/repositories/artisticSkillsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import ArtisticSkillsRepository from '../database/repositories/artisticSkillsRepository';
 
 export default class ArtisticSkillsService {
   options: IServiceOptions;

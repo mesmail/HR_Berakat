@@ -1,8 +1,7 @@
-import AcademicCertificatesRepository from '../database/repositories/academicCertificatesRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import AcademicCertificatesRepository from '../database/repositories/academicCertificatesRepository';
 
 export default class AcademicCertificatesService {
   options: IServiceOptions;

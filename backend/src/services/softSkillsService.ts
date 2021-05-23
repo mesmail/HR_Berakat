@@ -1,8 +1,7 @@
-import SoftSkillsRepository from '../database/repositories/softSkillsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import SoftSkillsRepository from '../database/repositories/softSkillsRepository';
 
 export default class SoftSkillsService {
   options: IServiceOptions;

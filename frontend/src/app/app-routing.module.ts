@@ -103,6 +103,10 @@ const routes: Routes = [
     path: 'job-frameworks',
     loadChildren: () => import('./job-frameworks/job-frameworks.module').then(m => m.JobFrameworksModule),
   },
+  {
+    path: 'leave-application-form',
+    loadChildren: () => import('./leave-application-form/leave-application-form.module').then(m => m.LeaveApplicationFormModule),
+  },
   { path: '403', component: Error403Component },
   { path: '500', component: Error500Component },
   { path: '**', component: Error404Component },

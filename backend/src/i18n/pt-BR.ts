@@ -171,6 +171,13 @@ const ptBR = {
         }
       }
     },
+    leaveApplicationForm: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
   }
 };
 

@@ -80,6 +80,7 @@ require('./artisticSkills').default(routes);
 require('./clients').default(routes);
 require('./usersNew').default(routes);
 require('./jobFrameworks').default(routes);
+require('./leaveApplicationForm').default(routes);
 
 // Loads the Tenant if the :tenantId param is passed
 routes.param('tenantId', tenantMiddleware);

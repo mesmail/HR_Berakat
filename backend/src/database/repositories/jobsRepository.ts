@@ -47,7 +47,9 @@ class JobsRepository {
       },
     );
 
-    
+    await record.setLeaves(data.leaves || [], {
+      transaction,
+    });    
   
 
   
@@ -111,7 +113,9 @@ class JobsRepository {
       },
     );
 
-
+    await record.setLeaves(data.leaves || [], {
+      transaction,
+    });
 
 
 
@@ -507,7 +511,7 @@ class JobsRepository {
     if (data) {
       values = {
         ...record.get({ plain: true }),
-
+        leavesIds: data.leaves,
       };
     }
 
@@ -549,6 +553,10 @@ class JobsRepository {
     );
 
     output.supervisor = UserRepository.cleanupForRelationships(output.supervisor);
+
+    output.leaves = await record.getLeaves({
+      transaction,
+    });
 
     return output;
   }

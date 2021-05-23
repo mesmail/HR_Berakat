@@ -1,8 +1,7 @@
-import DepartmentsRepository from '../database/repositories/departmentsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import DepartmentsRepository from '../database/repositories/departmentsRepository';
 
 export default class DepartmentsService {
   options: IServiceOptions;

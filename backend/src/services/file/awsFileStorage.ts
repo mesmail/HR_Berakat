@@ -5,6 +5,7 @@ const aws = require('aws-sdk');
 const s3 = new aws.S3({
   accessKeyId: getConfig().AWS_ACCESS_KEY_ID,
   secretAccessKey: getConfig().AWS_SECRET_ACCESS_KEY,
+  region: getConfig().AWS_REGION,
 });
 
 export default class AWSStorage {

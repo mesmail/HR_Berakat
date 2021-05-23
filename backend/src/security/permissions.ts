@@ -602,6 +602,46 @@ class Permissions {
         id: 'jobFrameworksAutocomplete',
         allowedRoles: [roles.admin, roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      leaveApplicationFormImport: {
+        id: 'leaveApplicationFormImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      leaveApplicationFormCreate: {
+        id: 'leaveApplicationFormCreate',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      leaveApplicationFormEdit: {
+        id: 'leaveApplicationFormEdit',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      leaveApplicationFormDestroy: {
+        id: 'leaveApplicationFormDestroy',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      leaveApplicationFormRead: {
+        id: 'leaveApplicationFormRead',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      leaveApplicationFormAutocomplete: {
+        id: 'leaveApplicationFormAutocomplete',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },      
     };
   }

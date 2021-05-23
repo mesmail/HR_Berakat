@@ -1,2 +1,2 @@
 Visit https://docs.scaffoldhub.io for docs/instructions.
-Version: 2.7.2
+Version: 2.7.4

@@ -61,6 +61,13 @@
       [value]="presenter(record, 'detailedGoals')"
     ></app-view-item-text>
 
+    <app-view-item-relation-to-many
+      [label]="fields.leaves.label"
+      [url]="fields.leaves.viewUrl"
+      [permission]="fields.leaves.readPermission"
+      [value]="presenter(record, 'leaves')"
+    ></app-view-item-relation-to-many>
+
     <app-view-item-relation-to-one
       [label]="fields.personalAndTechnicalSkills.label"
       [url]="fields.personalAndTechnicalSkills.viewUrl"

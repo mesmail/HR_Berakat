@@ -1,8 +1,7 @@
-import ProfessionalCertificationsRepository from '../database/repositories/professionalCertificationsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import ProfessionalCertificationsRepository from '../database/repositories/professionalCertificationsRepository';
 
 export default class ProfessionalCertificationsService {
   options: IServiceOptions;
