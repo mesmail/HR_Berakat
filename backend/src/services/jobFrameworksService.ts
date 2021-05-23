@@ -1,8 +1,7 @@
-import JobFrameworksRepository from '../database/repositories/jobFrameworksRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import JobFrameworksRepository from '../database/repositories/jobFrameworksRepository';
 
 export default class JobFrameworksService {
   options: IServiceOptions;

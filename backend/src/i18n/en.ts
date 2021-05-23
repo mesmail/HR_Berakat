@@ -173,6 +173,13 @@ const en = {
         }
       }
     },
+    leaveApplicationForm: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
   }
 };
 

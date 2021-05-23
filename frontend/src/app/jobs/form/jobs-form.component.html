@@ -186,6 +186,19 @@
     </mat-error>
   </mat-form-field>
 
+  <app-leave-application-form-form-field
+    [control]="form.get(fields.leaves.name)"
+    [label]="fields.leaves.label"
+    [placeholder]="fields.leaves.placeholder"
+    [hint]="fields.leaves.hint"
+    [required]="fields.leaves.required"
+    [fetchFn]="fields.leaves.fetchFn"
+    [mapperFn]="fields.leaves.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="multiple"
+  ></app-leave-application-form-form-field>
+
   <app-soft-skills-form-field
     [control]="form.get(fields.personalAndTechnicalSkills.name)"
     [label]="fields.personalAndTechnicalSkills.label"

@@ -66,6 +66,7 @@ export class JobsFormComponent implements OnInit {
         this.fields.generalDescription,
         this.fields.generalGoals,
         this.fields.detailedGoals,
+        this.fields.leaves,
         this.fields.personalAndTechnicalSkills,
       ],
       this.formBuilder,

@@ -68,6 +68,11 @@ import { JobFrameworksFormModalComponent } from 'src/app/job-frameworks/form/job
 import { JobFrameworksFormModalService } from 'src/app/job-frameworks/form/job-frameworks-form-modal.service';
 import { JobFrameworksFormComponent } from 'src/app/job-frameworks/form/job-frameworks-form.component';
 
+import { LeaveApplicationFormFormFieldComponent } from 'src/app/leave-application-form/autocomplete/leave-application-form-form-field.component';
+import { LeaveApplicationFormFormModalComponent } from 'src/app/leave-application-form/form/leave-application-form-form-modal.component';
+import { LeaveApplicationFormFormModalService } from 'src/app/leave-application-form/form/leave-application-form-form-modal.service';
+import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-form/form/leave-application-form-form.component';
+
 /**
  * This module exists to avoid circular dependencies, because autocompletes and forms
  * from different modules may use each others.
@@ -127,6 +132,10 @@ import { JobFrameworksFormComponent } from 'src/app/job-frameworks/form/job-fram
     JobFrameworksFormComponent,
     JobFrameworksFormFieldComponent,
     JobFrameworksFormModalComponent,
+
+    LeaveApplicationFormFormComponent,
+    LeaveApplicationFormFormFieldComponent,
+    LeaveApplicationFormFormModalComponent,
   ],
   imports: [SharedModule],
   exports: [
@@ -170,6 +179,9 @@ import { JobFrameworksFormComponent } from 'src/app/job-frameworks/form/job-fram
 
     JobFrameworksFormComponent,
     JobFrameworksFormFieldComponent,
+
+    LeaveApplicationFormFormComponent,
+    LeaveApplicationFormFormFieldComponent,
   ],
   providers: [
     UserNewFormModalService,
@@ -196,6 +208,8 @@ import { JobFrameworksFormComponent } from 'src/app/job-frameworks/form/job-fram
     UsersNewFormModalService,
 
     JobFrameworksFormModalService,
+
+    LeaveApplicationFormFormModalService,
   ],
   entryComponents: [
     UserNewFormModalComponent,
@@ -222,6 +236,8 @@ import { JobFrameworksFormComponent } from 'src/app/job-frameworks/form/job-fram
     UsersNewFormModalComponent,
 
     JobFrameworksFormModalComponent,
+
+    LeaveApplicationFormFormModalComponent,
   ],
 })
 export class AppFormAutocompleteModule {}

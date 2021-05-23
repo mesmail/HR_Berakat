@@ -161,6 +161,7 @@ const es = {
           'generalDescription': 'الوصف العام',
           'generalGoals': 'الاهداف العامة',
           'detailedGoals': 'الاهداف التفصيلية',
+          'leaves': 'Leaves',
           'personalAndTechnicalSkills': 'المهارات الشخصية و التقنية',
           createdAt: 'Creado el',
           updatedAt: 'Actualizado el',
@@ -170,7 +171,6 @@ const es = {
 
         },
         placeholders: {
-          'positionName': 'المسمى الوظيفي',
           'department': 'department',
           'supervisor': 'المدير المباشر',
           'jobLocation': 'موقع العمل',
@@ -750,6 +750,97 @@ const es = {
         importer: {
           title: 'Importar أطر الوظيفة',
           fileName: 'jobFrameworks_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    leaveApplicationForm: {
+        name: 'leaveApplicationForm',
+        label: 'استمارة طلب إجازة',
+        menu: 'استمارة طلب إجازة',
+        exporterFileName: 'exportacion_leaveApplicationForm',
+        list: {
+          menu: 'استمارة طلب إجازة',
+          title: 'استمارة طلب إجازة',
+        },
+        create: {
+          success: 'استمارة طلب إجازة guardado con éxito',
+        },
+        update: {
+          success: 'استمارة طلب إجازة guardado con éxito',
+        },
+        destroy: {
+          success: 'استمارة طلب إجازة eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'استمارة طلب إجازة(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar استمارة طلب إجازة',
+        },
+        fields: {
+          id: 'Id',
+          'name': 'الاسم',
+          'position': 'المنصب',
+          'department': 'القسم',
+          'dateRange': 'التاريخ',
+          'date': 'التاريخ',
+          'contactNo': 'رقم الاتصال',
+          'employeeNo': 'رقم الموظف',
+          'absenceWorkRange': 'الرجاء الموافقة على التغيب عن العمل لمدة ________ يوم',
+          'absenceWork': 'الرجاء الموافقة على التغيب عن العمل لمدة ________ يوم',
+          'periodRange': 'من ______ إلى _______ ، ضمناً',
+          'period': 'من ______ إلى _______ ، ضمناً',
+          'specify': 'أسباب الغياب:',
+          'reasons': 'نوع الاجازات',
+          'others': ':',
+          'noDaysRange': 'عدد الأيام المتاحة',
+          'noDays': 'عدد الأيام المتاحة',
+          'noTakenRange': 'عدد أيام الإجازة المأخوذة',
+          'noTaken': 'عدد أيام الإجازة المأخوذة',
+          'noBalanceRange': 'عدد أيام رصيد الإجازة',
+          'noBalance': 'عدد أيام رصيد الإجازة',
+          'remarks': 'ملاحظات',
+          'status': 'حالة طلب الإجازة',
+          'jobs': 'Jobs',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+          'reasons': {
+            'الإجازة السنوية': 'الإجازة السنوية',
+            'الإجازة المرضية': 'الإجازة المرضية',
+            'إجازة الأمومة': 'إجازة الأمومة',
+            'إجازة الرأفة': 'إجازة الرأفة',
+            'إجازة غير مدفوعة الأجر': 'إجازة غير مدفوعة الأجر',
+            'أخرى يرجى التحديد:': 'أخرى يرجى التحديد:',
+          },
+          'status': {
+            'تمت الموافقة عليها من قبل الإدارة المختصة': 'تمت الموافقة عليها من قبل الإدارة المختصة',
+            'رفضتها الإدارة المختصة': 'رفضتها الإدارة المختصة',
+            'موافقة إدارة الموارد البشرية': 'موافقة إدارة الموارد البشرية',
+            'رفضنها إدارة الموارد البشرية': 'رفضنها إدارة الموارد البشرية',
+            'موافقة المدير العام': 'موافقة المدير العام',
+            'رفضها المدير العام': 'رفضها المدير العام',
+          },
+        },
+        placeholders: {
+
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo استمارة طلب إجازة',
+        },
+        view: {
+          title: 'Ver استمارة طلب إجازة',
+        },
+        importer: {
+          title: 'Importar استمارة طلب إجازة',
+          fileName: 'leaveApplicationForm_import_template',
           hint:
             'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
         },

@@ -1,0 +1,409 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.name.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.name.name"
+      [placeholder]="fields.name.placeholder"
+      [required]="fields.name.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.name.hint">
+      {{ fields.name.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.name.name)"
+        [label]="fields.name.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <app-jobs-form-field
+    [control]="form.get(fields.position.name)"
+    [label]="fields.position.label"
+    [placeholder]="fields.position.placeholder"
+    [hint]="fields.position.hint"
+    [required]="fields.position.required"
+    [fetchFn]="fields.position.fetchFn"
+    [mapperFn]="fields.position.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-jobs-form-field>
+
+  <app-departments-form-field
+    [control]="form.get(fields.department.name)"
+    [label]="fields.department.label"
+    [placeholder]="fields.department.placeholder"
+    [hint]="fields.department.hint"
+    [required]="fields.department.required"
+    [fetchFn]="fields.department.fetchFn"
+    [mapperFn]="fields.department.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-departments-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.date.label }}</mat-label>
+    <input
+      matInput
+      type="date"
+      [formControlName]="fields.date.name"
+      [placeholder]="fields.date.placeholder"
+      [required]="fields.date.required"
+    />
+
+    <mat-hint *ngIf="fields.date.hint">
+      {{ fields.date.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.date.name)"
+        [label]="fields.date.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.contactNo.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.contactNo.name"
+      [placeholder]="fields.contactNo.placeholder"
+      [required]="fields.contactNo.required"
+    />
+
+    <mat-hint *ngIf="fields.contactNo.hint">
+      {{ fields.contactNo.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.contactNo.name)"
+        [label]="fields.contactNo.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.employeeNo.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.employeeNo.name"
+      [placeholder]="fields.employeeNo.placeholder"
+      [required]="fields.employeeNo.required"
+    />
+
+    <mat-hint *ngIf="fields.employeeNo.hint">
+      {{ fields.employeeNo.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.employeeNo.name)"
+        [label]="fields.employeeNo.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.absenceWork.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.absenceWork.name"
+      [required]="fields.absenceWork.required"
+      [placeholder]="fields.absenceWork.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.absenceWork.hint">
+      {{ fields.absenceWork.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.absenceWork.name)"
+        [label]="fields.absenceWork.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.period.label }}</mat-label>
+    <input
+      matInput
+      type="date"
+      [formControlName]="fields.period.name"
+      [placeholder]="fields.period.placeholder"
+      [required]="fields.period.required"
+    />
+
+    <mat-hint *ngIf="fields.period.hint">
+      {{ fields.period.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.period.name)"
+        [label]="fields.period.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.specify.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.specify.name"
+      [placeholder]="fields.specify.placeholder"
+      [required]="fields.specify.required"
+    />
+
+    <mat-hint *ngIf="fields.specify.hint">
+      {{ fields.specify.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.specify.name)"
+        [label]="fields.specify.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.reasons.label }}</mat-label>
+    <mat-select
+      [formControlName]="fields.reasons.name"
+      [placeholder]="fields.reasons.placeholder"
+    >
+      <mat-option>--</mat-option>
+      <mat-option
+        *ngFor="let option of fields.reasons.options"
+        [value]="option.id"
+      >
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+    <mat-hint *ngIf="fields.reasons.hint">
+      {{ fields.reasons.hint }}
+    </mat-hint>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.reasons.name)"
+        [label]="fields.reasons.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.others.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.others.name"
+      [placeholder]="fields.others.placeholder"
+      [required]="fields.others.required"
+    />
+
+    <mat-hint *ngIf="fields.others.hint">
+      {{ fields.others.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.others.name)"
+        [label]="fields.others.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.noDays.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.noDays.name"
+      [required]="fields.noDays.required"
+      [placeholder]="fields.noDays.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.noDays.hint">
+      {{ fields.noDays.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.noDays.name)"
+        [label]="fields.noDays.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.noTaken.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.noTaken.name"
+      [required]="fields.noTaken.required"
+      [placeholder]="fields.noTaken.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.noTaken.hint">
+      {{ fields.noTaken.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.noTaken.name)"
+        [label]="fields.noTaken.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.noBalance.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.noBalance.name"
+      [required]="fields.noBalance.required"
+      [placeholder]="fields.noBalance.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.noBalance.hint">
+      {{ fields.noBalance.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.noBalance.name)"
+        [label]="fields.noBalance.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.remarks.label }}</mat-label>
+    <textarea
+      matInput
+      [formControlName]="fields.remarks.name"
+      [rows]="4"
+      [placeholder]="fields.remarks.placeholder"
+      [required]="fields.remarks.required"
+    ></textarea>
+
+    <mat-hint *ngIf="fields.remarks.hint">
+      {{ fields.remarks.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.remarks.name)"
+        [label]="fields.remarks.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.status.label }}</mat-label>
+    <mat-select
+      [formControlName]="fields.status.name"
+      [placeholder]="fields.status.placeholder"
+    >
+      <mat-option>--</mat-option>
+      <mat-option
+        *ngFor="let option of fields.status.options"
+        [value]="option.id"
+      >
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+    <mat-hint *ngIf="fields.status.hint">
+      {{ fields.status.hint }}
+    </mat-hint>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.status.name)"
+        [label]="fields.status.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <app-jobs-form-field
+    [control]="form.get(fields.jobs.name)"
+    [label]="fields.jobs.label"
+    [placeholder]="fields.jobs.placeholder"
+    [hint]="fields.jobs.hint"
+    [required]="fields.jobs.required"
+    [fetchFn]="fields.jobs.fetchFn"
+    [mapperFn]="fields.jobs.mapperFn"
+    [showCreate]="!modal"
+    [submitted]="ngForm.submitted"
+    mode="single"
+  ></app-jobs-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>

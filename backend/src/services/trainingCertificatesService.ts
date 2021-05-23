@@ -1,8 +1,7 @@
-import TrainingCertificatesRepository from '../database/repositories/trainingCertificatesRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import TrainingCertificatesRepository from '../database/repositories/trainingCertificatesRepository';
 
 export default class TrainingCertificatesService {
   options: IServiceOptions;

@@ -1,0 +1,106 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="entities.leaveApplicationForm.view.title"></app-i18n>
+  </h1>
+
+  <app-leave-application-form-view-toolbar></app-leave-application-form-view-toolbar>
+
+  <div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <app-view-item-text
+      [label]="fields.name.label"
+      [value]="presenter(record, 'name')"
+    ></app-view-item-text>
+
+    <app-view-item-relation-to-one
+      [label]="fields.position.label"
+      [url]="fields.position.viewUrl"
+      [permission]="fields.position.readPermission"
+      [value]="presenter(record, 'position')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.department.label"
+      [url]="fields.department.viewUrl"
+      [permission]="fields.department.readPermission"
+      [value]="presenter(record, 'department')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-text
+      [label]="fields.date.label"
+      [value]="presenter(record, 'date')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.contactNo.label"
+      [value]="presenter(record, 'contactNo')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.employeeNo.label"
+      [value]="presenter(record, 'employeeNo')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.absenceWork.label"
+      [value]="presenter(record, 'absenceWork')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.period.label"
+      [value]="presenter(record, 'period')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.specify.label"
+      [value]="presenter(record, 'specify')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.reasons.label"
+      [value]="presenter(record, 'reasons')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.others.label"
+      [value]="presenter(record, 'others')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.noDays.label"
+      [value]="presenter(record, 'noDays')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.noTaken.label"
+      [value]="presenter(record, 'noTaken')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.noBalance.label"
+      [value]="presenter(record, 'noBalance')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.remarks.label"
+      [value]="presenter(record, 'remarks')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.status.label"
+      [value]="presenter(record, 'status')"
+    ></app-view-item-text>
+
+    <app-view-item-relation-to-one
+      [label]="fields.jobs.label"
+      [url]="fields.jobs.viewUrl"
+      [permission]="fields.jobs.readPermission"
+      [value]="presenter(record, 'jobs')"
+    ></app-view-item-relation-to-one>
+  </div>
+</div>

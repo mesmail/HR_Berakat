@@ -1,7 +1,7 @@
-import CandidatesRepository from '../database/repositories/candidatesRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
+import CandidatesRepository from '../database/repositories/candidatesRepository';
 import JobsRepository from '../database/repositories/jobsRepository';
 import AcademicCertificatesRepository from '../database/repositories/academicCertificatesRepository';
 import TrainingCertificatesRepository from '../database/repositories/trainingCertificatesRepository';

@@ -193,6 +193,18 @@
       ><app-i18n key="entities.jobFrameworks.menu"></app-i18n
     ></span>
   </a>
+  <a
+    *ngIf="leaveApplicationFormService.hasPermissionToRead"
+    mat-list-item
+    routerLink="/leave-application-form"
+    class="app-menu-item"
+    [routerLinkActive]="['is-active']"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.leaveApplicationForm.menu"></app-i18n
+    ></span>
+  </a>
 
   <button
     disabled
@@ -360,6 +372,17 @@
     <mat-icon>chevron_right</mat-icon>
     <span
       ><app-i18n key="entities.jobFrameworks.menu"></app-i18n
+    ></span>
+  </button>
+  <button
+    disabled
+    *ngIf="leaveApplicationFormService.lockedForCurrentPlan"
+    mat-list-item
+    class="app-menu-item-locked"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.leaveApplicationForm.menu"></app-i18n
     ></span>
   </button>
   

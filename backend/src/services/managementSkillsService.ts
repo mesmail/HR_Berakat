@@ -1,8 +1,7 @@
-import ManagementSkillsRepository from '../database/repositories/managementSkillsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
-
+import ManagementSkillsRepository from '../database/repositories/managementSkillsRepository';
 
 export default class ManagementSkillsService {
   options: IServiceOptions;

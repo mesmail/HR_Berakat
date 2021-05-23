@@ -1,0 +1,324 @@
+<div class="filter">
+  <app-filter-preview
+    [values]="form.value"
+    [fields]="fields"
+    [expanded]="expanded"
+    (click)="doToggleExpanded()"
+    (remove)="doRemove($event)"
+  ></app-filter-preview>
+  <form
+    (ngSubmit)="doFilter()"
+    [formGroup]="form"
+    #ngForm="ngForm"
+    *ngIf="form && expanded"
+  >
+    <div class="row">
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.name.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.name.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.name.name)"
+              [label]="fields.name.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.position.name)"
+          [label]="fields.position.label"
+          [fetchFn]="fields.position.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.department.name)"
+          [label]="fields.department.label"
+          [fetchFn]="fields.department.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.date.label }}</mat-label>
+          <app-date-range-input
+            [formControl]="
+              form.get(fields.dateRange.name)
+            "
+          ></app-date-range-input>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.dateRange.name)"
+              [label]="fields.dateRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.contactNo.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.contactNo.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.contactNo.name)"
+              [label]="fields.contactNo.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.employeeNo.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.employeeNo.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.employeeNo.name)"
+              [label]="fields.employeeNo.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.absenceWork.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.absenceWorkRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.absenceWorkRange.name)
+              "
+              [label]="fields.absenceWorkRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.period.label }}</mat-label>
+          <app-date-range-input
+            [formControl]="
+              form.get(fields.periodRange.name)
+            "
+          ></app-date-range-input>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.periodRange.name)"
+              [label]="fields.periodRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.specify.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.specify.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.specify.name)"
+              [label]="fields.specify.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.reasons.label }}</mat-label>
+          <mat-select
+            [formControlName]="fields.reasons.name"
+          >
+            <mat-option>--</mat-option>
+            <mat-option
+              *ngFor="let option of fields.reasons.options"
+              [value]="option.id"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.reasons.name)"
+              [label]="fields.reasons.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.others.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.others.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.others.name)"
+              [label]="fields.others.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.noDays.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.noDaysRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.noDaysRange.name)
+              "
+              [label]="fields.noDaysRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.noTaken.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.noTakenRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.noTakenRange.name)
+              "
+              [label]="fields.noTakenRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.noBalance.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.noBalanceRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.noBalanceRange.name)
+              "
+              [label]="fields.noBalanceRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.remarks.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.remarks.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.remarks.name)"
+              [label]="fields.remarks.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.status.label }}</mat-label>
+          <mat-select
+            [formControlName]="fields.status.name"
+          >
+            <mat-option>--</mat-option>
+            <mat-option
+              *ngFor="let option of fields.status.options"
+              [value]="option.id"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.status.name)"
+              [label]="fields.status.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.jobs.name)"
+          [label]="fields.jobs.label"
+          [fetchFn]="fields.jobs.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+    </div>
+
+    <div class="filter-buttons">
+      <button
+        mat-raised-button
+        [disabled]="loading"
+        color="primary"
+        type="submit"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-search"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.search"></app-i18n>
+      </button>
+      <button
+        mat-flat-button
+        [disabled]="loading"
+        (click)="doReset()"
+        type="button"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-undo"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.reset"></app-i18n>
+      </button>
+    </div>
+  </form>
+</div>

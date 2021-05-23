@@ -12,5 +12,6 @@ export default [
   fields.generalDescription,
   fields.generalGoals,
   fields.detailedGoals,
+  fields.leaves,
   fields.personalAndTechnicalSkills,
 ];

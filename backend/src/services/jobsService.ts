@@ -1,8 +1,9 @@
-import JobsRepository from '../database/repositories/jobsRepository';
 import Error400 from '../errors/Error400';
 import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
+import JobsRepository from '../database/repositories/jobsRepository';
 import DepartmentsRepository from '../database/repositories/departmentsRepository';
+import LeaveApplicationFormRepository from '../database/repositories/leaveApplicationFormRepository';
 import SoftSkillsRepository from '../database/repositories/softSkillsRepository';
 import UserRepository from '../database/repositories/userRepository';
 
@@ -21,6 +22,7 @@ export default class JobsService {
     try {
       data.department = await DepartmentsRepository.filterIdInTenant(data.department, { ...this.options, transaction });
       data.supervisor = await UserRepository.filterIdInTenant(data.supervisor, { ...this.options, transaction });
+      data.leaves = await LeaveApplicationFormRepository.filterIdsInTenant(data.leaves, { ...this.options, transaction });
       data.personalAndTechnicalSkills = await SoftSkillsRepository.filterIdInTenant(data.personalAndTechnicalSkills, { ...this.options, transaction });
 
       const record = await JobsRepository.create(data, {
@@ -56,6 +58,7 @@ export default class JobsService {
     try {
       data.department = await DepartmentsRepository.filterIdInTenant(data.department, { ...this.options, transaction });
       data.supervisor = await UserRepository.filterIdInTenant(data.supervisor, { ...this.options, transaction });
+      data.leaves = await LeaveApplicationFormRepository.filterIdsInTenant(data.leaves, { ...this.options, transaction });
       data.personalAndTechnicalSkills = await SoftSkillsRepository.filterIdInTenant(data.personalAndTechnicalSkills, { ...this.options, transaction });
 
       const record = await JobsRepository.update(

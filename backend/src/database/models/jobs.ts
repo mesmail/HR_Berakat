@@ -65,6 +65,12 @@ export default function (sequelize) {
       constraints: false,
     });
 
+    models.jobs.hasMany(models.leaveApplicationForm, {
+      as: 'leaves',
+      constraints: false,
+      foreignKey: 'jobsId',
+    });
+
     models.jobs.belongsTo(models.softSkills, {
       as: 'personalAndTechnicalSkills',
       constraints: false,
