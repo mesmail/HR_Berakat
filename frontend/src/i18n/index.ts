@@ -5,6 +5,14 @@ import { setLocale as setYupLocale } from 'yup';
 let currentLanguageCode = null;
 
 const languages = {
+  ar: {
+    id: 'ar',
+    label: 'Arabic',
+    flag: '/assets/images/flags/Saudi-Arabia.png',
+    dictionary: null,
+    materialLocale: 'ar',
+    owlDateTimeLocale: 'ar',
+  },
   en: {
     id: 'en',
     label: 'English',
@@ -47,6 +55,29 @@ export async function init() {
   if (currentLanguageCode === 'es') {
     await initEs();
   }
+  if (currentLanguageCode === 'ar') {
+    await initAR();
+  }
+}
+
+async function initAR() {
+  const language = languages['ar'];
+
+  // @ts-ignore
+  const momentLocale = (await import('moment/locale/ar'))
+    .default;
+
+  language.dictionary = (
+    await import('src/i18n/ar')
+  ).default;
+
+  moment.locale('ar', momentLocale);
+
+  if (language.dictionary.validation) {
+    setYupLocale(language.dictionary.validation);
+  }
+
+  return language;
 }
 
 async function initEs() {
