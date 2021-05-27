@@ -942,13 +942,13 @@ const ar = {
       invited: 'Invited',
       'empty-permissions': 'Waiting for Permissions',
     },
-    invite: 'Invite',
+    invite: 'دعوة',
     validations: {
       // eslint-disable-next-line
       email: 'Email ${value} is invalid',
     },
     title: 'مستخدمين',
-    menu: 'Users',
+    menu: 'مستخدمين',
     doAddSuccess: 'تم حفظ مستخدم بنجاح',
     doUpdateSuccess: 'تم حفظ مستخدم بنجاح',
     exporterFileName: 'users_export',
@@ -1063,10 +1063,10 @@ const ar = {
 
   auditLog: {
     menu: 'Audit Logs',
-    title: 'Audit Logs',
+    title: 'سجلات التدقيق',
     exporterFileName: 'audit_log_export',
     entityNamesHint:
-      'Separate multiple entities using the comma character.',
+      'افصل بين الكيانات المتعددة باستخدام حرف الفاصلة.',
     fields: {
       id: 'Id',
       timestampRange: 'Period',
@@ -1084,7 +1084,7 @@ const ar = {
     menu: 'Settings',
     save: {
       success:
-        'Settings successfully saved. The page will reload in {0} seconds for changes to take effect.',
+        'تم حفظ الإعدادات بنجاح. ستتم إعادة تحميل الصفحة في غضون {0} ثانية حتى تدخل التغييرات حيز التنفيذ.',
     },
     fields: {
       theme: 'Theme',
@@ -1163,7 +1163,7 @@ const ar = {
 
   preview: {
     error:
-      'Sorry, this operation is not allowed in preview mode.',
+      'عذرا ، هذه العملية غير مسموح بها في وضع المعاينة.',
   },
 
   // See https://github.com/jquense/yup#using-a-custom-locale-dictionary

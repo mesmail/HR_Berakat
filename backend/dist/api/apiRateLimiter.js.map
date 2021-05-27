@@ -1,0 +1,1 @@
+{"version":3,"file":"apiRateLimiter.js","sourceRoot":"","sources":["../../src/api/apiRateLimiter.ts"],"names":[],"mappings":";;;;;;AAAA,4EAA2C;AAC3C,6CAA6C;AAC7C,yCAAyC;AAEzC,SAAgB,iBAAiB,CAAC,EAChC,GAAG,EACH,QAAQ,EACR,OAAO,GAKR;IACC,OAAO,IAAI,4BAAS,CAAC;QACnB,0BAA0B;QAC1B,0CAA0C;QAC1C,MAAM;QACN,GAAG;QACH,QAAQ;QACR,OAAO;KACR,CAAC,CAAC;AACL,CAAC;AAjBD,8CAiBC"}
