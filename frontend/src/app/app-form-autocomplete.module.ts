@@ -73,6 +73,26 @@ import { LeaveApplicationFormFormModalComponent } from 'src/app/leave-applicatio
 import { LeaveApplicationFormFormModalService } from 'src/app/leave-application-form/form/leave-application-form-form-modal.service';
 import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-form/form/leave-application-form-form.component';
 
+import { ClaimFormFieldComponent } from 'src/app/claim/autocomplete/claim-form-field.component';
+import { ClaimFormModalComponent } from 'src/app/claim/form/claim-form-modal.component';
+import { ClaimFormModalService } from 'src/app/claim/form/claim-form-modal.service';
+import { ClaimFormComponent } from 'src/app/claim/form/claim-form.component';
+
+import { AdvancedPaymentFormFieldComponent } from 'src/app/advanced-payment/autocomplete/advanced-payment-form-field.component';
+import { AdvancedPaymentFormModalComponent } from 'src/app/advanced-payment/form/advanced-payment-form-modal.component';
+import { AdvancedPaymentFormModalService } from 'src/app/advanced-payment/form/advanced-payment-form-modal.service';
+import { AdvancedPaymentFormComponent } from 'src/app/advanced-payment/form/advanced-payment-form.component';
+
+import { TellProblemFormFieldComponent } from 'src/app/tell-problem/autocomplete/tell-problem-form-field.component';
+import { TellProblemFormModalComponent } from 'src/app/tell-problem/form/tell-problem-form-modal.component';
+import { TellProblemFormModalService } from 'src/app/tell-problem/form/tell-problem-form-modal.service';
+import { TellProblemFormComponent } from 'src/app/tell-problem/form/tell-problem-form.component';
+
+import { EmploymentContractFormFieldComponent } from 'src/app/employment-contract/autocomplete/employment-contract-form-field.component';
+import { EmploymentContractFormModalComponent } from 'src/app/employment-contract/form/employment-contract-form-modal.component';
+import { EmploymentContractFormModalService } from 'src/app/employment-contract/form/employment-contract-form-modal.service';
+import { EmploymentContractFormComponent } from 'src/app/employment-contract/form/employment-contract-form.component';
+
 /**
  * This module exists to avoid circular dependencies, because autocompletes and forms
  * from different modules may use each others.
@@ -136,6 +156,22 @@ import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-for
     LeaveApplicationFormFormComponent,
     LeaveApplicationFormFormFieldComponent,
     LeaveApplicationFormFormModalComponent,
+
+    ClaimFormComponent,
+    ClaimFormFieldComponent,
+    ClaimFormModalComponent,
+
+    AdvancedPaymentFormComponent,
+    AdvancedPaymentFormFieldComponent,
+    AdvancedPaymentFormModalComponent,
+
+    TellProblemFormComponent,
+    TellProblemFormFieldComponent,
+    TellProblemFormModalComponent,
+
+    EmploymentContractFormComponent,
+    EmploymentContractFormFieldComponent,
+    EmploymentContractFormModalComponent,
   ],
   imports: [SharedModule],
   exports: [
@@ -182,6 +218,18 @@ import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-for
 
     LeaveApplicationFormFormComponent,
     LeaveApplicationFormFormFieldComponent,
+
+    ClaimFormComponent,
+    ClaimFormFieldComponent,
+
+    AdvancedPaymentFormComponent,
+    AdvancedPaymentFormFieldComponent,
+
+    TellProblemFormComponent,
+    TellProblemFormFieldComponent,
+
+    EmploymentContractFormComponent,
+    EmploymentContractFormFieldComponent,
   ],
   providers: [
     UserNewFormModalService,
@@ -210,6 +258,14 @@ import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-for
     JobFrameworksFormModalService,
 
     LeaveApplicationFormFormModalService,
+
+    ClaimFormModalService,
+
+    AdvancedPaymentFormModalService,
+
+    TellProblemFormModalService,
+
+    EmploymentContractFormModalService,
   ],
   entryComponents: [
     UserNewFormModalComponent,
@@ -238,6 +294,14 @@ import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-for
     JobFrameworksFormModalComponent,
 
     LeaveApplicationFormFormModalComponent,
+
+    ClaimFormModalComponent,
+
+    AdvancedPaymentFormModalComponent,
+
+    TellProblemFormModalComponent,
+
+    EmploymentContractFormModalComponent,
   ],
 })
 export class AppFormAutocompleteModule {}

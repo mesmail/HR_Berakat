@@ -606,12 +606,12 @@ class Permissions {
 
       leaveApplicationFormImport: {
         id: 'leaveApplicationFormImport',
-        allowedRoles: [roles.admin],
+        allowedRoles: [roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       leaveApplicationFormCreate: {
         id: 'leaveApplicationFormCreate',
-        allowedRoles: [roles.admin],
+        allowedRoles: [roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
         allowedStorage: [
 
@@ -619,7 +619,7 @@ class Permissions {
       },
       leaveApplicationFormEdit: {
         id: 'leaveApplicationFormEdit',
-        allowedRoles: [roles.admin],
+        allowedRoles: [roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
         allowedStorage: [
 
@@ -627,7 +627,7 @@ class Permissions {
       },
       leaveApplicationFormDestroy: {
         id: 'leaveApplicationFormDestroy',
-        allowedRoles: [roles.admin],
+        allowedRoles: [roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
         allowedStorage: [
 
@@ -635,12 +635,172 @@ class Permissions {
       },
       leaveApplicationFormRead: {
         id: 'leaveApplicationFormRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       leaveApplicationFormAutocomplete: {
         id: 'leaveApplicationFormAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      claimImport: {
+        id: 'claimImport',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      claimCreate: {
+        id: 'claimCreate',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      claimEdit: {
+        id: 'claimEdit',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      claimDestroy: {
+        id: 'claimDestroy',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      claimRead: {
+        id: 'claimRead',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      claimAutocomplete: {
+        id: 'claimAutocomplete',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      advancedPaymentImport: {
+        id: 'advancedPaymentImport',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      advancedPaymentCreate: {
+        id: 'advancedPaymentCreate',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      advancedPaymentEdit: {
+        id: 'advancedPaymentEdit',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      advancedPaymentDestroy: {
+        id: 'advancedPaymentDestroy',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      advancedPaymentRead: {
+        id: 'advancedPaymentRead',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      advancedPaymentAutocomplete: {
+        id: 'advancedPaymentAutocomplete',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      tellProblemImport: {
+        id: 'tellProblemImport',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      tellProblemCreate: {
+        id: 'tellProblemCreate',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      tellProblemEdit: {
+        id: 'tellProblemEdit',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      tellProblemDestroy: {
+        id: 'tellProblemDestroy',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      tellProblemRead: {
+        id: 'tellProblemRead',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      tellProblemAutocomplete: {
+        id: 'tellProblemAutocomplete',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      employmentContractImport: {
+        id: 'employmentContractImport',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      employmentContractCreate: {
+        id: 'employmentContractCreate',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      employmentContractEdit: {
+        id: 'employmentContractEdit',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      employmentContractDestroy: {
+        id: 'employmentContractDestroy',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      employmentContractRead: {
+        id: 'employmentContractRead',
+        allowedRoles: [roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      employmentContractAutocomplete: {
+        id: 'employmentContractAutocomplete',
+        allowedRoles: [roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },      
     };

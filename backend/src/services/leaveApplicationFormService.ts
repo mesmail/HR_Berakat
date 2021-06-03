@@ -4,7 +4,6 @@ import { IServiceOptions } from './IServiceOptions';
 import LeaveApplicationFormRepository from '../database/repositories/leaveApplicationFormRepository';
 import JobsRepository from '../database/repositories/jobsRepository';
 import DepartmentsRepository from '../database/repositories/departmentsRepository';
-import UserRepository from '../database/repositories/userRepository';
 
 export default class LeaveApplicationFormService {
   options: IServiceOptions;

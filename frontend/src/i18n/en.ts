@@ -846,6 +846,253 @@ const en = {
             'Files/Images columns must be the URLs of the files separated by space.',
         },
       },
+
+    claim: {
+        name: 'claim',
+        label: 'التظلم',
+        menu: 'التظلم',
+        exporterFileName: 'claim_export',
+        list: {
+          menu: 'التظلم',
+          title: 'التظلم',
+        },
+        create: {
+          success: 'التظلم successfully saved',
+        },
+        update: {
+          success: 'التظلم successfully saved',
+        },
+        destroy: {
+          success: 'التظلم successfully deleted',
+        },
+        destroyAll: {
+          success: 'التظلم(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit التظلم',
+        },
+        fields: {
+          id: 'Id',
+          'problemDescription': 'شرح المشكلة',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'problemDescription': 'أكتب شرح المشكلة هنا.......',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'New التظلم',
+        },
+        view: {
+          title: 'View التظلم',
+        },
+        importer: {
+          title: 'Import التظلم',
+          fileName: 'claim_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+
+    advancedPayment: {
+        name: 'advancedPayment',
+        label: 'سلفة راتب',
+        menu: 'سلفة راتب',
+        exporterFileName: 'advancedPayment_export',
+        list: {
+          menu: 'سلفة راتب',
+          title: 'سلفة راتب',
+        },
+        create: {
+          success: 'سلفة راتب successfully saved',
+        },
+        update: {
+          success: 'سلفة راتب successfully saved',
+        },
+        destroy: {
+          success: 'سلفة راتب successfully deleted',
+        },
+        destroyAll: {
+          success: 'سلفة راتب(s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit سلفة راتب',
+        },
+        fields: {
+          id: 'Id',
+          'amountRange': 'المبلغ المطلوب للسلفة',
+          'amount': 'المبلغ المطلوب للسلفة',
+          'dateRequiredRange': 'تاريخ الصرف المطلوب',
+          'dateRequired': 'تاريخ الصرف المطلوب',
+          'paymentReason': 'أسباب طلب السلفة',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'amount': 'أدخل المبلغ هنا',
+          'paymentReason': 'اشرح بإيجاز الأسباب الموجبة لطلب السلفة',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'New سلفة راتب',
+        },
+        view: {
+          title: 'View سلفة راتب',
+        },
+        importer: {
+          title: 'Import سلفة راتب',
+          fileName: 'advancedPayment_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+
+    tellProblem: {
+        name: 'tellProblem',
+        label: 'الإبلاغ عن مشكلة',
+        menu: 'الإبلاغ عن مشكلة',
+        exporterFileName: 'tellProblem_export',
+        list: {
+          menu: 'الإبلاغ عن مشكلة',
+          title: 'الإبلاغ عن مشكلة',
+        },
+        create: {
+          success: 'الإبلاغ عن مشكلة  successfully saved',
+        },
+        update: {
+          success: 'الإبلاغ عن مشكلة  successfully saved',
+        },
+        destroy: {
+          success: 'الإبلاغ عن مشكلة  successfully deleted',
+        },
+        destroyAll: {
+          success: 'الإبلاغ عن مشكلة (s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit الإبلاغ عن مشكلة ',
+        },
+        fields: {
+          id: 'Id',
+          'problemDescription': 'شرح فحوى المشكلة',
+          'occuranceDateRange': 'تاريخ الحدوث',
+          'occuranceDate': 'تاريخ الحدوث',
+          'possibleCauses': 'الأسباب المحتملة',
+          'suggestedSolves': 'الحلول المقترحة',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'problemDescription': 'اشرح المشكلة هنا',
+          'possibleCauses': 'الأسباب المحتملة',
+          'suggestedSolves': 'الحلول المقترحة',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'New الإبلاغ عن مشكلة ',
+        },
+        view: {
+          title: 'View الإبلاغ عن مشكلة ',
+        },
+        importer: {
+          title: 'Import الإبلاغ عن مشكلة',
+          fileName: 'tellProblem_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
+
+    employmentContract: {
+        name: 'employmentContract',
+        label: 'عقد العمل',
+        menu: 'عقد العمل',
+        exporterFileName: 'employmentContract_export',
+        list: {
+          menu: 'عقد العمل',
+          title: 'عقد العمل',
+        },
+        create: {
+          success: 'عقد العمل  successfully saved',
+        },
+        update: {
+          success: 'عقد العمل  successfully saved',
+        },
+        destroy: {
+          success: 'عقد العمل  successfully deleted',
+        },
+        destroyAll: {
+          success: 'عقد العمل (s) successfully deleted',
+        },
+        edit: {
+          title: 'Edit عقد العمل ',
+        },
+        fields: {
+          id: 'Id',
+          'employeeName': 'اسم الموظف',
+          'workingPeriodRange': 'عدد ساعات العمل',
+          'workingPeriod': 'عدد ساعات العمل',
+          'employmentSalaryRange': 'الراتب المتفق عليه',
+          'employmentSalary': 'الراتب المتفق عليه',
+          'jobRoles': 'مهام العمل',
+          'employeeContactEmail': 'البريد الالكتروني للتواصل',
+          'mobileNumberRange': 'رقم الموبايل',
+          'mobileNumber': 'رقم الموبايل',
+          'homeAddress': 'مكان السكن',
+          'contractPeriodRange': 'مدة عقد العمل',
+          'contractPeriod': 'مدة عقد العمل',
+          'startDateRange': 'تاريخ بدء العمل',
+          'startDate': 'تاريخ بدء العمل',
+          createdAt: 'Created at',
+          updatedAt: 'Updated at',
+          createdAtRange: 'Created at',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'employeeName': 'اسم الموظف',
+          'workingPeriod': 'عدد ساعات العمل',
+          'employmentSalary': 'الراتب المتفق عليه',
+          'jobRoles': 'مهام العمل',
+          'employeeContactEmail': 'البريد الالكتروني',
+          'mobileNumber': 'رقم الموبايل',
+          'homeAddress': 'مكان السكن',
+          'contractPeriod': 'مدة عقد العمل',
+        },
+        hints: {
+          'contractPeriod': 'المدة الشهرية',
+        },
+        new: {
+          title: 'New عقد العمل ',
+        },
+        view: {
+          title: 'View عقد العمل ',
+        },
+        importer: {
+          title: 'Import عقد العمل',
+          fileName: 'employmentContract_import_template',
+          hint:
+            'Files/Images columns must be the URLs of the files separated by space.',
+        },
+      },
   },
 
   auth: {

@@ -643,6 +643,166 @@ export class Permissions {
         allowedRoles: [roles.admin, roles.custom],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
+
+      claimImport: {
+        id: 'claimImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      claimCreate: {
+        id: 'claimCreate',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      claimEdit: {
+        id: 'claimEdit',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      claimDestroy: {
+        id: 'claimDestroy',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      claimRead: {
+        id: 'claimRead',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      claimAutocomplete: {
+        id: 'claimAutocomplete',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      advancedPaymentImport: {
+        id: 'advancedPaymentImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      advancedPaymentCreate: {
+        id: 'advancedPaymentCreate',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      advancedPaymentEdit: {
+        id: 'advancedPaymentEdit',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      advancedPaymentDestroy: {
+        id: 'advancedPaymentDestroy',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      advancedPaymentRead: {
+        id: 'advancedPaymentRead',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      advancedPaymentAutocomplete: {
+        id: 'advancedPaymentAutocomplete',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      tellProblemImport: {
+        id: 'tellProblemImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      tellProblemCreate: {
+        id: 'tellProblemCreate',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      tellProblemEdit: {
+        id: 'tellProblemEdit',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      tellProblemDestroy: {
+        id: 'tellProblemDestroy',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      tellProblemRead: {
+        id: 'tellProblemRead',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      tellProblemAutocomplete: {
+        id: 'tellProblemAutocomplete',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+
+      employmentContractImport: {
+        id: 'employmentContractImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      employmentContractCreate: {
+        id: 'employmentContractCreate',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      employmentContractEdit: {
+        id: 'employmentContractEdit',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      employmentContractDestroy: {
+        id: 'employmentContractDestroy',
+        allowedRoles: [roles.admin],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+        allowedStorage: [
+
+        ],
+      },
+      employmentContractRead: {
+        id: 'employmentContractRead',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
+      employmentContractAutocomplete: {
+        id: 'employmentContractAutocomplete',
+        allowedRoles: [roles.admin, roles.custom],
+        allowedPlans: [plans.free, plans.growth, plans.enterprise],
+      },
     };
   }
 

@@ -205,6 +205,54 @@
       ><app-i18n key="entities.leaveApplicationForm.menu"></app-i18n
     ></span>
   </a>
+  <a
+    *ngIf="claimService.hasPermissionToRead"
+    mat-list-item
+    routerLink="/claim"
+    class="app-menu-item"
+    [routerLinkActive]="['is-active']"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.claim.menu"></app-i18n
+    ></span>
+  </a>
+  <a
+    *ngIf="advancedPaymentService.hasPermissionToRead"
+    mat-list-item
+    routerLink="/advanced-payment"
+    class="app-menu-item"
+    [routerLinkActive]="['is-active']"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.advancedPayment.menu"></app-i18n
+    ></span>
+  </a>
+  <a
+    *ngIf="tellProblemService.hasPermissionToRead"
+    mat-list-item
+    routerLink="/tell-problem"
+    class="app-menu-item"
+    [routerLinkActive]="['is-active']"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.tellProblem.menu"></app-i18n
+    ></span>
+  </a>
+  <a
+    *ngIf="employmentContractService.hasPermissionToRead"
+    mat-list-item
+    routerLink="/employment-contract"
+    class="app-menu-item"
+    [routerLinkActive]="['is-active']"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.employmentContract.menu"></app-i18n
+    ></span>
+  </a>
 
   <button
     disabled
@@ -383,6 +431,50 @@
     <mat-icon>chevron_right</mat-icon>
     <span
       ><app-i18n key="entities.leaveApplicationForm.menu"></app-i18n
+    ></span>
+  </button>
+  <button
+    disabled
+    *ngIf="claimService.lockedForCurrentPlan"
+    mat-list-item
+    class="app-menu-item-locked"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.claim.menu"></app-i18n
+    ></span>
+  </button>
+  <button
+    disabled
+    *ngIf="advancedPaymentService.lockedForCurrentPlan"
+    mat-list-item
+    class="app-menu-item-locked"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.advancedPayment.menu"></app-i18n
+    ></span>
+  </button>
+  <button
+    disabled
+    *ngIf="tellProblemService.lockedForCurrentPlan"
+    mat-list-item
+    class="app-menu-item-locked"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.tellProblem.menu"></app-i18n
+    ></span>
+  </button>
+  <button
+    disabled
+    *ngIf="employmentContractService.lockedForCurrentPlan"
+    mat-list-item
+    class="app-menu-item-locked"
+  >
+    <mat-icon>chevron_right</mat-icon>
+    <span
+      ><app-i18n key="entities.employmentContract.menu"></app-i18n
     ></span>
   </button>
   

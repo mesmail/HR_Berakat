@@ -16,6 +16,10 @@ import { ClientsService } from 'src/app/clients/clients.service';
 import { UsersNewService } from 'src/app/users-new/users-new.service';
 import { JobFrameworksService } from 'src/app/job-frameworks/job-frameworks.service';
 import { LeaveApplicationFormService } from 'src/app/leave-application-form/leave-application-form.service';
+import { ClaimService } from 'src/app/claim/claim.service';
+import { AdvancedPaymentService } from 'src/app/advanced-payment/advanced-payment.service';
+import { TellProblemService } from 'src/app/tell-problem/tell-problem.service';
+import { EmploymentContractService } from 'src/app/employment-contract/employment-contract.service';
 
 @Component({
   selector: 'app-menu',
@@ -40,6 +44,10 @@ export class MenuComponent implements OnInit {
     public usersNewService: UsersNewService,
     public jobFrameworksService: JobFrameworksService,
     public leaveApplicationFormService: LeaveApplicationFormService,
+    public claimService: ClaimService,
+    public advancedPaymentService: AdvancedPaymentService,
+    public tellProblemService: TellProblemService,
+    public employmentContractService: EmploymentContractService,
   ) {}
 
   ngOnInit(): void {}

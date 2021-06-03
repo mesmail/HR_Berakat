@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.claim.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-claim-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-claim-form>
+</mat-dialog-content>

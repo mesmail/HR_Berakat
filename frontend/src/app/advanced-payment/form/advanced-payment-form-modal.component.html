@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.advancedPayment.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-advanced-payment-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-advanced-payment-form>
+</mat-dialog-content>

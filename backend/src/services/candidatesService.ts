@@ -8,7 +8,6 @@ import TrainingCertificatesRepository from '../database/repositories/trainingCer
 import SoftSkillsRepository from '../database/repositories/softSkillsRepository';
 import ManagementSkillsRepository from '../database/repositories/managementSkillsRepository';
 import ArtisticSkillsRepository from '../database/repositories/artisticSkillsRepository';
-import UserRepository from '../database/repositories/userRepository';
 
 export default class CandidatesService {
   options: IServiceOptions;
