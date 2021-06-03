@@ -1,0 +1,201 @@
+<div class="filter">
+  <app-filter-preview
+    [values]="form.value"
+    [fields]="fields"
+    [expanded]="expanded"
+    (click)="doToggleExpanded()"
+    (remove)="doRemove($event)"
+  ></app-filter-preview>
+  <form
+    (ngSubmit)="doFilter()"
+    [formGroup]="form"
+    #ngForm="ngForm"
+    *ngIf="form && expanded"
+  >
+    <div class="row">
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.employeeName.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.employeeName.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.employeeName.name)"
+              [label]="fields.employeeName.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.workingPeriod.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.workingPeriodRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.workingPeriodRange.name)
+              "
+              [label]="fields.workingPeriodRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.employmentSalary.label }}</mat-label>
+          <app-decimal-range-input
+            [formControl]="form.get(fields.employmentSalaryRange.name)"
+          ></app-decimal-range-input>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.employmentSalaryRange.name)"
+              [label]="fields.employmentSalaryRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.jobRoles.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.jobRoles.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.jobRoles.name)"
+              [label]="fields.jobRoles.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.employeeContactEmail.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.employeeContactEmail.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.employeeContactEmail.name)"
+              [label]="fields.employeeContactEmail.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.mobileNumber.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.mobileNumberRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.mobileNumberRange.name)
+              "
+              [label]="fields.mobileNumberRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.homeAddress.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fields.homeAddress.name"
+          />
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.homeAddress.name)"
+              [label]="fields.homeAddress.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.contractPeriod.label }}</mat-label>
+          <app-integer-range-input
+            [formControl]="
+              form.get(fields.contractPeriodRange.name)
+            "
+          ></app-integer-range-input>
+          <mat-error>
+            <app-validations
+              [control]="
+                form.get(fields.contractPeriodRange.name)
+              "
+              [label]="fields.contractPeriodRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>{{ fields.startDate.label }}</mat-label>
+          <app-date-range-input
+            [formControl]="
+              form.get(fields.startDateRange.name)
+            "
+          ></app-date-range-input>
+          <mat-error>
+            <app-validations
+              [control]="form.get(fields.startDateRange.name)"
+              [label]="fields.startDateRange.label"
+            ></app-validations>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="filter-buttons">
+      <button
+        mat-raised-button
+        [disabled]="loading"
+        color="primary"
+        type="submit"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-search"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.search"></app-i18n>
+      </button>
+      <button
+        mat-flat-button
+        [disabled]="loading"
+        (click)="doReset()"
+        type="button"
+      >
+        <mat-icon
+          inline
+          fontSet="fas"
+          fontIcon="fa-undo"
+        ></mat-icon
+        >&#160;
+        <app-i18n key="common.reset"></app-i18n>
+      </button>
+    </div>
+  </form>
+</div>

@@ -107,6 +107,22 @@ const routes: Routes = [
     path: 'leave-application-form',
     loadChildren: () => import('./leave-application-form/leave-application-form.module').then(m => m.LeaveApplicationFormModule),
   },
+  {
+    path: 'claim',
+    loadChildren: () => import('./claim/claim.module').then(m => m.ClaimModule),
+  },
+  {
+    path: 'advanced-payment',
+    loadChildren: () => import('./advanced-payment/advanced-payment.module').then(m => m.AdvancedPaymentModule),
+  },
+  {
+    path: 'tell-problem',
+    loadChildren: () => import('./tell-problem/tell-problem.module').then(m => m.TellProblemModule),
+  },
+  {
+    path: 'employment-contract',
+    loadChildren: () => import('./employment-contract/employment-contract.module').then(m => m.EmploymentContractModule),
+  },
   { path: '403', component: Error403Component },
   { path: '500', component: Error500Component },
   { path: '**', component: Error404Component },

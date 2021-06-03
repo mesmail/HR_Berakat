@@ -1,0 +1,60 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="entities.employmentContract.view.title"></app-i18n>
+  </h1>
+
+  <app-employment-contract-view-toolbar></app-employment-contract-view-toolbar>
+
+  <div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <app-view-item-text
+      [label]="fields.employeeName.label"
+      [value]="presenter(record, 'employeeName')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.workingPeriod.label"
+      [value]="presenter(record, 'workingPeriod')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.employmentSalary.label"
+      [value]="presenter(record, 'employmentSalary')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.jobRoles.label"
+      [value]="presenter(record, 'jobRoles')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.employeeContactEmail.label"
+      [value]="presenter(record, 'employeeContactEmail')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.mobileNumber.label"
+      [value]="presenter(record, 'mobileNumber')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.homeAddress.label"
+      [value]="presenter(record, 'homeAddress')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.contractPeriod.label"
+      [value]="presenter(record, 'contractPeriod')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.startDate.label"
+      [value]="presenter(record, 'startDate')"
+    ></app-view-item-text>
+  </div>
+</div>
