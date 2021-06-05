@@ -72,6 +72,10 @@ require('./clients').default(routes);
 require('./usersNew').default(routes);
 require('./jobFrameworks').default(routes);
 require('./leaveApplicationForm').default(routes);
+require('./claim').default(routes);
+require('./advancedPayment').default(routes);
+require('./tellProblem').default(routes);
+require('./employmentContract').default(routes);
 // Loads the Tenant if the :tenantId param is passed
 routes.param('tenantId', tenantMiddleware_1.tenantMiddleware);
 // Add the routes to the /api endpoint
