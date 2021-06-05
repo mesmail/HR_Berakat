@@ -1,32 +1,32 @@
 const en = {
   common: {
-    or: 'or',
-    cancel: 'Cancel',
-    reset: 'Reset',
-    save: 'Save',
-    search: 'Search',
-    edit: 'Edit',
-    remove: 'Remove',
-    new: 'New',
-    export: 'Export to Excel',
-    noDataToExport: 'No data to export',
-    import: 'Import',
-    discard: 'Discard',
-    yes: 'Yes',
-    no: 'No',
-    pause: 'Pause',
-    areYouSure: 'Are you sure?',
-    view: 'View',
-    destroy: 'Delete',
-    mustSelectARow: 'Must select a row',
-    confirm: 'Confirm',
-    start: 'Start',
-    end: 'End',
-    filters: 'Filters',
+    or: 'أو',
+    cancel: 'إلغاء',
+    reset: 'تصفير',
+    save: 'حفظ',
+    search: 'بحث',
+    edit: 'تعديل',
+    remove: 'حذف',
+    new: 'جديد',
+    export: 'تصدير ملف إكسل',
+    noDataToExport: 'لا يوجد بيانات للتصدير',
+    import: 'استيراد',
+    discard: 'تجاهل',
+    yes: 'نعم',
+    no: 'لا',
+    pause: 'توقف',
+    areYouSure: 'هل أنت متأكد؟',
+    view: 'عرض',
+    destroy: 'حذف',
+    mustSelectARow: 'يجب اختيار الصف',
+    confirm: 'تأكيد',
+    start: 'البدء',
+    end: 'إنهاء',
+    filters: 'تصفية',
   },
 
   app: {
-    title: 'Application',
+    title: 'نظام إدارة الموظفين',
   },
 
   api: {
@@ -113,7 +113,7 @@ const en = {
           'photo': 'صورة الموظف ',
         },
         new: {
-          title: 'New المرشحين',
+          title: ' مرشح جديد',
         },
         view: {
           title: 'View المرشحين',
@@ -1189,13 +1189,13 @@ const en = {
       invited: 'Invited',
       'empty-permissions': 'Waiting for Permissions',
     },
-    invite: 'Invite',
+    invite: 'دعوة',
     validations: {
       // eslint-disable-next-line
       email: 'Email ${value} is invalid',
     },
-    title: 'Users',
-    menu: 'Users',
+    title: 'حسابات الموظفين',
+    menu: 'حسابات الموظفين',
     doAddSuccess: 'User(s) successfully saved',
     doUpdateSuccess: 'User successfully saved',
     exporterFileName: 'users_export',
@@ -1309,8 +1309,8 @@ const en = {
   },
 
   auditLog: {
-    menu: 'Audit Logs',
-    title: 'Audit Logs',
+    menu: 'تقارير المدققين',
+    title: 'تقارير المدققين',
     exporterFileName: 'audit_log_export',
     entityNamesHint:
       'Separate multiple entities using the comma character.',
@@ -1327,8 +1327,8 @@ const en = {
     },
   },
   settings: {
-    title: 'Settings',
-    menu: 'Settings',
+    title: 'الإعدادات',
+    menu: 'الإعدادات',
     save: {
       success:
         'Settings successfully saved. The page will reload in {0} seconds for changes to take effect.',
@@ -1364,7 +1364,7 @@ const en = {
     },
   },
   dashboard: {
-    menu: 'Dashboard',
+    menu: 'اللوحة الرئيسية',
     message: `This page uses fake data for demonstration purposes only. You can edit it at frontend/src/app/dashboard/components/dashboard.component.html.`,
     charts: {
       day: 'Day',
