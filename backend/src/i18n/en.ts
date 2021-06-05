@@ -2,7 +2,7 @@
  * I18n dictionary for the en.
  */
 
-const en = {
+ const en = {
   app: {
     title: 'Application',
   },
@@ -174,34 +174,6 @@ const en = {
       }
     },
     leaveApplicationForm: {
-      errors: {
-        unique: {
-
-        }
-      }
-    },
-    claim: {
-      errors: {
-        unique: {
-
-        }
-      }
-    },
-    advancedPayment: {
-      errors: {
-        unique: {
-
-        }
-      }
-    },
-    tellProblem: {
-      errors: {
-        unique: {
-
-        }
-      }
-    },
-    employmentContract: {
       errors: {
         unique: {
 

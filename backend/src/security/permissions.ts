@@ -155,12 +155,12 @@ class Permissions {
       },
       candidatesRead: {
         id: 'candidatesRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       candidatesAutocomplete: {
         id: 'candidatesAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -235,12 +235,12 @@ class Permissions {
       },
       departmentsRead: {
         id: 'departmentsRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       departmentsAutocomplete: {
         id: 'departmentsAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -275,12 +275,12 @@ class Permissions {
       },
       academicCertificatesRead: {
         id: 'academicCertificatesRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       academicCertificatesAutocomplete: {
         id: 'academicCertificatesAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -315,12 +315,12 @@ class Permissions {
       },
       softSkillsRead: {
         id: 'softSkillsRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       softSkillsAutocomplete: {
         id: 'softSkillsAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -355,12 +355,12 @@ class Permissions {
       },
       trainingCertificatesRead: {
         id: 'trainingCertificatesRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       trainingCertificatesAutocomplete: {
         id: 'trainingCertificatesAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -395,12 +395,12 @@ class Permissions {
       },
       professionalCertificationsRead: {
         id: 'professionalCertificationsRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       professionalCertificationsAutocomplete: {
         id: 'professionalCertificationsAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -435,12 +435,12 @@ class Permissions {
       },
       managementSkillsRead: {
         id: 'managementSkillsRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       managementSkillsAutocomplete: {
         id: 'managementSkillsAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -475,12 +475,12 @@ class Permissions {
       },
       artisticSkillsRead: {
         id: 'artisticSkillsRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       artisticSkillsAutocomplete: {
         id: 'artisticSkillsAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -515,12 +515,12 @@ class Permissions {
       },
       clientsRead: {
         id: 'clientsRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       clientsAutocomplete: {
         id: 'clientsAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -555,12 +555,12 @@ class Permissions {
       },
       usersNewRead: {
         id: 'usersNewRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       usersNewAutocomplete: {
         id: 'usersNewAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 
@@ -595,12 +595,12 @@ class Permissions {
       },
       jobFrameworksRead: {
         id: 'jobFrameworksRead',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
       jobFrameworksAutocomplete: {
         id: 'jobFrameworksAutocomplete',
-        allowedRoles: [roles.admin, roles.custom],
+        allowedRoles: [roles.admin],
         allowedPlans: [plans.free, plans.growth, plans.enterprise],
       },
 

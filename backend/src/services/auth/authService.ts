@@ -114,7 +114,7 @@ class AuthService {
         }
 
         const token = jwt.sign(
-          { id: existingUser.id },
+          { id: existingUser.id},
           getConfig().AUTH_JWT_SECRET,
           { expiresIn: getConfig().AUTH_JWT_EXPIRES_IN },
         );
@@ -178,7 +178,7 @@ class AuthService {
       }
 
       const token = jwt.sign(
-        { id: newUser.id },
+        { id: newUser.id},
         getConfig().AUTH_JWT_SECRET,
         { expiresIn: getConfig().AUTH_JWT_EXPIRES_IN },
       );
@@ -266,7 +266,7 @@ class AuthService {
       );
 
       const token = jwt.sign(
-        { id: user.id },
+        { id: user.id},
         getConfig().AUTH_JWT_SECRET,
         { expiresIn: getConfig().AUTH_JWT_EXPIRES_IN },
       );
@@ -633,7 +633,7 @@ class AuthService {
       }
 
       const token = jwt.sign(
-        { id: user.id },
+        { id: user.id},
         getConfig().AUTH_JWT_SECRET,
         { expiresIn: getConfig().AUTH_JWT_EXPIRES_IN },
       );
