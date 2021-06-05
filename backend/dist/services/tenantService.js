@@ -47,7 +47,7 @@ class TenantService {
             }
             let record = yield tenantRepository_1.default.create({ name: 'default', url: 'default' }, Object.assign(Object.assign({}, this.options), { transaction }));
             yield settingsService_1.default.findOrCreateDefault(Object.assign(Object.assign({}, this.options), { currentTenant: record, transaction }));
-            yield tenantUserRepository_1.default.create(record, this.options.currentUser, [roles_1.default.values.admin], Object.assign(Object.assign({}, this.options), { transaction }));
+            yield tenantUserRepository_1.default.create(record, this.options.currentUser, [roles_1.default.values.custom], Object.assign(Object.assign({}, this.options), { transaction }));
         });
     }
     joinWithDefaultRolesOrAskApproval({ roles, tenantId }, { transaction }) {
@@ -94,7 +94,7 @@ class TenantService {
                 }
                 let record = yield tenantRepository_1.default.create(data, Object.assign(Object.assign({}, this.options), { transaction }));
                 yield settingsService_1.default.findOrCreateDefault(Object.assign(Object.assign({}, this.options), { currentTenant: record, transaction }));
-                yield tenantUserRepository_1.default.create(record, this.options.currentUser, [roles_1.default.values.admin], Object.assign(Object.assign({}, this.options), { transaction }));
+                yield tenantUserRepository_1.default.create(record, this.options.currentUser, [roles_1.default.values.custom], Object.assign(Object.assign({}, this.options), { transaction }));
                 yield sequelizeRepository_1.default.commitTransaction(transaction);
                 return record;
             }

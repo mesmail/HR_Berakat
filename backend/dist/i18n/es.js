@@ -139,6 +139,26 @@ const es = {
                 unique: {}
             }
         },
+        claim: {
+            errors: {
+                unique: {}
+            }
+        },
+        advancedPayment: {
+            errors: {
+                unique: {}
+            }
+        },
+        tellProblem: {
+            errors: {
+                unique: {}
+            }
+        },
+        employmentContract: {
+            errors: {
+                unique: {}
+            }
+        },
     }
 };
 exports.default = es;
