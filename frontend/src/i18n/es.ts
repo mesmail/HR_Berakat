@@ -33,29 +33,109 @@ const es = {
   },
 
   entities: {
-    candidates: {
-        name: 'candidates',
-        label: 'المرشحين',
-        menu: 'المرشحين',
-        exporterFileName: 'exportacion_candidates',
+    jobs: {
+        name: 'jobs',
+        label: 'وظائف',
+        menu: 'وظائف',
+        exporterFileName: 'exportacion_jobs',
         list: {
-          menu: 'المرشحين',
-          title: 'المرشحين',
+          menu: 'وظائف',
+          title: 'وظائف',
         },
         create: {
-          success: 'المرشحين guardado con éxito',
+          success: 'وظائف guardado con éxito',
         },
         update: {
-          success: 'المرشحين guardado con éxito',
+          success: 'وظائف guardado con éxito',
         },
         destroy: {
-          success: 'المرشحين eliminado con éxito',
+          success: 'وظائف eliminado con éxito',
         },
         destroyAll: {
-          success: 'المرشحين(s) eliminado con éxito',
+          success: 'وظائف(s) eliminado con éxito',
         },
         edit: {
-          title: 'Editar المرشحين',
+          title: 'Editar وظائف',
+        },
+        fields: {
+          id: 'Id',
+          'positionName': 'المسمى الوظيفي',
+          'department': 'القسم / الادارة',
+          'supervisor': 'المدير المباشر',
+          'jobLocation': 'موقع العمل',
+          'jobCode': 'الرقم/الرمز',
+          'generalDescription': 'الوصف العام',
+          'generalGoals': 'الاهداف العامة',
+          'detailedGoals': 'الاهداف التفصيلية',
+          'academicCertificates': 'الشهادات الأكاديمية',
+          'trainingCertificates': 'الشهادات التدريبية',
+          'professionalCertificates': 'الشهادات المهنية',
+          'softSkills': 'المهارات الناعمة',
+          'managementSkills': 'المهارات الإدارية',
+          'artitistikSkills': 'ArtitistikSkills',
+          'jobFramework': 'أطر الوظيفة',
+          'connectionLevel': 'مستوى الاتصال',
+          'commonCommittees': 'أللجان المشتركة',
+          'jobRequirments': 'متطلبات الوظيفة',
+          'jobPath': 'المسار الوظيفي',
+          'tasksDuties': 'المهام و الواجبات',
+          'administrativeFinancialPowers': 'الصلاحيات الإدارية و المالية',
+          'cardInformation': 'بيانات البطاقة',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'supervisor': 'المدير المباشر',
+          'jobLocation': 'موقع العمل',
+          'jobCode': 'الرقم/الرمز',
+          'generalDescription': 'الوصف العام',
+          'generalGoals': 'الاهداف العامة',
+          'detailedGoals': 'الاهداف التفصيلية',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo وظائف',
+        },
+        view: {
+          title: 'Ver وظائف',
+        },
+        importer: {
+          title: 'Importar وظائف',
+          fileName: 'jobs_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    candidates: {
+        name: 'candidates',
+        label: 'المتقدمين',
+        menu: 'المتقدمين',
+        exporterFileName: 'exportacion_candidates',
+        list: {
+          menu: 'المتقدمين',
+          title: 'المتقدمين',
+        },
+        create: {
+          success: 'المتقدمين guardado con éxito',
+        },
+        update: {
+          success: 'المتقدمين guardado con éxito',
+        },
+        destroy: {
+          success: 'المتقدمين eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'المتقدمين(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar المتقدمين',
         },
         fields: {
           id: 'Id',
@@ -112,140 +192,14 @@ const es = {
           'photo': 'صورة الموظف ',
         },
         new: {
-          title: 'Nuevo المرشحين',
+          title: 'Nuevo المتقدمين',
         },
         view: {
-          title: 'Ver المرشحين',
+          title: 'Ver المتقدمين',
         },
         importer: {
-          title: 'Importar المرشحين',
+          title: 'Importar المتقدمين',
           fileName: 'candidates_import_template',
-          hint:
-            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
-        },
-      },
-
-    jobs: {
-        name: 'jobs',
-        label: 'وظائف',
-        menu: 'وظائف',
-        exporterFileName: 'exportacion_jobs',
-        list: {
-          menu: 'وظائف',
-          title: 'وظائف',
-        },
-        create: {
-          success: 'وظائف guardado con éxito',
-        },
-        update: {
-          success: 'وظائف guardado con éxito',
-        },
-        destroy: {
-          success: 'وظائف eliminado con éxito',
-        },
-        destroyAll: {
-          success: 'وظائف(s) eliminado con éxito',
-        },
-        edit: {
-          title: 'Editar وظائف',
-        },
-        fields: {
-          id: 'Id',
-          'positionName': 'المسمى الوظيفي',
-          'department': 'القسم / الادارة',
-          'supervisor': 'المدير المباشر',
-          'jobLocation': 'موقع العمل',
-          'jobCode': 'الرقم/الرمز',
-          'releaseDateRange': 'تاريخ الاصدار',
-          'releaseDate': 'تاريخ الاصدار',
-          'generalDescription': 'الوصف العام',
-          'generalGoals': 'الاهداف العامة',
-          'detailedGoals': 'الاهداف التفصيلية',
-          'leaves': 'Leaves',
-          'personalAndTechnicalSkills': 'المهارات الشخصية و التقنية',
-          createdAt: 'Creado el',
-          updatedAt: 'Actualizado el',
-          createdAtRange: 'Creado el',
-        },
-        enumerators: {
-
-        },
-        placeholders: {
-          'department': 'department',
-          'supervisor': 'المدير المباشر',
-          'jobLocation': 'موقع العمل',
-          'jobCode': 'الرقم/الرمز',
-          'releaseDate': 'تاريخ الاصدار',
-          'generalDescription': 'الوصف العام',
-          'generalGoals': 'الاهداف العامة',
-          'detailedGoals': 'الاهداف التفصيلية',
-        },
-        hints: {
-
-        },
-        new: {
-          title: 'Nuevo وظائف',
-        },
-        view: {
-          title: 'Ver وظائف',
-        },
-        importer: {
-          title: 'Importar وظائف',
-          fileName: 'jobs_import_template',
-          hint:
-            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
-        },
-      },
-
-    departments: {
-        name: 'departments',
-        label: 'الاقسام ',
-        menu: 'الاقسام ',
-        exporterFileName: 'exportacion_departments',
-        list: {
-          menu: 'الاقسام ',
-          title: 'الاقسام ',
-        },
-        create: {
-          success: 'الاقسام  guardado con éxito',
-        },
-        update: {
-          success: 'الاقسام  guardado con éxito',
-        },
-        destroy: {
-          success: 'الاقسام  eliminado con éxito',
-        },
-        destroyAll: {
-          success: 'الاقسام (s) eliminado con éxito',
-        },
-        edit: {
-          title: 'Editar الاقسام ',
-        },
-        fields: {
-          id: 'Id',
-          'departmentName': 'اسم القسم ',
-          createdAt: 'Creado el',
-          updatedAt: 'Actualizado el',
-          createdAtRange: 'Creado el',
-        },
-        enumerators: {
-
-        },
-        placeholders: {
-
-        },
-        hints: {
-
-        },
-        new: {
-          title: 'Nuevo الاقسام ',
-        },
-        view: {
-          title: 'Ver الاقسام ',
-        },
-        importer: {
-          title: 'Importar الاقسام ',
-          fileName: 'departments_import_template',
           hint:
             'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
         },
@@ -803,7 +757,6 @@ const es = {
           'noBalance': 'عدد أيام رصيد الإجازة',
           'remarks': 'ملاحظات',
           'status': 'حالة طلب الإجازة',
-          'jobs': 'Jobs',
           createdAt: 'Creado el',
           updatedAt: 'Actualizado el',
           createdAtRange: 'Creado el',
@@ -846,179 +799,6 @@ const es = {
         },
       },
 
-    claim: {
-        name: 'claim',
-        label: 'التظلم',
-        menu: 'التظلم',
-        exporterFileName: 'exportacion_claim',
-        list: {
-          menu: 'التظلم',
-          title: 'التظلم',
-        },
-        create: {
-          success: 'التظلم guardado con éxito',
-        },
-        update: {
-          success: 'التظلم guardado con éxito',
-        },
-        destroy: {
-          success: 'التظلم eliminado con éxito',
-        },
-        destroyAll: {
-          success: 'التظلم(s) eliminado con éxito',
-        },
-        edit: {
-          title: 'Editar التظلم',
-        },
-        fields: {
-          id: 'Id',
-          'problemDescription': 'شرح المشكلة',
-          createdAt: 'Creado el',
-          updatedAt: 'Actualizado el',
-          createdAtRange: 'Creado el',
-        },
-        enumerators: {
-
-        },
-        placeholders: {
-          'problemDescription': 'أكتب شرح المشكلة هنا.......',
-        },
-        hints: {
-
-        },
-        new: {
-          title: 'Nuevo التظلم',
-        },
-        view: {
-          title: 'Ver التظلم',
-        },
-        importer: {
-          title: 'Importar التظلم',
-          fileName: 'claim_import_template',
-          hint:
-            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
-        },
-      },
-
-    advancedPayment: {
-        name: 'advancedPayment',
-        label: 'سلفة راتب',
-        menu: 'سلفة راتب',
-        exporterFileName: 'exportacion_advancedPayment',
-        list: {
-          menu: 'سلفة راتب',
-          title: 'سلفة راتب',
-        },
-        create: {
-          success: 'سلفة راتب guardado con éxito',
-        },
-        update: {
-          success: 'سلفة راتب guardado con éxito',
-        },
-        destroy: {
-          success: 'سلفة راتب eliminado con éxito',
-        },
-        destroyAll: {
-          success: 'سلفة راتب(s) eliminado con éxito',
-        },
-        edit: {
-          title: 'Editar سلفة راتب',
-        },
-        fields: {
-          id: 'Id',
-          'amountRange': 'المبلغ المطلوب للسلفة',
-          'amount': 'المبلغ المطلوب للسلفة',
-          'dateRequiredRange': 'تاريخ الصرف المطلوب',
-          'dateRequired': 'تاريخ الصرف المطلوب',
-          'paymentReason': 'أسباب طلب السلفة',
-          createdAt: 'Creado el',
-          updatedAt: 'Actualizado el',
-          createdAtRange: 'Creado el',
-        },
-        enumerators: {
-
-        },
-        placeholders: {
-          'amount': 'أدخل المبلغ هنا',
-          'paymentReason': 'اشرح بإيجاز الأسباب الموجبة لطلب السلفة',
-        },
-        hints: {
-
-        },
-        new: {
-          title: 'Nuevo سلفة راتب',
-        },
-        view: {
-          title: 'Ver سلفة راتب',
-        },
-        importer: {
-          title: 'Importar سلفة راتب',
-          fileName: 'advancedPayment_import_template',
-          hint:
-            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
-        },
-      },
-
-    tellProblem: {
-        name: 'tellProblem',
-        label: 'الإبلاغ عن مشكلة',
-        menu: 'الإبلاغ عن مشكلة',
-        exporterFileName: 'exportacion_tellProblem',
-        list: {
-          menu: 'الإبلاغ عن مشكلة',
-          title: 'الإبلاغ عن مشكلة',
-        },
-        create: {
-          success: 'الإبلاغ عن مشكلة  guardado con éxito',
-        },
-        update: {
-          success: 'الإبلاغ عن مشكلة  guardado con éxito',
-        },
-        destroy: {
-          success: 'الإبلاغ عن مشكلة  eliminado con éxito',
-        },
-        destroyAll: {
-          success: 'الإبلاغ عن مشكلة (s) eliminado con éxito',
-        },
-        edit: {
-          title: 'Editar الإبلاغ عن مشكلة ',
-        },
-        fields: {
-          id: 'Id',
-          'problemDescription': 'شرح فحوى المشكلة',
-          'occuranceDateRange': 'تاريخ الحدوث',
-          'occuranceDate': 'تاريخ الحدوث',
-          'possibleCauses': 'الأسباب المحتملة',
-          'suggestedSolves': 'الحلول المقترحة',
-          createdAt: 'Creado el',
-          updatedAt: 'Actualizado el',
-          createdAtRange: 'Creado el',
-        },
-        enumerators: {
-
-        },
-        placeholders: {
-          'problemDescription': 'اشرح المشكلة هنا',
-          'possibleCauses': 'الأسباب المحتملة',
-          'suggestedSolves': 'الحلول المقترحة',
-        },
-        hints: {
-
-        },
-        new: {
-          title: 'Nuevo الإبلاغ عن مشكلة ',
-        },
-        view: {
-          title: 'Ver الإبلاغ عن مشكلة ',
-        },
-        importer: {
-          title: 'Importar الإبلاغ عن مشكلة',
-          fileName: 'tellProblem_import_template',
-          hint:
-            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
-        },
-      },
-
     employmentContract: {
         name: 'employmentContract',
         label: 'عقد العمل',
@@ -1045,20 +825,27 @@ const es = {
         },
         fields: {
           id: 'Id',
-          'employeeName': 'اسم الموظف',
-          'workingPeriodRange': 'عدد ساعات العمل',
-          'workingPeriod': 'عدد ساعات العمل',
-          'employmentSalaryRange': 'الراتب المتفق عليه',
-          'employmentSalary': 'الراتب المتفق عليه',
-          'jobRoles': 'مهام العمل',
-          'employeeContactEmail': 'البريد الالكتروني للتواصل',
-          'mobileNumberRange': 'رقم الموبايل',
-          'mobileNumber': 'رقم الموبايل',
-          'homeAddress': 'مكان السكن',
-          'contractPeriodRange': 'مدة عقد العمل',
-          'contractPeriod': 'مدة عقد العمل',
-          'startDateRange': 'تاريخ بدء العمل',
-          'startDate': 'تاريخ بدء العمل',
+          'contractDateRange': 'تاريخ إبرام العقد',
+          'contractDate': 'تاريخ إبرام العقد',
+          'companyRepresentative': 'ممثل الشركة',
+          'secondParty': 'الطرف الثاني',
+          'nationality': 'الجنسية',
+          'passportNumber': 'رقم جواز السفر',
+          'passportIssueDateRange': 'تاريخ صدور جواز السفر',
+          'passportIssueDate': 'تاريخ صدور جواز السفر',
+          'email': 'البريد الإلكتروني',
+          'jobTitle': 'المسمى الوظيفي',
+          'dailyWorkingHoursRange': 'ساعات العمل اليومية',
+          'dailyWorkingHours': 'ساعات العمل اليومية',
+          'weeklyWorkingHoursRange': 'ساعات العمل الأسبوعية',
+          'weeklyWorkingHours': 'ساعات العمل الأسبوعية',
+          'weekEndDay': 'يوم الراحة',
+          'workStartDateRange': 'تاريخ بدء العمل',
+          'workStartDate': 'تاريخ بدء العمل',
+          'employeeName': 'اسم العامل',
+          'positionName': 'المسمى الوظيفي',
+          'basicSalaryRange': 'ألراتب الأساسي',
+          'basicSalary': 'ألراتب الأساسي',
           createdAt: 'Creado el',
           updatedAt: 'Actualizado el',
           createdAtRange: 'Creado el',
@@ -1067,17 +854,21 @@ const es = {
 
         },
         placeholders: {
-          'employeeName': 'اسم الموظف',
-          'workingPeriod': 'عدد ساعات العمل',
-          'employmentSalary': 'الراتب المتفق عليه',
-          'jobRoles': 'مهام العمل',
-          'employeeContactEmail': 'البريد الالكتروني',
-          'mobileNumber': 'رقم الموبايل',
-          'homeAddress': 'مكان السكن',
-          'contractPeriod': 'مدة عقد العمل',
+          'companyRepresentative': 'ممثل الشركة في العقد',
+          'secondParty': 'الطرف الثاني من العقد',
+          'nationality': 'الجنسية',
+          'passportNumber': 'رقم جواز السفر',
+          'email': 'البريد الإلكتروني',
+          'jobTitle': 'المسمى الوظيفي',
+          'dailyWorkingHours': 'عدد ساعات العمل الفعلية اليومية',
+          'weeklyWorkingHours': 'عدد ساعات العمل الفعلية بالأسبوع',
+          'weekEndDay': 'يوم الراحة',
+          'employeeName': 'اسم العامل/المتعاقد معه',
+          'positionName': 'المسمى الوظيفي',
+          'basicSalary': 'الراتب الأساسي',
         },
         hints: {
-          'contractPeriod': 'المدة الشهرية',
+
         },
         new: {
           title: 'Nuevo عقد العمل ',
@@ -1088,6 +879,514 @@ const es = {
         importer: {
           title: 'Importar عقد العمل',
           fileName: 'employmentContract_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    connectionLevel: {
+        name: 'connectionLevel',
+        label: 'ConnectionLevels',
+        menu: 'ConnectionLevels',
+        exporterFileName: 'exportacion_connectionLevel',
+        list: {
+          menu: 'ConnectionLevels',
+          title: 'ConnectionLevels',
+        },
+        create: {
+          success: 'مستوى الاتصال guardado con éxito',
+        },
+        update: {
+          success: 'مستوى الاتصال guardado con éxito',
+        },
+        destroy: {
+          success: 'مستوى الاتصال eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'مستوى الاتصال(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar مستوى الاتصال',
+        },
+        fields: {
+          id: 'Id',
+          'external': 'الخارجي',
+          'internal': 'الداخلي',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'external': 'حدد مستوى الاتصال بكلمة',
+          'internal': 'حدد مستوى الاتصال بكلمة',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo مستوى الاتصال',
+        },
+        view: {
+          title: 'Ver مستوى الاتصال',
+        },
+        importer: {
+          title: 'Importar ConnectionLevels',
+          fileName: 'connectionLevel_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    commonComitees: {
+        name: 'commonComitees',
+        label: 'CommonComitees',
+        menu: 'CommonComitees',
+        exporterFileName: 'exportacion_commonComitees',
+        list: {
+          menu: 'CommonComitees',
+          title: 'CommonComitees',
+        },
+        create: {
+          success: 'اللجان المشتركة guardado con éxito',
+        },
+        update: {
+          success: 'اللجان المشتركة guardado con éxito',
+        },
+        destroy: {
+          success: 'اللجان المشتركة eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'اللجان المشتركة(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar اللجان المشتركة',
+        },
+        fields: {
+          id: 'Id',
+          'addedCommittee': 'اللجان المضافة',
+          'menus': 'Menus',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+          'menus': {
+            ': لجنة المبايعات': ': لجنة المبايعات',
+            'لجنة المسافرات': 'لجنة المسافرات',
+            'لجنة المصالحات': 'لجنة المصالحات',
+            'لجنة اللجان': 'لجنة اللجان',
+          },
+        },
+        placeholders: {
+          'addedCommittee': 'أضف اسم اللجنة هنا',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo اللجان المشتركة',
+        },
+        view: {
+          title: 'Ver اللجان المشتركة',
+        },
+        importer: {
+          title: 'Importar CommonComitees',
+          fileName: 'commonComitees_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    jobRequirments: {
+        name: 'jobRequirments',
+        label: 'JobRequirments',
+        menu: 'JobRequirments',
+        exporterFileName: 'exportacion_jobRequirments',
+        list: {
+          menu: 'JobRequirments',
+          title: 'JobRequirments',
+        },
+        create: {
+          success: 'متطلبات الوظيفة guardado con éxito',
+        },
+        update: {
+          success: 'متطلبات الوظيفة guardado con éxito',
+        },
+        destroy: {
+          success: 'متطلبات الوظيفة eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'متطلبات الوظيفة(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar متطلبات الوظيفة',
+        },
+        fields: {
+          id: 'Id',
+          'tactLevel': 'مستوى اللباقة',
+          'experienceYearsRange': 'سنوات الخبرة',
+          'experienceYears': 'سنوات الخبرة',
+          'minKPI': 'الحد الأدنى لمعايير الأداء المتوقع',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo متطلبات الوظيفة',
+        },
+        view: {
+          title: 'Ver متطلبات الوظيفة',
+        },
+        importer: {
+          title: 'Importar JobRequirments',
+          fileName: 'jobRequirments_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    jobPath: {
+        name: 'jobPath',
+        label: 'JobPaths',
+        menu: 'JobPaths',
+        exporterFileName: 'exportacion_jobPath',
+        list: {
+          menu: 'JobPaths',
+          title: 'JobPaths',
+        },
+        create: {
+          success: 'المسار الوظيفي guardado con éxito',
+        },
+        update: {
+          success: 'المسار الوظيفي guardado con éxito',
+        },
+        destroy: {
+          success: 'المسار الوظيفي eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'المسار الوظيفي(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar المسار الوظيفي',
+        },
+        fields: {
+          id: 'Id',
+          'jobName': 'الوظيفة',
+          'promotionIndicators': 'مؤشرات الترقي',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo المسار الوظيفي',
+        },
+        view: {
+          title: 'Ver المسار الوظيفي',
+        },
+        importer: {
+          title: 'Importar JobPaths',
+          fileName: 'jobPath_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    tasksDuties: {
+        name: 'tasksDuties',
+        label: 'TasksDuties',
+        menu: 'TasksDuties',
+        exporterFileName: 'exportacion_tasksDuties',
+        list: {
+          menu: 'TasksDuties',
+          title: 'TasksDuties',
+        },
+        create: {
+          success: 'TasksDuties guardado con éxito',
+        },
+        update: {
+          success: 'TasksDuties guardado con éxito',
+        },
+        destroy: {
+          success: 'TasksDuties eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'TasksDuties(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar TasksDuties',
+        },
+        fields: {
+          id: 'Id',
+          'tasksDuties': 'المهام و الواجبات',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo TasksDuties',
+        },
+        view: {
+          title: 'Ver TasksDuties',
+        },
+        importer: {
+          title: 'Importar TasksDuties',
+          fileName: 'tasksDuties_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    administrativeFinancialPowers: {
+        name: 'administrativeFinancialPowers',
+        label: 'AdministrativeFinancialPowers',
+        menu: 'AdministrativeFinancialPowers',
+        exporterFileName: 'exportacion_administrativeFinancialPowers',
+        list: {
+          menu: 'AdministrativeFinancialPowers',
+          title: 'AdministrativeFinancialPowers',
+        },
+        create: {
+          success: 'الصلاحيات الإدارية و المالية guardado con éxito',
+        },
+        update: {
+          success: 'الصلاحيات الإدارية و المالية guardado con éxito',
+        },
+        destroy: {
+          success: 'الصلاحيات الإدارية و المالية eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'الصلاحيات الإدارية و المالية(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar الصلاحيات الإدارية و المالية',
+        },
+        fields: {
+          id: 'Id',
+          'administrativeFinancialPowers': 'الصلاحيات الإدارية و المالية',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo الصلاحيات الإدارية و المالية',
+        },
+        view: {
+          title: 'Ver الصلاحيات الإدارية و المالية',
+        },
+        importer: {
+          title: 'Importar AdministrativeFinancialPowers',
+          fileName: 'administrativeFinancialPowers_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    cardInformation: {
+        name: 'cardInformation',
+        label: 'CardInformations',
+        menu: 'CardInformations',
+        exporterFileName: 'exportacion_cardInformation',
+        list: {
+          menu: 'CardInformations',
+          title: 'CardInformations',
+        },
+        create: {
+          success: 'بيانات البطاقة guardado con éxito',
+        },
+        update: {
+          success: 'بيانات البطاقة guardado con éxito',
+        },
+        destroy: {
+          success: 'بيانات البطاقة eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'بيانات البطاقة(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar بيانات البطاقة',
+        },
+        fields: {
+          id: 'Id',
+          'version': 'الإصدار',
+          'dateRange': 'التاريخ',
+          'date': 'التاريخ',
+          'generalManager': 'المدير العام',
+          'hRManager': 'مدير الموارد البشرية',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo بيانات البطاقة',
+        },
+        view: {
+          title: 'Ver بيانات البطاقة',
+        },
+        importer: {
+          title: 'Importar CardInformations',
+          fileName: 'cardInformation_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    tellProblem: {
+        name: 'tellProblem',
+        label: 'TellProblems',
+        menu: 'TellProblems',
+        exporterFileName: 'exportacion_tellProblem',
+        list: {
+          menu: 'TellProblems',
+          title: 'TellProblems',
+        },
+        create: {
+          success: 'الإبلاغ عن مشكلة guardado con éxito',
+        },
+        update: {
+          success: 'الإبلاغ عن مشكلة guardado con éxito',
+        },
+        destroy: {
+          success: 'الإبلاغ عن مشكلة eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'الإبلاغ عن مشكلة(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar الإبلاغ عن مشكلة',
+        },
+        fields: {
+          id: 'Id',
+          'problemDescription': 'شرح محتوى المشكلة',
+          'problemDateRange': 'تاريخ الحدوث',
+          'problemDate': 'تاريخ الحدوث',
+          'problemCauses': 'الأسباب المحتملة',
+          'problemSolutions': 'الحلول المقترحة',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'problemDescription': 'شرح المشكلة هنا',
+          'problemCauses': 'الأسباب المحتملة',
+          'problemSolutions': 'الحلول المقترحة',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo الإبلاغ عن مشكلة',
+        },
+        view: {
+          title: 'Ver الإبلاغ عن مشكلة',
+        },
+        importer: {
+          title: 'Importar TellProblems',
+          fileName: 'tellProblem_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    departments: {
+        name: 'departments',
+        label: 'Departments',
+        menu: 'Departments',
+        exporterFileName: 'exportacion_departments',
+        list: {
+          menu: 'Departments',
+          title: 'Departments',
+        },
+        create: {
+          success: 'الأقسام guardado con éxito',
+        },
+        update: {
+          success: 'الأقسام guardado con éxito',
+        },
+        destroy: {
+          success: 'الأقسام eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'الأقسام(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar الأقسام',
+        },
+        fields: {
+          id: 'Id',
+          'departments': 'ألأقسام',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        placeholders: {
+          'departments': 'القسم',
+        },
+        hints: {
+
+        },
+        new: {
+          title: 'Nuevo الأقسام',
+        },
+        view: {
+          title: 'Ver الأقسام',
+        },
+        importer: {
+          title: 'Importar Departments',
+          fileName: 'departments_import_template',
           hint:
             'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
         },

@@ -56,16 +56,12 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'candidates',
-    loadChildren: () => import('./candidates/candidates.module').then(m => m.CandidatesModule),
-  },
-  {
     path: 'jobs',
     loadChildren: () => import('./jobs/jobs.module').then(m => m.JobsModule),
   },
   {
-    path: 'departments',
-    loadChildren: () => import('./departments/departments.module').then(m => m.DepartmentsModule),
+    path: 'candidates',
+    loadChildren: () => import('./candidates/candidates.module').then(m => m.CandidatesModule),
   },
   {
     path: 'academic-certificates',
@@ -108,20 +104,44 @@ const routes: Routes = [
     loadChildren: () => import('./leave-application-form/leave-application-form.module').then(m => m.LeaveApplicationFormModule),
   },
   {
-    path: 'claim',
-    loadChildren: () => import('./claim/claim.module').then(m => m.ClaimModule),
+    path: 'employment-contract',
+    loadChildren: () => import('./employment-contract/employment-contract.module').then(m => m.EmploymentContractModule),
   },
   {
-    path: 'advanced-payment',
-    loadChildren: () => import('./advanced-payment/advanced-payment.module').then(m => m.AdvancedPaymentModule),
+    path: 'connection-level',
+    loadChildren: () => import('./connection-level/connection-level.module').then(m => m.ConnectionLevelModule),
+  },
+  {
+    path: 'common-comitees',
+    loadChildren: () => import('./common-comitees/common-comitees.module').then(m => m.CommonComiteesModule),
+  },
+  {
+    path: 'job-requirments',
+    loadChildren: () => import('./job-requirments/job-requirments.module').then(m => m.JobRequirmentsModule),
+  },
+  {
+    path: 'job-path',
+    loadChildren: () => import('./job-path/job-path.module').then(m => m.JobPathModule),
+  },
+  {
+    path: 'tasks-duties',
+    loadChildren: () => import('./tasks-duties/tasks-duties.module').then(m => m.TasksDutiesModule),
+  },
+  {
+    path: 'administrative-financial-powers',
+    loadChildren: () => import('./administrative-financial-powers/administrative-financial-powers.module').then(m => m.AdministrativeFinancialPowersModule),
+  },
+  {
+    path: 'card-information',
+    loadChildren: () => import('./card-information/card-information.module').then(m => m.CardInformationModule),
   },
   {
     path: 'tell-problem',
     loadChildren: () => import('./tell-problem/tell-problem.module').then(m => m.TellProblemModule),
   },
   {
-    path: 'employment-contract',
-    loadChildren: () => import('./employment-contract/employment-contract.module').then(m => m.EmploymentContractModule),
+    path: 'departments',
+    loadChildren: () => import('./departments/departments.module').then(m => m.DepartmentsModule),
   },
   { path: '403', component: Error403Component },
   { path: '500', component: Error500Component },

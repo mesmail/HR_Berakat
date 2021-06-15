@@ -10,7 +10,6 @@ import EnumeratorField from 'src/app/shared/fields/enumerator-field';
 import DateField from 'src/app/shared/fields/date-field';
 import DateRangeField from 'src/app/shared/fields/date-range-field';
 import { JobsField } from 'src/app/jobs/jobs-field';
-import { DepartmentsField } from 'src/app/departments/departments-field';
 
 function label(name) {
   return i18n(`entities.leaveApplicationForm.fields.${name}`);
@@ -24,7 +23,7 @@ const fields = {
   id: new IdField('id', label('id')),
   name: new StringField('name', label('name'), {}),
   position: JobsField.relationToOne('position', label('position'), {}),
-  department: DepartmentsField.relationToOne('department', label('department'), {}),
+  department: new StringField('department', label('department'), {}),
   date: new DateField('date', label('date'), {}),
   contactNo: new StringField('contactNo', label('contactNo'), {}),
   employeeNo: new StringField('employeeNo', label('employeeNo'), {}),
@@ -52,9 +51,6 @@ const fields = {
     { id: 'موافقة المدير العام', label: enumeratorLabel('status', 'موافقة المدير العام') },
     { id: 'رفضها المدير العام', label: enumeratorLabel('status', 'رفضها المدير العام') },
   ],{}),
-  jobs: JobsField.relationToOne('jobs', label('jobs'), {
-    "required": true
-  }),
   createdAt: new DateTimeField(
     'createdAt',
     label('createdAt'),

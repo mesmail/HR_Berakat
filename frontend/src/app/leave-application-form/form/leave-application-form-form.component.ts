@@ -73,7 +73,6 @@ export class LeaveApplicationFormFormComponent implements OnInit {
         this.fields.noBalance,
         this.fields.remarks,
         this.fields.status,
-        this.fields.jobs,
       ],
       this.formBuilder,
     );

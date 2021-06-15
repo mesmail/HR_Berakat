@@ -70,7 +70,7 @@ export class DepartmentsListFilterComponent implements OnInit {
   private buildSchema() {
     this.schema = new FilterSchema(
       [
-        this.fields.departmentName,
+        this.fields.departments,
       ],
       this.formBuilder,
     );

@@ -30,6 +30,8 @@ export default class Storage {
         maxSizeInBytes: 10 * 1024 * 1024,
         publicRead: true,
       },
+
+
       candidatesResume: {
         id: 'candidatesResume',
         folder: 'tenant/:tenantId/candidates/resume',
@@ -40,6 +42,14 @@ export default class Storage {
         folder: 'tenant/:tenantId/candidates/photo',
         maxSizeInBytes: 100 * 1024 * 1024,
       },
+
+
+
+
+
+
+
+
 
 
 

@@ -71,7 +71,7 @@ export default class TenantService {
     await TenantUserRepository.create(
       record,
       this.options.currentUser,
-      [Roles.values.custom],
+      [Roles.values.admin],
       {
         ...this.options,
         transaction,
@@ -194,7 +194,7 @@ export default class TenantService {
       await TenantUserRepository.create(
         record,
         this.options.currentUser,
-        [Roles.values.custom],
+        [Roles.values.admin],
         {
           ...this.options,
           transaction,

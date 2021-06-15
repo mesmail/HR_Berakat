@@ -58,9 +58,9 @@ export class TellProblemFormComponent implements OnInit {
     this.schema = new FormSchema(
       [
         this.fields.problemDescription,
-        this.fields.occuranceDate,
-        this.fields.possibleCauses,
-        this.fields.suggestedSolves,
+        this.fields.problemDate,
+        this.fields.problemCauses,
+        this.fields.problemSolutions,
       ],
       this.formBuilder,
     );

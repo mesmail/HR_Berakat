@@ -1,11 +1,7 @@
 <h1 mat-dialog-title>
-  <app-i18n key="entities.jobs.new.title"></app-i18n>
+    <app-i18n key="entities.jobs.new.title"></app-i18n>
 </h1>
 <mat-dialog-content>
-  <app-jobs-form
-    [saveLoading]="saveLoading"
-    (save)="doCreate($event)"
-    (cancel)="doCancel()"
-    [modal]="true"
-  ></app-jobs-form>
+    <app-jobs-form [saveLoading]="saveLoading" (save)="doCreate($event)" (cancel)="doCancel()" [modal]="true">
+    </app-jobs-form>
 </mat-dialog-content>

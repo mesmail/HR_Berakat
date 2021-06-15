@@ -9,6 +9,108 @@ export default function (sequelize) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
+      contractDate: {
+        type: DataTypes.DATEONLY,
+        get: function() {
+          // @ts-ignore
+          return this.getDataValue('contractDate')
+            ? moment
+                // @ts-ignore
+                .utc(this.getDataValue('contractDate'))
+                .format('YYYY-MM-DD')
+            : null;
+        },
+        allowNull: false,
+      },
+      companyRepresentative: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      secondParty: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      nationality: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      passportNumber: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      passportIssueDate: {
+        type: DataTypes.DATEONLY,
+        get: function() {
+          // @ts-ignore
+          return this.getDataValue('passportIssueDate')
+            ? moment
+                // @ts-ignore
+                .utc(this.getDataValue('passportIssueDate'))
+                .format('YYYY-MM-DD')
+            : null;
+        },
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      jobTitle: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      dailyWorkingHours: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+
+        }
+      },
+      weeklyWorkingHours: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+
+        }
+      },
+      weekEndDay: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        }
+      },
+      workStartDate: {
+        type: DataTypes.DATEONLY,
+        get: function() {
+          // @ts-ignore
+          return this.getDataValue('workStartDate')
+            ? moment
+                // @ts-ignore
+                .utc(this.getDataValue('workStartDate'))
+                .format('YYYY-MM-DD')
+            : null;
+        },
+        allowNull: false,
+      },
       employeeName: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -16,67 +118,19 @@ export default function (sequelize) {
           notEmpty: true,
         }
       },
-      workingPeriod: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-
-        }
-      },
-      employmentSalary: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-        validate: {
-
-        }
-      },
-      jobRoles: {
+      positionName: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notEmpty: true,
         }
       },
-      employeeContactEmail: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        }
-      },
-      mobileNumber: {
+      basicSalary: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
 
         }
-      },
-      homeAddress: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        }
-      },
-      contractPeriod: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-
-        }
-      },
-      startDate: {
-        type: DataTypes.DATEONLY,
-        get: function() {
-          // @ts-ignore
-          return this.getDataValue('startDate')
-            ? moment
-                // @ts-ignore
-                .utc(this.getDataValue('startDate'))
-                .format('YYYY-MM-DD')
-            : null;
-        },
-        allowNull: false,
       },
       importHash: {
         type: DataTypes.STRING(255),

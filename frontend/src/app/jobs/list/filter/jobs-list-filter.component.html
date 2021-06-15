@@ -31,14 +31,6 @@
 
       <div class="col-xs-12 col-lg-6">
         <app-autocomplete-form-field
-          [control]="form.get(fields.department.name)"
-          [label]="fields.department.label"
-          [fetchFn]="fields.department.fetchFn"
-        ></app-autocomplete-form-field>
-      </div>
-
-      <div class="col-xs-12 col-lg-6">
-        <app-autocomplete-form-field
           [control]="form.get(fields.supervisor.name)"
           [label]="fields.supervisor.label"
           [fetchFn]="fields.supervisor.fetchFn"
@@ -72,23 +64,6 @@
             <app-validations
               [control]="form.get(fields.jobCode.name)"
               [label]="fields.jobCode.label"
-            ></app-validations>
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class="col-xs-12 col-lg-6">
-        <mat-form-field floatLabel="always" appearance="outline">
-          <mat-label>{{ fields.releaseDate.label }}</mat-label>
-          <app-date-time-range-input
-            [formControl]="
-              form.get(fields.releaseDateRange.name)
-            "
-          ></app-date-time-range-input>
-          <mat-error>
-            <app-validations
-              [control]="form.get(fields.releaseDateRange.name)"
-              [label]="fields.releaseDateRange.label"
             ></app-validations>
           </mat-error>
         </mat-form-field>
@@ -144,9 +119,105 @@
 
       <div class="col-xs-12 col-lg-6">
         <app-autocomplete-form-field
-          [control]="form.get(fields.personalAndTechnicalSkills.name)"
-          [label]="fields.personalAndTechnicalSkills.label"
-          [fetchFn]="fields.personalAndTechnicalSkills.fetchFn"
+          [control]="form.get(fields.academicCertificates.name)"
+          [label]="fields.academicCertificates.label"
+          [fetchFn]="fields.academicCertificates.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.trainingCertificates.name)"
+          [label]="fields.trainingCertificates.label"
+          [fetchFn]="fields.trainingCertificates.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.professionalCertificates.name)"
+          [label]="fields.professionalCertificates.label"
+          [fetchFn]="fields.professionalCertificates.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.softSkills.name)"
+          [label]="fields.softSkills.label"
+          [fetchFn]="fields.softSkills.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.managementSkills.name)"
+          [label]="fields.managementSkills.label"
+          [fetchFn]="fields.managementSkills.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.artitistikSkills.name)"
+          [label]="fields.artitistikSkills.label"
+          [fetchFn]="fields.artitistikSkills.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.jobFramework.name)"
+          [label]="fields.jobFramework.label"
+          [fetchFn]="fields.jobFramework.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.connectionLevel.name)"
+          [label]="fields.connectionLevel.label"
+          [fetchFn]="fields.connectionLevel.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.jobRequirments.name)"
+          [label]="fields.jobRequirments.label"
+          [fetchFn]="fields.jobRequirments.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.jobPath.name)"
+          [label]="fields.jobPath.label"
+          [fetchFn]="fields.jobPath.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.tasksDuties.name)"
+          [label]="fields.tasksDuties.label"
+          [fetchFn]="fields.tasksDuties.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.administrativeFinancialPowers.name)"
+          [label]="fields.administrativeFinancialPowers.label"
+          [fetchFn]="fields.administrativeFinancialPowers.fetchFn"
+        ></app-autocomplete-form-field>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <app-autocomplete-form-field
+          [control]="form.get(fields.cardInformation.name)"
+          [label]="fields.cardInformation.label"
+          [fetchFn]="fields.cardInformation.fetchFn"
         ></app-autocomplete-form-field>
       </div>
     </div>

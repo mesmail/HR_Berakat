@@ -26,7 +26,7 @@ class DepartmentsRepository {
     const record = await options.database.departments.create(
       {
         ...lodash.pick(data, [
-          'departmentName',          
+          'departments',          
           'importHash',
         ]),
 
@@ -84,7 +84,7 @@ class DepartmentsRepository {
     record = await record.update(
       {
         ...lodash.pick(data, [
-          'departmentName',          
+          'departments',          
           'importHash',
         ]),
 
@@ -258,12 +258,12 @@ class DepartmentsRepository {
         });
       }
 
-      if (filter.departmentName) {
+      if (filter.departments) {
         whereAnd.push(
           SequelizeFilterUtils.ilikeIncludes(
             'departments',
-            'departmentName',
-            filter.departmentName,
+            'departments',
+            filter.departments,
           ),
         );
       }
@@ -336,13 +336,7 @@ class DepartmentsRepository {
       whereAnd.push({
         [Op.or]: [
           { ['id']: SequelizeFilterUtils.uuid(query) },
-          {
-            [Op.and]: SequelizeFilterUtils.ilikeIncludes(
-              'departments',
-              'departmentName',
-              query,
-            ),
-          },
+
         ],
       });
     }
@@ -351,16 +345,16 @@ class DepartmentsRepository {
 
     const records = await options.database.departments.findAll(
       {
-        attributes: ['id', 'departmentName'],
+        attributes: ['id', 'id'],
         where,
         limit: limit ? Number(limit) : undefined,
-        order: [['departmentName', 'ASC']],
+        order: [['id', 'ASC']],
       },
     );
 
     return records.map((record) => ({
       id: record.id,
-      label: record.departmentName,
+      label: record.id,
     }));
   }
 

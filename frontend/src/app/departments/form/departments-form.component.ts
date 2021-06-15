@@ -57,7 +57,7 @@ export class DepartmentsFormComponent implements OnInit {
   private buildSchema() {
     this.schema = new FormSchema(
       [
-        this.fields.departmentName,
+        this.fields.departments,
       ],
       this.formBuilder,
     );

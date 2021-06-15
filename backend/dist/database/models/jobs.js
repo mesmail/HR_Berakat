@@ -17,9 +17,6 @@ function default_1(sequelize) {
         jobCode: {
             type: sequelize_1.DataTypes.TEXT,
         },
-        releaseDate: {
-            type: sequelize_1.DataTypes.DATE,
-        },
         generalDescription: {
             type: sequelize_1.DataTypes.TEXT,
         },
@@ -50,22 +47,74 @@ function default_1(sequelize) {
         paranoid: true,
     });
     jobs.associate = (models) => {
-        models.jobs.belongsTo(models.departments, {
+        models.jobs.belongsToMany(models.departments, {
             as: 'department',
             constraints: false,
+            through: 'jobsDepartmentDepartments',
         });
         models.jobs.belongsTo(models.user, {
             as: 'supervisor',
             constraints: false,
         });
-        models.jobs.hasMany(models.leaveApplicationForm, {
-            as: 'leaves',
+        models.jobs.belongsTo(models.academicCertificates, {
+            as: 'academicCertificates',
             constraints: false,
-            foreignKey: 'jobsId',
+        });
+        models.jobs.belongsTo(models.trainingCertificates, {
+            as: 'trainingCertificates',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.professionalCertifications, {
+            as: 'professionalCertificates',
+            constraints: false,
         });
         models.jobs.belongsTo(models.softSkills, {
-            as: 'personalAndTechnicalSkills',
+            as: 'softSkills',
             constraints: false,
+        });
+        models.jobs.belongsTo(models.managementSkills, {
+            as: 'managementSkills',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.artisticSkills, {
+            as: 'artitistikSkills',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.jobFrameworks, {
+            as: 'jobFramework',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.connectionLevel, {
+            as: 'connectionLevel',
+            constraints: false,
+        });
+        models.jobs.belongsToMany(models.commonComitees, {
+            as: 'commonCommittees',
+            constraints: false,
+            through: 'jobsCommonCommitteesCommonComitees',
+        });
+        models.jobs.belongsTo(models.jobRequirments, {
+            as: 'jobRequirments',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.jobPath, {
+            as: 'jobPath',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.tasksDuties, {
+            as: 'tasksDuties',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.administrativeFinancialPowers, {
+            as: 'administrativeFinancialPowers',
+            constraints: false,
+        });
+        models.jobs.belongsTo(models.cardInformation, {
+            as: 'cardInformation',
+            constraints: false,
+            foreignKey: {
+                allowNull: false,
+            },
         });
         models.jobs.belongsTo(models.tenant, {
             as: 'tenant',

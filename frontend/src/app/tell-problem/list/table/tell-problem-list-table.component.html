@@ -34,33 +34,33 @@
       </td>
     </ng-container>
     <ng-container
-      [matColumnDef]="fields.occuranceDate.name"
+      [matColumnDef]="fields.problemDate.name"
     >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.occuranceDate.label }}
+        {{ fields.problemDate.label }}
       </th>
       <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'occuranceDate') }}
+        {{ presenter(row, 'problemDate') }}
       </td>
     </ng-container>
     <ng-container
-      [matColumnDef]="fields.possibleCauses.name"
+      [matColumnDef]="fields.problemCauses.name"
     >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.possibleCauses.label }}
+        {{ fields.problemCauses.label }}
       </th>
       <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'possibleCauses') }}
+        {{ presenter(row, 'problemCauses') }}
       </td>
     </ng-container>
     <ng-container
-      [matColumnDef]="fields.suggestedSolves.name"
+      [matColumnDef]="fields.problemSolutions.name"
     >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.suggestedSolves.label }}
+        {{ fields.problemSolutions.label }}
       </th>
       <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'suggestedSolves') }}
+        {{ presenter(row, 'problemSolutions') }}
       </td>
     </ng-container>
 

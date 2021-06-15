@@ -3,13 +3,19 @@ import { EmploymentContractModel } from 'src/app/employment-contract/employment-
 const { fields } = EmploymentContractModel;
 
 export default [
+  fields.contractDate,
+  fields.companyRepresentative,
+  fields.secondParty,
+  fields.nationality,
+  fields.passportNumber,
+  fields.passportIssueDate,
+  fields.email,
+  fields.jobTitle,
+  fields.dailyWorkingHours,
+  fields.weeklyWorkingHours,
+  fields.weekEndDay,
+  fields.workStartDate,
   fields.employeeName,
-  fields.workingPeriod,
-  fields.employmentSalary,
-  fields.jobRoles,
-  fields.employeeContactEmail,
-  fields.mobileNumber,
-  fields.homeAddress,
-  fields.contractPeriod,
-  fields.startDate,
+  fields.positionName,
+  fields.basicSalary,
 ];

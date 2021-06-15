@@ -40,18 +40,26 @@
     mode="single"
   ></app-jobs-form-field>
 
-  <app-departments-form-field
-    [control]="form.get(fields.department.name)"
-    [label]="fields.department.label"
-    [placeholder]="fields.department.placeholder"
-    [hint]="fields.department.hint"
-    [required]="fields.department.required"
-    [fetchFn]="fields.department.fetchFn"
-    [mapperFn]="fields.department.mapperFn"
-    [showCreate]="!modal"
-    [submitted]="ngForm.submitted"
-    mode="single"
-  ></app-departments-form-field>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.department.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.department.name"
+      [placeholder]="fields.department.placeholder"
+      [required]="fields.department.required"
+    />
+
+    <mat-hint *ngIf="fields.department.hint">
+      {{ fields.department.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.department.name)"
+        [label]="fields.department.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
 
   <mat-form-field floatLabel="always" appearance="outline">
     <mat-label>{{ fields.date.label }}</mat-label>
@@ -344,19 +352,6 @@
       ></app-validations>
     </mat-error>
   </mat-form-field>
-
-  <app-jobs-form-field
-    [control]="form.get(fields.jobs.name)"
-    [label]="fields.jobs.label"
-    [placeholder]="fields.jobs.placeholder"
-    [hint]="fields.jobs.hint"
-    [required]="fields.jobs.required"
-    [fetchFn]="fields.jobs.fetchFn"
-    [mapperFn]="fields.jobs.mapperFn"
-    [showCreate]="!modal"
-    [submitted]="ngForm.submitted"
-    mode="single"
-  ></app-jobs-form-field>
 
   <div
     class="form-buttons"

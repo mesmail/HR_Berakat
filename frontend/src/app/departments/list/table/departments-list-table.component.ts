@@ -52,7 +52,7 @@ export class DepartmentsListTableComponent {
     return [
       '_select',
 
-      this.fields.departmentName.name,
+      this.fields.departments.name,
 
       '_actions',
     ];

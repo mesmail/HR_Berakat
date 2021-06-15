@@ -26,7 +26,7 @@ class DepartmentsRepository {
             const tenant = sequelizeRepository_1.default.getCurrentTenant(options);
             const transaction = sequelizeRepository_1.default.getTransaction(options);
             const record = yield options.database.departments.create(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
-                'departmentName',
+                'departments',
                 'importHash',
             ])), { tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
                 transaction,
@@ -51,7 +51,7 @@ class DepartmentsRepository {
                 throw new Error404_1.default();
             }
             record = yield record.update(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
-                'departmentName',
+                'departments',
                 'importHash',
             ])), { updatedById: currentUser.id }), {
                 transaction,
@@ -147,8 +147,8 @@ class DepartmentsRepository {
                         ['id']: sequelizeFilterUtils_1.default.uuid(filter.id),
                     });
                 }
-                if (filter.departmentName) {
-                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('departments', 'departmentName', filter.departmentName));
+                if (filter.departments) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('departments', 'departments', filter.departments));
                 }
                 if (filter.createdAtRange) {
                     const [start, end] = filter.createdAtRange;
@@ -197,22 +197,19 @@ class DepartmentsRepository {
                 whereAnd.push({
                     [Op.or]: [
                         { ['id']: sequelizeFilterUtils_1.default.uuid(query) },
-                        {
-                            [Op.and]: sequelizeFilterUtils_1.default.ilikeIncludes('departments', 'departmentName', query),
-                        },
                     ],
                 });
             }
             const where = { [Op.and]: whereAnd };
             const records = yield options.database.departments.findAll({
-                attributes: ['id', 'departmentName'],
+                attributes: ['id', 'id'],
                 where,
                 limit: limit ? Number(limit) : undefined,
-                order: [['departmentName', 'ASC']],
+                order: [['id', 'ASC']],
             });
             return records.map((record) => ({
                 id: record.id,
-                label: record.departmentName,
+                label: record.id,
             }));
         });
     }

@@ -6,23 +6,23 @@
   *ngIf="form"
 >
   <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.departmentName.label }}</mat-label>
+    <mat-label>{{ fields.departments.label }}</mat-label>
     <input
       matInput
-      [formControlName]="fields.departmentName.name"
-      [placeholder]="fields.departmentName.placeholder"
-      [required]="fields.departmentName.required"
+      [formControlName]="fields.departments.name"
+      [placeholder]="fields.departments.placeholder"
+      [required]="fields.departments.required"
     appAutofocus
     />
 
-    <mat-hint *ngIf="fields.departmentName.hint">
-      {{ fields.departmentName.hint }}
+    <mat-hint *ngIf="fields.departments.hint">
+      {{ fields.departments.hint }}
     </mat-hint>
 
     <mat-error>
       <app-validations
-        [control]="form.get(fields.departmentName.name)"
-        [label]="fields.departmentName.label"
+        [control]="form.get(fields.departments.name)"
+        [label]="fields.departments.label"
       ></app-validations>
     </mat-error>
   </mat-form-field>

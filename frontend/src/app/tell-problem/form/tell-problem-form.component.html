@@ -7,13 +7,14 @@
 >
   <mat-form-field floatLabel="always" appearance="outline">
     <mat-label>{{ fields.problemDescription.label }}</mat-label>
-    <input
+    <textarea
       matInput
       [formControlName]="fields.problemDescription.name"
+      [rows]="4"
       [placeholder]="fields.problemDescription.placeholder"
       [required]="fields.problemDescription.required"
     appAutofocus
-    />
+    ></textarea>
 
     <mat-hint *ngIf="fields.problemDescription.hint">
       {{ fields.problemDescription.hint }}
@@ -28,65 +29,70 @@
   </mat-form-field>
 
   <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.occuranceDate.label }}</mat-label>
+    <mat-label>{{ fields.problemDate.label }}</mat-label>
     <input
       matInput
-      type="date"
-      [formControlName]="fields.occuranceDate.name"
-      [placeholder]="fields.occuranceDate.placeholder"
-      [required]="fields.occuranceDate.required"
+      [formControlName]="fields.problemDate.name"
+      [placeholder]="fields.problemDate.placeholder"
+      [owlDateTime]="dt1"
+      [owlDateTimeTrigger]="dt1"
+      [required]="fields.problemDate.required"
     />
 
-    <mat-hint *ngIf="fields.occuranceDate.hint">
-      {{ fields.occuranceDate.hint }}
+    <owl-date-time #dt1></owl-date-time>
+
+    <mat-hint *ngIf="fields.problemDate.hint">
+      {{ fields.problemDate.hint }}
     </mat-hint>
 
     <mat-error>
       <app-validations
-        [control]="form.get(fields.occuranceDate.name)"
-        [label]="fields.occuranceDate.label"
+        [control]="form.get(fields.problemDate.name)"
+        [label]="fields.problemDate.label"
       ></app-validations>
     </mat-error>
   </mat-form-field>
 
   <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.possibleCauses.label }}</mat-label>
-    <input
+    <mat-label>{{ fields.problemCauses.label }}</mat-label>
+    <textarea
       matInput
-      [formControlName]="fields.possibleCauses.name"
-      [placeholder]="fields.possibleCauses.placeholder"
-      [required]="fields.possibleCauses.required"
-    />
+      [formControlName]="fields.problemCauses.name"
+      [rows]="4"
+      [placeholder]="fields.problemCauses.placeholder"
+      [required]="fields.problemCauses.required"
+    ></textarea>
 
-    <mat-hint *ngIf="fields.possibleCauses.hint">
-      {{ fields.possibleCauses.hint }}
+    <mat-hint *ngIf="fields.problemCauses.hint">
+      {{ fields.problemCauses.hint }}
     </mat-hint>
 
     <mat-error>
       <app-validations
-        [control]="form.get(fields.possibleCauses.name)"
-        [label]="fields.possibleCauses.label"
+        [control]="form.get(fields.problemCauses.name)"
+        [label]="fields.problemCauses.label"
       ></app-validations>
     </mat-error>
   </mat-form-field>
 
   <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.suggestedSolves.label }}</mat-label>
-    <input
+    <mat-label>{{ fields.problemSolutions.label }}</mat-label>
+    <textarea
       matInput
-      [formControlName]="fields.suggestedSolves.name"
-      [placeholder]="fields.suggestedSolves.placeholder"
-      [required]="fields.suggestedSolves.required"
-    />
+      [formControlName]="fields.problemSolutions.name"
+      [rows]="4"
+      [placeholder]="fields.problemSolutions.placeholder"
+      [required]="fields.problemSolutions.required"
+    ></textarea>
 
-    <mat-hint *ngIf="fields.suggestedSolves.hint">
-      {{ fields.suggestedSolves.hint }}
+    <mat-hint *ngIf="fields.problemSolutions.hint">
+      {{ fields.problemSolutions.hint }}
     </mat-hint>
 
     <mat-error>
       <app-validations
-        [control]="form.get(fields.suggestedSolves.name)"
-        [label]="fields.suggestedSolves.label"
+        [control]="form.get(fields.problemSolutions.name)"
+        [label]="fields.problemSolutions.label"
       ></app-validations>
     </mat-error>
   </mat-form-field>

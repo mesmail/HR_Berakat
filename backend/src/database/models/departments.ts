@@ -9,7 +9,7 @@ export default function (sequelize) {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-      departmentName: {
+      departments: {
         type: DataTypes.TEXT,
       },
       importHash: {

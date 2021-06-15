@@ -9,9 +9,15 @@ function label(name) {
   return i18n(`entities.departments.fields.${name}`);
 }
 
+function placeholder(name) {
+  return i18n(`entities.departments.placeholders.${name}`);
+}
+
 const fields = {
   id: new IdField('id', label('id')),
-  departmentName: new StringField('departmentName', label('departmentName'), {}),
+  departments: new StringField('departments', label('departments'), {
+    "placeholder": placeholder('departments')
+  }),
   createdAt: new DateTimeField(
     'createdAt',
     label('createdAt'),

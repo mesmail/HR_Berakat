@@ -3,8 +3,20 @@ import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
 import JobsRepository from '../database/repositories/jobsRepository';
 import DepartmentsRepository from '../database/repositories/departmentsRepository';
-import LeaveApplicationFormRepository from '../database/repositories/leaveApplicationFormRepository';
+import AcademicCertificatesRepository from '../database/repositories/academicCertificatesRepository';
+import TrainingCertificatesRepository from '../database/repositories/trainingCertificatesRepository';
+import ProfessionalCertificationsRepository from '../database/repositories/professionalCertificationsRepository';
 import SoftSkillsRepository from '../database/repositories/softSkillsRepository';
+import ManagementSkillsRepository from '../database/repositories/managementSkillsRepository';
+import ArtisticSkillsRepository from '../database/repositories/artisticSkillsRepository';
+import JobFrameworksRepository from '../database/repositories/jobFrameworksRepository';
+import ConnectionLevelRepository from '../database/repositories/connectionLevelRepository';
+import CommonComiteesRepository from '../database/repositories/commonComiteesRepository';
+import JobRequirmentsRepository from '../database/repositories/jobRequirmentsRepository';
+import JobPathRepository from '../database/repositories/jobPathRepository';
+import TasksDutiesRepository from '../database/repositories/tasksDutiesRepository';
+import AdministrativeFinancialPowersRepository from '../database/repositories/administrativeFinancialPowersRepository';
+import CardInformationRepository from '../database/repositories/cardInformationRepository';
 import UserRepository from '../database/repositories/userRepository';
 
 export default class JobsService {
@@ -20,10 +32,22 @@ export default class JobsService {
     );
 
     try {
-      data.department = await DepartmentsRepository.filterIdInTenant(data.department, { ...this.options, transaction });
+      data.department = await DepartmentsRepository.filterIdsInTenant(data.department, { ...this.options, transaction });
       data.supervisor = await UserRepository.filterIdInTenant(data.supervisor, { ...this.options, transaction });
-      data.leaves = await LeaveApplicationFormRepository.filterIdsInTenant(data.leaves, { ...this.options, transaction });
-      data.personalAndTechnicalSkills = await SoftSkillsRepository.filterIdInTenant(data.personalAndTechnicalSkills, { ...this.options, transaction });
+      data.academicCertificates = await AcademicCertificatesRepository.filterIdInTenant(data.academicCertificates, { ...this.options, transaction });
+      data.trainingCertificates = await TrainingCertificatesRepository.filterIdInTenant(data.trainingCertificates, { ...this.options, transaction });
+      data.professionalCertificates = await ProfessionalCertificationsRepository.filterIdInTenant(data.professionalCertificates, { ...this.options, transaction });
+      data.softSkills = await SoftSkillsRepository.filterIdInTenant(data.softSkills, { ...this.options, transaction });
+      data.managementSkills = await ManagementSkillsRepository.filterIdInTenant(data.managementSkills, { ...this.options, transaction });
+      data.artitistikSkills = await ArtisticSkillsRepository.filterIdInTenant(data.artitistikSkills, { ...this.options, transaction });
+      data.jobFramework = await JobFrameworksRepository.filterIdInTenant(data.jobFramework, { ...this.options, transaction });
+      data.connectionLevel = await ConnectionLevelRepository.filterIdInTenant(data.connectionLevel, { ...this.options, transaction });
+      data.commonCommittees = await CommonComiteesRepository.filterIdsInTenant(data.commonCommittees, { ...this.options, transaction });
+      data.jobRequirments = await JobRequirmentsRepository.filterIdInTenant(data.jobRequirments, { ...this.options, transaction });
+      data.jobPath = await JobPathRepository.filterIdInTenant(data.jobPath, { ...this.options, transaction });
+      data.tasksDuties = await TasksDutiesRepository.filterIdInTenant(data.tasksDuties, { ...this.options, transaction });
+      data.administrativeFinancialPowers = await AdministrativeFinancialPowersRepository.filterIdInTenant(data.administrativeFinancialPowers, { ...this.options, transaction });
+      data.cardInformation = await CardInformationRepository.filterIdInTenant(data.cardInformation, { ...this.options, transaction });
 
       const record = await JobsRepository.create(data, {
         ...this.options,
@@ -56,10 +80,22 @@ export default class JobsService {
     );
 
     try {
-      data.department = await DepartmentsRepository.filterIdInTenant(data.department, { ...this.options, transaction });
+      data.department = await DepartmentsRepository.filterIdsInTenant(data.department, { ...this.options, transaction });
       data.supervisor = await UserRepository.filterIdInTenant(data.supervisor, { ...this.options, transaction });
-      data.leaves = await LeaveApplicationFormRepository.filterIdsInTenant(data.leaves, { ...this.options, transaction });
-      data.personalAndTechnicalSkills = await SoftSkillsRepository.filterIdInTenant(data.personalAndTechnicalSkills, { ...this.options, transaction });
+      data.academicCertificates = await AcademicCertificatesRepository.filterIdInTenant(data.academicCertificates, { ...this.options, transaction });
+      data.trainingCertificates = await TrainingCertificatesRepository.filterIdInTenant(data.trainingCertificates, { ...this.options, transaction });
+      data.professionalCertificates = await ProfessionalCertificationsRepository.filterIdInTenant(data.professionalCertificates, { ...this.options, transaction });
+      data.softSkills = await SoftSkillsRepository.filterIdInTenant(data.softSkills, { ...this.options, transaction });
+      data.managementSkills = await ManagementSkillsRepository.filterIdInTenant(data.managementSkills, { ...this.options, transaction });
+      data.artitistikSkills = await ArtisticSkillsRepository.filterIdInTenant(data.artitistikSkills, { ...this.options, transaction });
+      data.jobFramework = await JobFrameworksRepository.filterIdInTenant(data.jobFramework, { ...this.options, transaction });
+      data.connectionLevel = await ConnectionLevelRepository.filterIdInTenant(data.connectionLevel, { ...this.options, transaction });
+      data.commonCommittees = await CommonComiteesRepository.filterIdsInTenant(data.commonCommittees, { ...this.options, transaction });
+      data.jobRequirments = await JobRequirmentsRepository.filterIdInTenant(data.jobRequirments, { ...this.options, transaction });
+      data.jobPath = await JobPathRepository.filterIdInTenant(data.jobPath, { ...this.options, transaction });
+      data.tasksDuties = await TasksDutiesRepository.filterIdInTenant(data.tasksDuties, { ...this.options, transaction });
+      data.administrativeFinancialPowers = await AdministrativeFinancialPowersRepository.filterIdInTenant(data.administrativeFinancialPowers, { ...this.options, transaction });
+      data.cardInformation = await CardInformationRepository.filterIdInTenant(data.cardInformation, { ...this.options, transaction });
 
       const record = await JobsRepository.update(
         id,

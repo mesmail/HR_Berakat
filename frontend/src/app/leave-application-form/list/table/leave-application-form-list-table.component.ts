@@ -68,7 +68,6 @@ export class LeaveApplicationFormListTableComponent {
       this.fields.noBalance.name,
       this.fields.remarks.name,
       this.fields.status.name,
-      this.fields.jobs.name,
 
       '_actions',
     ];

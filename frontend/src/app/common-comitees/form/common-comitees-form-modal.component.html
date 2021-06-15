@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.commonComitees.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-common-comitees-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-common-comitees-form>
+</mat-dialog-content>

@@ -53,9 +53,9 @@ export class TellProblemListTableComponent {
       '_select',
 
       this.fields.problemDescription.name,
-      this.fields.occuranceDate.name,
-      this.fields.possibleCauses.name,
-      this.fields.suggestedSolves.name,
+      this.fields.problemDate.name,
+      this.fields.problemCauses.name,
+      this.fields.problemSolutions.name,
 
       '_actions',
     ];

@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';import moment from 'moment';
+import { DataTypes } from 'sequelize';
 
 export default function (sequelize) {
   const tellProblem = sequelize.define(
@@ -12,22 +12,13 @@ export default function (sequelize) {
       problemDescription: {
         type: DataTypes.TEXT,
       },
-      occuranceDate: {
-        type: DataTypes.DATEONLY,
-        get: function() {
-          // @ts-ignore
-          return this.getDataValue('occuranceDate')
-            ? moment
-                // @ts-ignore
-                .utc(this.getDataValue('occuranceDate'))
-                .format('YYYY-MM-DD')
-            : null;
-        },
+      problemDate: {
+        type: DataTypes.DATE,
       },
-      possibleCauses: {
+      problemCauses: {
         type: DataTypes.TEXT,
       },
-      suggestedSolves: {
+      problemSolutions: {
         type: DataTypes.TEXT,
       },
       importHash: {

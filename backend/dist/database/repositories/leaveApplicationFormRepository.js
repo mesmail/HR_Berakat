@@ -27,6 +27,7 @@ class LeaveApplicationFormRepository {
             const transaction = sequelizeRepository_1.default.getTransaction(options);
             const record = yield options.database.leaveApplicationForm.create(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
                 'name',
+                'department',
                 'date',
                 'contactNo',
                 'employeeNo',
@@ -41,7 +42,7 @@ class LeaveApplicationFormRepository {
                 'remarks',
                 'status',
                 'importHash',
-            ])), { positionId: data.position || null, departmentId: data.department || null, jobsId: data.jobs || null, tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
+            ])), { positionId: data.position || null, tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
                 transaction,
             });
             yield this._createAuditLog(auditLogRepository_1.default.CREATE, record, data, options);
@@ -65,6 +66,7 @@ class LeaveApplicationFormRepository {
             }
             record = yield record.update(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
                 'name',
+                'department',
                 'date',
                 'contactNo',
                 'employeeNo',
@@ -79,7 +81,7 @@ class LeaveApplicationFormRepository {
                 'remarks',
                 'status',
                 'importHash',
-            ])), { positionId: data.position || null, departmentId: data.department || null, jobsId: data.jobs || null, updatedById: currentUser.id }), {
+            ])), { positionId: data.position || null, updatedById: currentUser.id }), {
                 transaction,
             });
             yield this._createAuditLog(auditLogRepository_1.default.UPDATE, record, data, options);
@@ -113,14 +115,6 @@ class LeaveApplicationFormRepository {
                 {
                     model: options.database.jobs,
                     as: 'position',
-                },
-                {
-                    model: options.database.departments,
-                    as: 'department',
-                },
-                {
-                    model: options.database.jobs,
-                    as: 'jobs',
                 },
             ];
             const currentTenant = sequelizeRepository_1.default.getCurrentTenant(options);
@@ -181,14 +175,6 @@ class LeaveApplicationFormRepository {
                     model: options.database.jobs,
                     as: 'position',
                 },
-                {
-                    model: options.database.departments,
-                    as: 'department',
-                },
-                {
-                    model: options.database.jobs,
-                    as: 'jobs',
-                },
             ];
             whereAnd.push({
                 tenantId: tenant.id,
@@ -208,9 +194,7 @@ class LeaveApplicationFormRepository {
                     });
                 }
                 if (filter.department) {
-                    whereAnd.push({
-                        ['departmentId']: sequelizeFilterUtils_1.default.uuid(filter.department),
-                    });
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('leaveApplicationForm', 'department', filter.department));
                 }
                 if (filter.dateRange) {
                     const [start, end] = filter.dateRange;
@@ -337,11 +321,6 @@ class LeaveApplicationFormRepository {
                 if (filter.status) {
                     whereAnd.push({
                         status: filter.status,
-                    });
-                }
-                if (filter.jobs) {
-                    whereAnd.push({
-                        ['jobsId']: sequelizeFilterUtils_1.default.uuid(filter.jobs),
                     });
                 }
                 if (filter.createdAtRange) {

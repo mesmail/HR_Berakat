@@ -31,16 +31,16 @@
 
       <div class="col-xs-12 col-lg-6">
         <mat-form-field floatLabel="always" appearance="outline">
-          <mat-label>{{ fields.occuranceDate.label }}</mat-label>
-          <app-date-range-input
+          <mat-label>{{ fields.problemDate.label }}</mat-label>
+          <app-date-time-range-input
             [formControl]="
-              form.get(fields.occuranceDateRange.name)
+              form.get(fields.problemDateRange.name)
             "
-          ></app-date-range-input>
+          ></app-date-time-range-input>
           <mat-error>
             <app-validations
-              [control]="form.get(fields.occuranceDateRange.name)"
-              [label]="fields.occuranceDateRange.label"
+              [control]="form.get(fields.problemDateRange.name)"
+              [label]="fields.problemDateRange.label"
             ></app-validations>
           </mat-error>
         </mat-form-field>
@@ -48,15 +48,15 @@
 
       <div class="col-xs-12 col-lg-6">
         <mat-form-field floatLabel="always" appearance="outline">
-          <mat-label>{{ fields.possibleCauses.label }}</mat-label>
+          <mat-label>{{ fields.problemCauses.label }}</mat-label>
           <input
             matInput
-            [formControlName]="fields.possibleCauses.name"
+            [formControlName]="fields.problemCauses.name"
           />
           <mat-error>
             <app-validations
-              [control]="form.get(fields.possibleCauses.name)"
-              [label]="fields.possibleCauses.label"
+              [control]="form.get(fields.problemCauses.name)"
+              [label]="fields.problemCauses.label"
             ></app-validations>
           </mat-error>
         </mat-form-field>
@@ -64,15 +64,15 @@
 
       <div class="col-xs-12 col-lg-6">
         <mat-form-field floatLabel="always" appearance="outline">
-          <mat-label>{{ fields.suggestedSolves.label }}</mat-label>
+          <mat-label>{{ fields.problemSolutions.label }}</mat-label>
           <input
             matInput
-            [formControlName]="fields.suggestedSolves.name"
+            [formControlName]="fields.problemSolutions.name"
           />
           <mat-error>
             <app-validations
-              [control]="form.get(fields.suggestedSolves.name)"
-              [label]="fields.suggestedSolves.label"
+              [control]="form.get(fields.problemSolutions.name)"
+              [label]="fields.problemSolutions.label"
             ></app-validations>
           </mat-error>
         </mat-form-field>

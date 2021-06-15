@@ -10,6 +10,8 @@
 export class Storage {
   static get values() {
     return {
+
+
       candidatesResume: {
         id: 'candidatesResume',
         folder: 'tenant/:tenantId/candidates/resume',
@@ -20,6 +22,14 @@ export class Storage {
         folder: 'tenant/:tenantId/candidates/photo',
         maxSizeInBytes: 100 * 1024 * 1024,
       },
+
+
+
+
+
+
+
+
 
 
 

@@ -15,15 +15,15 @@
     <div class="row">
       <div class="col-xs-12 col-lg-6">
         <mat-form-field floatLabel="always" appearance="outline">
-          <mat-label>{{ fields.departmentName.label }}</mat-label>
+          <mat-label>{{ fields.departments.label }}</mat-label>
           <input
             matInput
-            [formControlName]="fields.departmentName.name"
+            [formControlName]="fields.departments.name"
           />
           <mat-error>
             <app-validations
-              [control]="form.get(fields.departmentName.name)"
-              [label]="fields.departmentName.label"
+              [control]="form.get(fields.departments.name)"
+              [label]="fields.departments.label"
             ></app-validations>
           </mat-error>
         </mat-form-field>

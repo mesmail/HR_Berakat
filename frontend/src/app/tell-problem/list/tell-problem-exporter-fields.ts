@@ -5,9 +5,9 @@ const { fields } = TellProblemModel;
 export default [
   fields.id,
   fields.problemDescription,
-  fields.occuranceDate,
-  fields.possibleCauses,
-  fields.suggestedSolves,
+  fields.problemDate,
+  fields.problemCauses,
+  fields.problemSolutions,
   fields.createdAt,
   fields.updatedAt,
 ];

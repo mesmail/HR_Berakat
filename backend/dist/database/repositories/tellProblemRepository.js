@@ -27,9 +27,9 @@ class TellProblemRepository {
             const transaction = sequelizeRepository_1.default.getTransaction(options);
             const record = yield options.database.tellProblem.create(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
                 'problemDescription',
-                'occuranceDate',
-                'possibleCauses',
-                'suggestedSolves',
+                'problemDate',
+                'problemCauses',
+                'problemSolutions',
                 'importHash',
             ])), { tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
                 transaction,
@@ -55,9 +55,9 @@ class TellProblemRepository {
             }
             record = yield record.update(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
                 'problemDescription',
-                'occuranceDate',
-                'possibleCauses',
-                'suggestedSolves',
+                'problemDate',
+                'problemCauses',
+                'problemSolutions',
                 'importHash',
             ])), { updatedById: currentUser.id }), {
                 transaction,
@@ -156,28 +156,28 @@ class TellProblemRepository {
                 if (filter.problemDescription) {
                     whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('tellProblem', 'problemDescription', filter.problemDescription));
                 }
-                if (filter.occuranceDateRange) {
-                    const [start, end] = filter.occuranceDateRange;
+                if (filter.problemDateRange) {
+                    const [start, end] = filter.problemDateRange;
                     if (start !== undefined && start !== null && start !== '') {
                         whereAnd.push({
-                            occuranceDate: {
+                            problemDate: {
                                 [Op.gte]: start,
                             },
                         });
                     }
                     if (end !== undefined && end !== null && end !== '') {
                         whereAnd.push({
-                            occuranceDate: {
+                            problemDate: {
                                 [Op.lte]: end,
                             },
                         });
                     }
                 }
-                if (filter.possibleCauses) {
-                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('tellProblem', 'possibleCauses', filter.possibleCauses));
+                if (filter.problemCauses) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('tellProblem', 'problemCauses', filter.problemCauses));
                 }
-                if (filter.suggestedSolves) {
-                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('tellProblem', 'suggestedSolves', filter.suggestedSolves));
+                if (filter.problemSolutions) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('tellProblem', 'problemSolutions', filter.problemSolutions));
                 }
                 if (filter.createdAtRange) {
                     const [start, end] = filter.createdAtRange;

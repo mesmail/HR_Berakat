@@ -1,0 +1,103 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.addedCommittee.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.addedCommittee.name"
+      [placeholder]="fields.addedCommittee.placeholder"
+      [required]="fields.addedCommittee.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.addedCommittee.hint">
+      {{ fields.addedCommittee.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.addedCommittee.name)"
+        [label]="fields.addedCommittee.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.menus.label }}</mat-label>
+    <mat-select
+      [formControlName]="fields.menus.name"
+      [placeholder]="fields.menus.placeholder"
+    >
+      <mat-option>--</mat-option>
+      <mat-option
+        *ngFor="let option of fields.menus.options"
+        [value]="option.id"
+      >
+        {{ option.label }}
+      </mat-option>
+    </mat-select>
+    <mat-hint *ngIf="fields.menus.hint">
+      {{ fields.menus.hint }}
+    </mat-hint>
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.menus.name)"
+        [label]="fields.menus.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>

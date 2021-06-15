@@ -15,6 +15,9 @@ function default_1(sequelize) {
         name: {
             type: sequelize_1.DataTypes.TEXT,
         },
+        department: {
+            type: sequelize_1.DataTypes.TEXT,
+        },
         date: {
             type: sequelize_1.DataTypes.DATEONLY,
             get: function () {
@@ -116,17 +119,6 @@ function default_1(sequelize) {
         models.leaveApplicationForm.belongsTo(models.jobs, {
             as: 'position',
             constraints: false,
-        });
-        models.leaveApplicationForm.belongsTo(models.departments, {
-            as: 'department',
-            constraints: false,
-        });
-        models.leaveApplicationForm.belongsTo(models.jobs, {
-            as: 'jobs',
-            constraints: false,
-            foreignKey: {
-                allowNull: false,
-            },
         });
         models.leaveApplicationForm.belongsTo(models.tenant, {
             as: 'tenant',

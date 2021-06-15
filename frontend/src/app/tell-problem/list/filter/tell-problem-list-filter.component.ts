@@ -71,9 +71,9 @@ export class TellProblemListFilterComponent implements OnInit {
     this.schema = new FilterSchema(
       [
         this.fields.problemDescription,
-        this.fields.occuranceDateRange,
-        this.fields.possibleCauses,
-        this.fields.suggestedSolves,
+        this.fields.problemDateRange,
+        this.fields.problemCauses,
+        this.fields.problemSolutions,
       ],
       this.formBuilder,
     );

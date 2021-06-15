@@ -1,0 +1,122 @@
+<form
+  class="form"
+  (ngSubmit)="doSave()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  *ngIf="form"
+>
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.tactLevel.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.tactLevel.name"
+      [placeholder]="fields.tactLevel.placeholder"
+      [required]="fields.tactLevel.required"
+    appAutofocus
+    />
+
+    <mat-hint *ngIf="fields.tactLevel.hint">
+      {{ fields.tactLevel.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.tactLevel.name)"
+        [label]="fields.tactLevel.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.experienceYears.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.experienceYears.name"
+      [required]="fields.experienceYears.required"
+      [placeholder]="fields.experienceYears.placeholder"
+      type="number"
+      step="1"
+    />
+
+    <mat-hint *ngIf="fields.experienceYears.hint">
+      {{ fields.experienceYears.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.experienceYears.name)"
+        [label]="fields.experienceYears.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ fields.minKPI.label }}</mat-label>
+    <input
+      matInput
+      [formControlName]="fields.minKPI.name"
+      [placeholder]="fields.minKPI.placeholder"
+      [required]="fields.minKPI.required"
+    />
+
+    <mat-hint *ngIf="fields.minKPI.hint">
+      {{ fields.minKPI.hint }}
+    </mat-hint>
+
+    <mat-error>
+      <app-validations
+        [control]="form.get(fields.minKPI.name)"
+        [label]="fields.minKPI.label"
+      ></app-validations>
+    </mat-error>
+  </mat-form-field>
+
+  <div
+    class="form-buttons"
+    [class.form-buttons-modal]="modal"
+  >
+    <button
+      mat-raised-button
+      [disabled]="saveLoading"
+      color="primary"
+      type="submit"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-save"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      (click)="doReset()"
+      type="button"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-undo"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+    <button
+      mat-flat-button
+      [disabled]="saveLoading"
+      type="button"
+      (click)="cancel.emit()"
+    >
+      <mat-icon
+        inline
+        fontSet="fas"
+        fontIcon="fa-times"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+  </div>
+</form>
