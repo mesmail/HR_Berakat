@@ -24,12 +24,10 @@
       [value]="presenter(record, 'position')"
     ></app-view-item-relation-to-one>
 
-    <app-view-item-relation-to-one
+    <app-view-item-text
       [label]="fields.department.label"
-      [url]="fields.department.viewUrl"
-      [permission]="fields.department.readPermission"
       [value]="presenter(record, 'department')"
-    ></app-view-item-relation-to-one>
+    ></app-view-item-text>
 
     <app-view-item-text
       [label]="fields.date.label"
@@ -95,12 +93,5 @@
       [label]="fields.status.label"
       [value]="presenter(record, 'status')"
     ></app-view-item-text>
-
-    <app-view-item-relation-to-one
-      [label]="fields.jobs.label"
-      [url]="fields.jobs.viewUrl"
-      [permission]="fields.jobs.readPermission"
-      [value]="presenter(record, 'jobs')"
-    ></app-view-item-relation-to-one>
   </div>
 </div>

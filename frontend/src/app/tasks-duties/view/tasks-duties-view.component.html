@@ -1,0 +1,20 @@
+<app-breadcrumb [items]="breadcrumb"></app-breadcrumb>
+
+<div class="app-content-page">
+  <h1 class="app-content-title">
+    <app-i18n key="entities.tasksDuties.view.title"></app-i18n>
+  </h1>
+
+  <app-tasks-duties-view-toolbar></app-tasks-duties-view-toolbar>
+
+  <div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading">
+    <app-view-item-text
+      [label]="fields.tasksDuties.label"
+      [value]="presenter(record, 'tasksDuties')"
+    ></app-view-item-text>
+  </div>
+</div>

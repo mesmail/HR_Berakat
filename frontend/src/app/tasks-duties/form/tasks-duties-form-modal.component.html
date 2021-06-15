@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.tasksDuties.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-tasks-duties-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-tasks-duties-form>
+</mat-dialog-content>

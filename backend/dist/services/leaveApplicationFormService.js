@@ -16,7 +16,6 @@ const Error400_1 = __importDefault(require("../errors/Error400"));
 const sequelizeRepository_1 = __importDefault(require("../database/repositories/sequelizeRepository"));
 const leaveApplicationFormRepository_1 = __importDefault(require("../database/repositories/leaveApplicationFormRepository"));
 const jobsRepository_1 = __importDefault(require("../database/repositories/jobsRepository"));
-const departmentsRepository_1 = __importDefault(require("../database/repositories/departmentsRepository"));
 class LeaveApplicationFormService {
     constructor(options) {
         this.options = options;
@@ -26,8 +25,6 @@ class LeaveApplicationFormService {
             const transaction = yield sequelizeRepository_1.default.createTransaction(this.options.database);
             try {
                 data.position = yield jobsRepository_1.default.filterIdInTenant(data.position, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.department = yield departmentsRepository_1.default.filterIdInTenant(data.department, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.jobs = yield jobsRepository_1.default.filterIdInTenant(data.jobs, Object.assign(Object.assign({}, this.options), { transaction }));
                 const record = yield leaveApplicationFormRepository_1.default.create(data, Object.assign(Object.assign({}, this.options), { transaction }));
                 yield sequelizeRepository_1.default.commitTransaction(transaction);
                 return record;
@@ -44,8 +41,6 @@ class LeaveApplicationFormService {
             const transaction = yield sequelizeRepository_1.default.createTransaction(this.options.database);
             try {
                 data.position = yield jobsRepository_1.default.filterIdInTenant(data.position, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.department = yield departmentsRepository_1.default.filterIdInTenant(data.department, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.jobs = yield jobsRepository_1.default.filterIdInTenant(data.jobs, Object.assign(Object.assign({}, this.options), { transaction }));
                 const record = yield leaveApplicationFormRepository_1.default.update(id, data, Object.assign(Object.assign({}, this.options), { transaction }));
                 yield sequelizeRepository_1.default.commitTransaction(transaction);
                 return record;

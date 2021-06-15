@@ -73,17 +73,12 @@ const ptBR = {
         error: 'Desculpe, esta operação não é permitida em modo de demonstração.',
     },
     entities: {
-        candidates: {
-            errors: {
-                unique: {}
-            }
-        },
         jobs: {
             errors: {
                 unique: {}
             }
         },
-        departments: {
+        candidates: {
             errors: {
                 unique: {}
             }
@@ -141,14 +136,46 @@ const ptBR = {
                 unique: {}
             }
         },
-        claim: {
+        employmentContract: {
             errors: {
                 unique: {}
             }
         },
-        advancedPayment: {
+        connectionLevel: {
             errors: {
                 unique: {}
+            }
+        },
+        commonComitees: {
+            errors: {
+                unique: {}
+            }
+        },
+        jobRequirments: {
+            errors: {
+                unique: {}
+            }
+        },
+        jobPath: {
+            errors: {
+                unique: {}
+            }
+        },
+        tasksDuties: {
+            errors: {
+                unique: {}
+            }
+        },
+        administrativeFinancialPowers: {
+            errors: {
+                unique: {}
+            }
+        },
+        cardInformation: {
+            errors: {
+                unique: {
+                    version: 'الإصدار deve ser único',
+                }
             }
         },
         tellProblem: {
@@ -156,7 +183,7 @@ const ptBR = {
                 unique: {}
             }
         },
-        employmentContract: {
+        departments: {
             errors: {
                 unique: {}
             }

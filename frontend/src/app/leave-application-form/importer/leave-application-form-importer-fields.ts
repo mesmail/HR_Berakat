@@ -19,5 +19,4 @@ export default [
   fields.noBalance,
   fields.remarks,
   fields.status,
-  fields.jobs,
 ];

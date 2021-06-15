@@ -24,6 +24,126 @@
     </ng-container>
 
     <ng-container
+      [matColumnDef]="fields.contractDate.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.contractDate.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'contractDate') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.companyRepresentative.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.companyRepresentative.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'companyRepresentative') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.secondParty.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.secondParty.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'secondParty') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.nationality.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.nationality.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'nationality') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.passportNumber.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.passportNumber.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'passportNumber') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.passportIssueDate.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.passportIssueDate.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'passportIssueDate') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.email.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.email.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'email') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.jobTitle.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.jobTitle.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'jobTitle') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.dailyWorkingHours.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.dailyWorkingHours.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'dailyWorkingHours') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.weeklyWorkingHours.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.weeklyWorkingHours.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'weeklyWorkingHours') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.weekEndDay.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.weekEndDay.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'weekEndDay') }}
+      </td>
+    </ng-container>
+    <ng-container
+      [matColumnDef]="fields.workStartDate.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ fields.workStartDate.label }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ presenter(row, 'workStartDate') }}
+      </td>
+    </ng-container>
+    <ng-container
       [matColumnDef]="fields.employeeName.name"
     >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -34,83 +154,23 @@
       </td>
     </ng-container>
     <ng-container
-      [matColumnDef]="fields.workingPeriod.name"
+      [matColumnDef]="fields.positionName.name"
     >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.workingPeriod.label }}
+        {{ fields.positionName.label }}
       </th>
       <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'workingPeriod') }}
+        {{ presenter(row, 'positionName') }}
       </td>
     </ng-container>
     <ng-container
-      [matColumnDef]="fields.employmentSalary.name"
+      [matColumnDef]="fields.basicSalary.name"
     >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.employmentSalary.label }}
+        {{ fields.basicSalary.label }}
       </th>
       <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'employmentSalary') }}
-      </td>
-    </ng-container>
-    <ng-container
-      [matColumnDef]="fields.jobRoles.name"
-    >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.jobRoles.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'jobRoles') }}
-      </td>
-    </ng-container>
-    <ng-container
-      [matColumnDef]="fields.employeeContactEmail.name"
-    >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.employeeContactEmail.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'employeeContactEmail') }}
-      </td>
-    </ng-container>
-    <ng-container
-      [matColumnDef]="fields.mobileNumber.name"
-    >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.mobileNumber.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'mobileNumber') }}
-      </td>
-    </ng-container>
-    <ng-container
-      [matColumnDef]="fields.homeAddress.name"
-    >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.homeAddress.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'homeAddress') }}
-      </td>
-    </ng-container>
-    <ng-container
-      [matColumnDef]="fields.contractPeriod.name"
-    >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.contractPeriod.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'contractPeriod') }}
-      </td>
-    </ng-container>
-    <ng-container
-      [matColumnDef]="fields.startDate.name"
-    >
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ fields.startDate.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        {{ presenter(row, 'startDate') }}
+        {{ presenter(row, 'basicSalary') }}
       </td>
     </ng-container>
 

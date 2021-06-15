@@ -13,48 +13,78 @@
 
   <div *ngIf="!loading">
     <app-view-item-text
+      [label]="fields.contractDate.label"
+      [value]="presenter(record, 'contractDate')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.companyRepresentative.label"
+      [value]="presenter(record, 'companyRepresentative')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.secondParty.label"
+      [value]="presenter(record, 'secondParty')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.nationality.label"
+      [value]="presenter(record, 'nationality')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.passportNumber.label"
+      [value]="presenter(record, 'passportNumber')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.passportIssueDate.label"
+      [value]="presenter(record, 'passportIssueDate')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.email.label"
+      [value]="presenter(record, 'email')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.jobTitle.label"
+      [value]="presenter(record, 'jobTitle')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.dailyWorkingHours.label"
+      [value]="presenter(record, 'dailyWorkingHours')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.weeklyWorkingHours.label"
+      [value]="presenter(record, 'weeklyWorkingHours')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.weekEndDay.label"
+      [value]="presenter(record, 'weekEndDay')"
+    ></app-view-item-text>
+
+    <app-view-item-text
+      [label]="fields.workStartDate.label"
+      [value]="presenter(record, 'workStartDate')"
+    ></app-view-item-text>
+
+    <app-view-item-text
       [label]="fields.employeeName.label"
       [value]="presenter(record, 'employeeName')"
     ></app-view-item-text>
 
     <app-view-item-text
-      [label]="fields.workingPeriod.label"
-      [value]="presenter(record, 'workingPeriod')"
+      [label]="fields.positionName.label"
+      [value]="presenter(record, 'positionName')"
     ></app-view-item-text>
 
     <app-view-item-text
-      [label]="fields.employmentSalary.label"
-      [value]="presenter(record, 'employmentSalary')"
-    ></app-view-item-text>
-
-    <app-view-item-text
-      [label]="fields.jobRoles.label"
-      [value]="presenter(record, 'jobRoles')"
-    ></app-view-item-text>
-
-    <app-view-item-text
-      [label]="fields.employeeContactEmail.label"
-      [value]="presenter(record, 'employeeContactEmail')"
-    ></app-view-item-text>
-
-    <app-view-item-text
-      [label]="fields.mobileNumber.label"
-      [value]="presenter(record, 'mobileNumber')"
-    ></app-view-item-text>
-
-    <app-view-item-text
-      [label]="fields.homeAddress.label"
-      [value]="presenter(record, 'homeAddress')"
-    ></app-view-item-text>
-
-    <app-view-item-text
-      [label]="fields.contractPeriod.label"
-      [value]="presenter(record, 'contractPeriod')"
-    ></app-view-item-text>
-
-    <app-view-item-text
-      [label]="fields.startDate.label"
-      [value]="presenter(record, 'startDate')"
+      [label]="fields.basicSalary.label"
+      [value]="presenter(record, 'basicSalary')"
     ></app-view-item-text>
   </div>
 </div>

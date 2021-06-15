@@ -1,481 +1,224 @@
 <mat-nav-list>
-  <a
-    mat-list-item
-    routerLink=""
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-    [routerLinkActiveOptions]="{ exact: true }"
-  >
-    <mat-icon>dashboard</mat-icon>
-    <span><app-i18n key="dashboard.menu"></app-i18n></span>
-  </a>
-  <a
-    *ngIf="planService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/plan"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>credit_card</mat-icon>
-    <span><app-i18n key="plan.menu"></app-i18n></span>
-  </a>
-  <a
-    *ngIf="userService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/user"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>person_add</mat-icon>
-    <span><app-i18n key="user.menu"></app-i18n></span>
-  </a>
-  <a
-    *ngIf="auditLogService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/audit-log"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>history</mat-icon>
-    <span><app-i18n key="auditLog.menu"></app-i18n></span>
-  </a>
-  <a
-    *ngIf="settingsService.hasPermissionToEdit"
-    mat-list-item
-    routerLink="/settings"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>settings</mat-icon>
-    <span><app-i18n key="settings.menu"></app-i18n></span>
-  </a>
-  <a
-    *ngIf="candidatesService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/candidates"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.candidates.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="jobsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/jobs"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.jobs.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="departmentsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/departments"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.departments.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="academicCertificatesService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/academic-certificates"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.academicCertificates.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="softSkillsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/soft-skills"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.softSkills.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="trainingCertificatesService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/training-certificates"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.trainingCertificates.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="professionalCertificationsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/professional-certifications"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.professionalCertifications.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="managementSkillsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/management-skills"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.managementSkills.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="artisticSkillsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/artistic-skills"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.artisticSkills.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="clientsService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/clients"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.clients.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="usersNewService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/users-new"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.usersNew.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="jobFrameworksService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/job-frameworks"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.jobFrameworks.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="leaveApplicationFormService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/leave-application-form"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.leaveApplicationForm.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="claimService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/claim"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.claim.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="advancedPaymentService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/advanced-payment"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.advancedPayment.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="tellProblemService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/tell-problem"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.tellProblem.menu"></app-i18n
-    ></span>
-  </a>
-  <a
-    *ngIf="employmentContractService.hasPermissionToRead"
-    mat-list-item
-    routerLink="/employment-contract"
-    class="app-menu-item"
-    [routerLinkActive]="['is-active']"
-  >
-    <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.employmentContract.menu"></app-i18n
-    ></span>
-  </a>
+    <a *ngIf="planService.hasPermissionToRead" mat-list-item routerLink="/plan" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>credit_card</mat-icon>
+        <span>
+      <app-i18n key="plan.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="userService.hasPermissionToRead" mat-list-item routerLink="/user" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>person_add</mat-icon>
+        <span>
+      <app-i18n key="user.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="auditLogService.hasPermissionToRead" mat-list-item routerLink="/audit-log" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>history</mat-icon>
+        <span>
+      <app-i18n key="auditLog.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="settingsService.hasPermissionToEdit" mat-list-item routerLink="/settings" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>settings</mat-icon>
+        <span>
+      <app-i18n key="settings.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="jobsService.hasPermissionToRead" mat-list-item routerLink="/jobs" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.jobs.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="candidatesService.hasPermissionToRead" mat-list-item routerLink="/candidates" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.candidates.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="clientsService.hasPermissionToRead" mat-list-item routerLink="/clients" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.clients.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="usersNewService.hasPermissionToRead" mat-list-item routerLink="/users-new" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.usersNew.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="leaveApplicationFormService.hasPermissionToRead" mat-list-item routerLink="/leave-application-form" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.leaveApplicationForm.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="employmentContractService.hasPermissionToRead" mat-list-item routerLink="/employment-contract" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.employmentContract.menu"></app-i18n>
+    </span>
+    </a>
+    <a *ngIf="tellProblemService.hasPermissionToRead" mat-list-item routerLink="/tell-problem" class="app-menu-item" [routerLinkActive]="['is-active']">
+        <mat-icon>chevron_right</mat-icon>
+        <span>
+      <app-i18n key="entities.tellProblem.menu"></app-i18n>
+    </span>
+    </a>
 
-  <button
-    disabled
-    *ngIf="planService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="planService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>credit_card</mat-icon>
     <app-i18n key="plan.menu"></app-i18n>
   </button>
-  <button
-    disabled
-    *ngIf="userService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="userService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>person_add</mat-icon>
-    <span><app-i18n key="user.menu"></app-i18n></span>
+    <span>
+      <app-i18n key="user.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="auditLogService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="auditLogService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>history</mat-icon>
-    <span><app-i18n key="auditLog.menu"></app-i18n></span>
+    <span>
+      <app-i18n key="auditLog.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="settingsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="settingsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>settings</mat-icon>
-    <span><app-i18n key="settings.menu"></app-i18n></span>
+    <span>
+      <app-i18n key="settings.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="candidatesService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="jobsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.candidates.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.jobs.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="jobsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="candidatesService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.jobs.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.candidates.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="departmentsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="academicCertificatesService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.departments.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.academicCertificates.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="academicCertificatesService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="softSkillsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.academicCertificates.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.softSkills.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="softSkillsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="trainingCertificatesService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.softSkills.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.trainingCertificates.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="trainingCertificatesService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="professionalCertificationsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.trainingCertificates.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.professionalCertifications.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="professionalCertificationsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="managementSkillsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.professionalCertifications.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.managementSkills.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="managementSkillsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="artisticSkillsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.managementSkills.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.artisticSkills.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="artisticSkillsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="clientsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.artisticSkills.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.clients.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="clientsService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="usersNewService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.clients.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.usersNew.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="usersNewService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="jobFrameworksService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.usersNew.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.jobFrameworks.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="jobFrameworksService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="leaveApplicationFormService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.jobFrameworks.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.leaveApplicationForm.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="leaveApplicationFormService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="employmentContractService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.leaveApplicationForm.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.employmentContract.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="claimService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="connectionLevelService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.claim.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.connectionLevel.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="advancedPaymentService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="commonComiteesService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.advancedPayment.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.commonComitees.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="tellProblemService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="jobRequirmentsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.tellProblem.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.jobRequirments.menu"></app-i18n>
+    </span>
   </button>
-  <button
-    disabled
-    *ngIf="employmentContractService.lockedForCurrentPlan"
-    mat-list-item
-    class="app-menu-item-locked"
-  >
+    <button disabled *ngIf="jobPathService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
     <mat-icon>chevron_right</mat-icon>
-    <span
-      ><app-i18n key="entities.employmentContract.menu"></app-i18n
-    ></span>
+    <span>
+      <app-i18n key="entities.jobPath.menu"></app-i18n>
+    </span>
   </button>
-  
+    <button disabled *ngIf="tasksDutiesService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
+    <mat-icon>chevron_right</mat-icon>
+    <span>
+      <app-i18n key="entities.tasksDuties.menu"></app-i18n>
+    </span>
+  </button>
+    <button disabled *ngIf="administrativeFinancialPowersService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
+    <mat-icon>chevron_right</mat-icon>
+    <span>
+      <app-i18n key="entities.administrativeFinancialPowers.menu"></app-i18n>
+    </span>
+  </button>
+    <button disabled *ngIf="cardInformationService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
+    <mat-icon>chevron_right</mat-icon>
+    <span>
+      <app-i18n key="entities.cardInformation.menu"></app-i18n>
+    </span>
+  </button>
+    <button disabled *ngIf="tellProblemService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
+    <mat-icon>chevron_right</mat-icon>
+    <span>
+      <app-i18n key="entities.tellProblem.menu"></app-i18n>
+    </span>
+  </button>
+    <button disabled *ngIf="departmentsService.lockedForCurrentPlan" mat-list-item class="app-menu-item-locked">
+    <mat-icon>chevron_right</mat-icon>
+    <span>
+      <app-i18n key="entities.departments.menu"></app-i18n>
+    </span>
+  </button>
+
 </mat-nav-list>

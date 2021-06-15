@@ -8,20 +8,15 @@ import { UserNewFormModalComponent } from 'src/app/user/form/user-new-form-modal
 import { UserNewFormModalService } from 'src/app/user/form/user-new-form-modal.service';
 import { UserFormFieldComponent } from 'src/app/user/autocomplete/user-form-field.component';
 
-import { CandidatesFormFieldComponent } from 'src/app/candidates/autocomplete/candidates-form-field.component';
-import { CandidatesFormModalComponent } from 'src/app/candidates/form/candidates-form-modal.component';
-import { CandidatesFormModalService } from 'src/app/candidates/form/candidates-form-modal.service';
-import { CandidatesFormComponent } from 'src/app/candidates/form/candidates-form.component';
-
 import { JobsFormFieldComponent } from 'src/app/jobs/autocomplete/jobs-form-field.component';
 import { JobsFormModalComponent } from 'src/app/jobs/form/jobs-form-modal.component';
 import { JobsFormModalService } from 'src/app/jobs/form/jobs-form-modal.service';
 import { JobsFormComponent } from 'src/app/jobs/form/jobs-form.component';
 
-import { DepartmentsFormFieldComponent } from 'src/app/departments/autocomplete/departments-form-field.component';
-import { DepartmentsFormModalComponent } from 'src/app/departments/form/departments-form-modal.component';
-import { DepartmentsFormModalService } from 'src/app/departments/form/departments-form-modal.service';
-import { DepartmentsFormComponent } from 'src/app/departments/form/departments-form.component';
+import { CandidatesFormFieldComponent } from 'src/app/candidates/autocomplete/candidates-form-field.component';
+import { CandidatesFormModalComponent } from 'src/app/candidates/form/candidates-form-modal.component';
+import { CandidatesFormModalService } from 'src/app/candidates/form/candidates-form-modal.service';
+import { CandidatesFormComponent } from 'src/app/candidates/form/candidates-form.component';
 
 import { AcademicCertificatesFormFieldComponent } from 'src/app/academic-certificates/autocomplete/academic-certificates-form-field.component';
 import { AcademicCertificatesFormModalComponent } from 'src/app/academic-certificates/form/academic-certificates-form-modal.component';
@@ -73,25 +68,55 @@ import { LeaveApplicationFormFormModalComponent } from 'src/app/leave-applicatio
 import { LeaveApplicationFormFormModalService } from 'src/app/leave-application-form/form/leave-application-form-form-modal.service';
 import { LeaveApplicationFormFormComponent } from 'src/app/leave-application-form/form/leave-application-form-form.component';
 
-import { ClaimFormFieldComponent } from 'src/app/claim/autocomplete/claim-form-field.component';
-import { ClaimFormModalComponent } from 'src/app/claim/form/claim-form-modal.component';
-import { ClaimFormModalService } from 'src/app/claim/form/claim-form-modal.service';
-import { ClaimFormComponent } from 'src/app/claim/form/claim-form.component';
+import { EmploymentContractFormFieldComponent } from 'src/app/employment-contract/autocomplete/employment-contract-form-field.component';
+import { EmploymentContractFormModalComponent } from 'src/app/employment-contract/form/employment-contract-form-modal.component';
+import { EmploymentContractFormModalService } from 'src/app/employment-contract/form/employment-contract-form-modal.service';
+import { EmploymentContractFormComponent } from 'src/app/employment-contract/form/employment-contract-form.component';
 
-import { AdvancedPaymentFormFieldComponent } from 'src/app/advanced-payment/autocomplete/advanced-payment-form-field.component';
-import { AdvancedPaymentFormModalComponent } from 'src/app/advanced-payment/form/advanced-payment-form-modal.component';
-import { AdvancedPaymentFormModalService } from 'src/app/advanced-payment/form/advanced-payment-form-modal.service';
-import { AdvancedPaymentFormComponent } from 'src/app/advanced-payment/form/advanced-payment-form.component';
+import { ConnectionLevelFormFieldComponent } from 'src/app/connection-level/autocomplete/connection-level-form-field.component';
+import { ConnectionLevelFormModalComponent } from 'src/app/connection-level/form/connection-level-form-modal.component';
+import { ConnectionLevelFormModalService } from 'src/app/connection-level/form/connection-level-form-modal.service';
+import { ConnectionLevelFormComponent } from 'src/app/connection-level/form/connection-level-form.component';
+
+import { CommonComiteesFormFieldComponent } from 'src/app/common-comitees/autocomplete/common-comitees-form-field.component';
+import { CommonComiteesFormModalComponent } from 'src/app/common-comitees/form/common-comitees-form-modal.component';
+import { CommonComiteesFormModalService } from 'src/app/common-comitees/form/common-comitees-form-modal.service';
+import { CommonComiteesFormComponent } from 'src/app/common-comitees/form/common-comitees-form.component';
+
+import { JobRequirmentsFormFieldComponent } from 'src/app/job-requirments/autocomplete/job-requirments-form-field.component';
+import { JobRequirmentsFormModalComponent } from 'src/app/job-requirments/form/job-requirments-form-modal.component';
+import { JobRequirmentsFormModalService } from 'src/app/job-requirments/form/job-requirments-form-modal.service';
+import { JobRequirmentsFormComponent } from 'src/app/job-requirments/form/job-requirments-form.component';
+
+import { JobPathFormFieldComponent } from 'src/app/job-path/autocomplete/job-path-form-field.component';
+import { JobPathFormModalComponent } from 'src/app/job-path/form/job-path-form-modal.component';
+import { JobPathFormModalService } from 'src/app/job-path/form/job-path-form-modal.service';
+import { JobPathFormComponent } from 'src/app/job-path/form/job-path-form.component';
+
+import { TasksDutiesFormFieldComponent } from 'src/app/tasks-duties/autocomplete/tasks-duties-form-field.component';
+import { TasksDutiesFormModalComponent } from 'src/app/tasks-duties/form/tasks-duties-form-modal.component';
+import { TasksDutiesFormModalService } from 'src/app/tasks-duties/form/tasks-duties-form-modal.service';
+import { TasksDutiesFormComponent } from 'src/app/tasks-duties/form/tasks-duties-form.component';
+
+import { AdministrativeFinancialPowersFormFieldComponent } from 'src/app/administrative-financial-powers/autocomplete/administrative-financial-powers-form-field.component';
+import { AdministrativeFinancialPowersFormModalComponent } from 'src/app/administrative-financial-powers/form/administrative-financial-powers-form-modal.component';
+import { AdministrativeFinancialPowersFormModalService } from 'src/app/administrative-financial-powers/form/administrative-financial-powers-form-modal.service';
+import { AdministrativeFinancialPowersFormComponent } from 'src/app/administrative-financial-powers/form/administrative-financial-powers-form.component';
+
+import { CardInformationFormFieldComponent } from 'src/app/card-information/autocomplete/card-information-form-field.component';
+import { CardInformationFormModalComponent } from 'src/app/card-information/form/card-information-form-modal.component';
+import { CardInformationFormModalService } from 'src/app/card-information/form/card-information-form-modal.service';
+import { CardInformationFormComponent } from 'src/app/card-information/form/card-information-form.component';
 
 import { TellProblemFormFieldComponent } from 'src/app/tell-problem/autocomplete/tell-problem-form-field.component';
 import { TellProblemFormModalComponent } from 'src/app/tell-problem/form/tell-problem-form-modal.component';
 import { TellProblemFormModalService } from 'src/app/tell-problem/form/tell-problem-form-modal.service';
 import { TellProblemFormComponent } from 'src/app/tell-problem/form/tell-problem-form.component';
 
-import { EmploymentContractFormFieldComponent } from 'src/app/employment-contract/autocomplete/employment-contract-form-field.component';
-import { EmploymentContractFormModalComponent } from 'src/app/employment-contract/form/employment-contract-form-modal.component';
-import { EmploymentContractFormModalService } from 'src/app/employment-contract/form/employment-contract-form-modal.service';
-import { EmploymentContractFormComponent } from 'src/app/employment-contract/form/employment-contract-form.component';
+import { DepartmentsFormFieldComponent } from 'src/app/departments/autocomplete/departments-form-field.component';
+import { DepartmentsFormModalComponent } from 'src/app/departments/form/departments-form-modal.component';
+import { DepartmentsFormModalService } from 'src/app/departments/form/departments-form-modal.service';
+import { DepartmentsFormComponent } from 'src/app/departments/form/departments-form.component';
 
 /**
  * This module exists to avoid circular dependencies, because autocompletes and forms
@@ -105,17 +130,13 @@ import { EmploymentContractFormComponent } from 'src/app/employment-contract/for
     UserFormFieldComponent,
     UserNewFormModalComponent,
 
-    CandidatesFormComponent,
-    CandidatesFormFieldComponent,
-    CandidatesFormModalComponent,
-
     JobsFormComponent,
     JobsFormFieldComponent,
     JobsFormModalComponent,
 
-    DepartmentsFormComponent,
-    DepartmentsFormFieldComponent,
-    DepartmentsFormModalComponent,
+    CandidatesFormComponent,
+    CandidatesFormFieldComponent,
+    CandidatesFormModalComponent,
 
     AcademicCertificatesFormComponent,
     AcademicCertificatesFormFieldComponent,
@@ -157,21 +178,45 @@ import { EmploymentContractFormComponent } from 'src/app/employment-contract/for
     LeaveApplicationFormFormFieldComponent,
     LeaveApplicationFormFormModalComponent,
 
-    ClaimFormComponent,
-    ClaimFormFieldComponent,
-    ClaimFormModalComponent,
+    EmploymentContractFormComponent,
+    EmploymentContractFormFieldComponent,
+    EmploymentContractFormModalComponent,
 
-    AdvancedPaymentFormComponent,
-    AdvancedPaymentFormFieldComponent,
-    AdvancedPaymentFormModalComponent,
+    ConnectionLevelFormComponent,
+    ConnectionLevelFormFieldComponent,
+    ConnectionLevelFormModalComponent,
+
+    CommonComiteesFormComponent,
+    CommonComiteesFormFieldComponent,
+    CommonComiteesFormModalComponent,
+
+    JobRequirmentsFormComponent,
+    JobRequirmentsFormFieldComponent,
+    JobRequirmentsFormModalComponent,
+
+    JobPathFormComponent,
+    JobPathFormFieldComponent,
+    JobPathFormModalComponent,
+
+    TasksDutiesFormComponent,
+    TasksDutiesFormFieldComponent,
+    TasksDutiesFormModalComponent,
+
+    AdministrativeFinancialPowersFormComponent,
+    AdministrativeFinancialPowersFormFieldComponent,
+    AdministrativeFinancialPowersFormModalComponent,
+
+    CardInformationFormComponent,
+    CardInformationFormFieldComponent,
+    CardInformationFormModalComponent,
 
     TellProblemFormComponent,
     TellProblemFormFieldComponent,
     TellProblemFormModalComponent,
 
-    EmploymentContractFormComponent,
-    EmploymentContractFormFieldComponent,
-    EmploymentContractFormModalComponent,
+    DepartmentsFormComponent,
+    DepartmentsFormFieldComponent,
+    DepartmentsFormModalComponent,
   ],
   imports: [SharedModule],
   exports: [
@@ -180,14 +225,11 @@ import { EmploymentContractFormComponent } from 'src/app/employment-contract/for
     UserNewFormComponent,
     UserFormFieldComponent,
 
-    CandidatesFormComponent,
-    CandidatesFormFieldComponent,
-
     JobsFormComponent,
     JobsFormFieldComponent,
 
-    DepartmentsFormComponent,
-    DepartmentsFormFieldComponent,
+    CandidatesFormComponent,
+    CandidatesFormFieldComponent,
 
     AcademicCertificatesFormComponent,
     AcademicCertificatesFormFieldComponent,
@@ -219,25 +261,41 @@ import { EmploymentContractFormComponent } from 'src/app/employment-contract/for
     LeaveApplicationFormFormComponent,
     LeaveApplicationFormFormFieldComponent,
 
-    ClaimFormComponent,
-    ClaimFormFieldComponent,
+    EmploymentContractFormComponent,
+    EmploymentContractFormFieldComponent,
 
-    AdvancedPaymentFormComponent,
-    AdvancedPaymentFormFieldComponent,
+    ConnectionLevelFormComponent,
+    ConnectionLevelFormFieldComponent,
+
+    CommonComiteesFormComponent,
+    CommonComiteesFormFieldComponent,
+
+    JobRequirmentsFormComponent,
+    JobRequirmentsFormFieldComponent,
+
+    JobPathFormComponent,
+    JobPathFormFieldComponent,
+
+    TasksDutiesFormComponent,
+    TasksDutiesFormFieldComponent,
+
+    AdministrativeFinancialPowersFormComponent,
+    AdministrativeFinancialPowersFormFieldComponent,
+
+    CardInformationFormComponent,
+    CardInformationFormFieldComponent,
 
     TellProblemFormComponent,
     TellProblemFormFieldComponent,
 
-    EmploymentContractFormComponent,
-    EmploymentContractFormFieldComponent,
+    DepartmentsFormComponent,
+    DepartmentsFormFieldComponent,
   ],
   providers: [
     UserNewFormModalService,
-    CandidatesFormModalService,
-
     JobsFormModalService,
 
-    DepartmentsFormModalService,
+    CandidatesFormModalService,
 
     AcademicCertificatesFormModalService,
 
@@ -259,21 +317,31 @@ import { EmploymentContractFormComponent } from 'src/app/employment-contract/for
 
     LeaveApplicationFormFormModalService,
 
-    ClaimFormModalService,
+    EmploymentContractFormModalService,
 
-    AdvancedPaymentFormModalService,
+    ConnectionLevelFormModalService,
+
+    CommonComiteesFormModalService,
+
+    JobRequirmentsFormModalService,
+
+    JobPathFormModalService,
+
+    TasksDutiesFormModalService,
+
+    AdministrativeFinancialPowersFormModalService,
+
+    CardInformationFormModalService,
 
     TellProblemFormModalService,
 
-    EmploymentContractFormModalService,
+    DepartmentsFormModalService,
   ],
   entryComponents: [
     UserNewFormModalComponent,
-    CandidatesFormModalComponent,
-
     JobsFormModalComponent,
 
-    DepartmentsFormModalComponent,
+    CandidatesFormModalComponent,
 
     AcademicCertificatesFormModalComponent,
 
@@ -295,13 +363,25 @@ import { EmploymentContractFormComponent } from 'src/app/employment-contract/for
 
     LeaveApplicationFormFormModalComponent,
 
-    ClaimFormModalComponent,
+    EmploymentContractFormModalComponent,
 
-    AdvancedPaymentFormModalComponent,
+    ConnectionLevelFormModalComponent,
+
+    CommonComiteesFormModalComponent,
+
+    JobRequirmentsFormModalComponent,
+
+    JobPathFormModalComponent,
+
+    TasksDutiesFormModalComponent,
+
+    AdministrativeFinancialPowersFormModalComponent,
+
+    CardInformationFormModalComponent,
 
     TellProblemFormModalComponent,
 
-    EmploymentContractFormModalComponent,
+    DepartmentsFormModalComponent,
   ],
 })
 export class AppFormAutocompleteModule {}

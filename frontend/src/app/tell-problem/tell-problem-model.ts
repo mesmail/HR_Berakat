@@ -4,8 +4,6 @@ import DateTimeField from 'src/app/shared/fields/date-time-field';
 import IdField from 'src/app/shared/fields/id-field';
 import DateTimeRangeField from 'src/app/shared/fields/date-time-range-field';
 import StringField from 'src/app/shared/fields/string-field';
-import DateField from 'src/app/shared/fields/date-field';
-import DateRangeField from 'src/app/shared/fields/date-range-field';
 
 function label(name) {
   return i18n(`entities.tellProblem.fields.${name}`);
@@ -20,12 +18,12 @@ const fields = {
   problemDescription: new StringField('problemDescription', label('problemDescription'), {
     "placeholder": placeholder('problemDescription')
   }),
-  occuranceDate: new DateField('occuranceDate', label('occuranceDate'), {}),
-  possibleCauses: new StringField('possibleCauses', label('possibleCauses'), {
-    "placeholder": placeholder('possibleCauses')
+  problemDate: new DateTimeField('problemDate', label('problemDate'), {}),
+  problemCauses: new StringField('problemCauses', label('problemCauses'), {
+    "placeholder": placeholder('problemCauses')
   }),
-  suggestedSolves: new StringField('suggestedSolves', label('suggestedSolves'), {
-    "placeholder": placeholder('suggestedSolves')
+  problemSolutions: new StringField('problemSolutions', label('problemSolutions'), {
+    "placeholder": placeholder('problemSolutions')
   }),
   createdAt: new DateTimeField(
     'createdAt',
@@ -39,9 +37,9 @@ const fields = {
     'createdAtRange',
     label('createdAtRange'),
   ),
-  occuranceDateRange: new DateRangeField(
-    'occuranceDateRange',
-    label('occuranceDateRange'),
+  problemDateRange: new DateTimeRangeField(
+    'problemDateRange',
+    label('problemDateRange'),
   ),
 };
 

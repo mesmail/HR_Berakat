@@ -1,263 +1,154 @@
-<form
-  class="form"
-  (ngSubmit)="doSave()"
-  [formGroup]="form"
-  #ngForm="ngForm"
-  *ngIf="form"
->
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.positionName.label }}</mat-label>
-    <input
-      matInput
-      [formControlName]="fields.positionName.name"
-      [placeholder]="fields.positionName.placeholder"
-      [required]="fields.positionName.required"
-    appAutofocus
-    />
+<form class="form" (ngSubmit)="doSave()" [formGroup]="form" #ngForm="ngForm" *ngIf="form">
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.positionName.label }}</mat-label>
+        <input matInput [formControlName]="fields.positionName.name" [placeholder]="fields.positionName.placeholder" [required]="fields.positionName.required" appAutofocus />
 
-    <mat-hint *ngIf="fields.positionName.hint">
-      {{ fields.positionName.hint }}
-    </mat-hint>
+        <mat-hint *ngIf="fields.positionName.hint">
+            {{ fields.positionName.hint }}
+        </mat-hint>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.positionName.name)"
-        [label]="fields.positionName.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+        <mat-error>
+            <app-validations [control]="form.get(fields.positionName.name)" [label]="fields.positionName.label">
+            </app-validations>
+        </mat-error>
+    </mat-form-field>
 
-  <app-departments-form-field
-    [control]="form.get(fields.department.name)"
-    [label]="fields.department.label"
-    [placeholder]="fields.department.placeholder"
-    [hint]="fields.department.hint"
-    [required]="fields.department.required"
-    [fetchFn]="fields.department.fetchFn"
-    [mapperFn]="fields.department.mapperFn"
-    [showCreate]="!modal"
-    [submitted]="ngForm.submitted"
-    mode="single"
-  ></app-departments-form-field>
+    <app-departments-form-field [control]="form.get(fields.department.name)" [label]="fields.department.label" [placeholder]="fields.department.placeholder" [hint]="fields.department.hint" [required]="fields.department.required" [fetchFn]="fields.department.fetchFn"
+        [mapperFn]="fields.department.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="multiple">
+    </app-departments-form-field>
 
-  <app-user-form-field
-    [control]="form.get(fields.supervisor.name)"
-    [label]="fields.supervisor.label"
-    [placeholder]="fields.supervisor.placeholder"
-    [hint]="fields.supervisor.hint"
-    [required]="fields.supervisor.required"
-    [fetchFn]="fields.supervisor.fetchFn"
-    [mapperFn]="fields.supervisor.mapperFn"
-    [showCreate]="!modal"
-    [submitted]="ngForm.submitted"
-    mode="single"
-  ></app-user-form-field>
+    <app-user-form-field [control]="form.get(fields.supervisor.name)" [label]="fields.supervisor.label" [placeholder]="fields.supervisor.placeholder" [hint]="fields.supervisor.hint" [required]="fields.supervisor.required" [fetchFn]="fields.supervisor.fetchFn"
+        [mapperFn]="fields.supervisor.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single">
+    </app-user-form-field>
 
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.jobLocation.label }}</mat-label>
-    <input
-      matInput
-      [formControlName]="fields.jobLocation.name"
-      [placeholder]="fields.jobLocation.placeholder"
-      [required]="fields.jobLocation.required"
-    />
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.jobLocation.label }}</mat-label>
+        <input matInput [formControlName]="fields.jobLocation.name" [placeholder]="fields.jobLocation.placeholder" [required]="fields.jobLocation.required" />
 
-    <mat-hint *ngIf="fields.jobLocation.hint">
-      {{ fields.jobLocation.hint }}
-    </mat-hint>
+        <mat-hint *ngIf="fields.jobLocation.hint">
+            {{ fields.jobLocation.hint }}
+        </mat-hint>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.jobLocation.name)"
-        [label]="fields.jobLocation.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+        <mat-error>
+            <app-validations [control]="form.get(fields.jobLocation.name)" [label]="fields.jobLocation.label">
+            </app-validations>
+        </mat-error>
+    </mat-form-field>
 
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.jobCode.label }}</mat-label>
-    <input
-      matInput
-      [formControlName]="fields.jobCode.name"
-      [placeholder]="fields.jobCode.placeholder"
-      [required]="fields.jobCode.required"
-    />
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.jobCode.label }}</mat-label>
+        <input matInput [formControlName]="fields.jobCode.name" [placeholder]="fields.jobCode.placeholder" [required]="fields.jobCode.required" />
 
-    <mat-hint *ngIf="fields.jobCode.hint">
-      {{ fields.jobCode.hint }}
-    </mat-hint>
+        <mat-hint *ngIf="fields.jobCode.hint">
+            {{ fields.jobCode.hint }}
+        </mat-hint>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.jobCode.name)"
-        [label]="fields.jobCode.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+        <mat-error>
+            <app-validations [control]="form.get(fields.jobCode.name)" [label]="fields.jobCode.label"></app-validations>
+        </mat-error>
+    </mat-form-field>
 
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.releaseDate.label }}</mat-label>
-    <input
-      matInput
-      [formControlName]="fields.releaseDate.name"
-      [placeholder]="fields.releaseDate.placeholder"
-      [owlDateTime]="dt5"
-      [owlDateTimeTrigger]="dt5"
-      [required]="fields.releaseDate.required"
-    />
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.generalDescription.label }}</mat-label>
+        <textarea matInput [formControlName]="fields.generalDescription.name" [rows]="4" [placeholder]="fields.generalDescription.placeholder" [required]="fields.generalDescription.required"></textarea>
 
-    <owl-date-time #dt5></owl-date-time>
+        <mat-hint *ngIf="fields.generalDescription.hint">
+            {{ fields.generalDescription.hint }}
+        </mat-hint>
 
-    <mat-hint *ngIf="fields.releaseDate.hint">
-      {{ fields.releaseDate.hint }}
-    </mat-hint>
+        <mat-error>
+            <app-validations [control]="form.get(fields.generalDescription.name)" [label]="fields.generalDescription.label">
+            </app-validations>
+        </mat-error>
+    </mat-form-field>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.releaseDate.name)"
-        [label]="fields.releaseDate.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.generalGoals.label }}</mat-label>
+        <textarea matInput [formControlName]="fields.generalGoals.name" [rows]="4" [placeholder]="fields.generalGoals.placeholder" [required]="fields.generalGoals.required"></textarea>
 
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.generalDescription.label }}</mat-label>
-    <textarea
-      matInput
-      [formControlName]="fields.generalDescription.name"
-      [rows]="4"
-      [placeholder]="fields.generalDescription.placeholder"
-      [required]="fields.generalDescription.required"
-    ></textarea>
+        <mat-hint *ngIf="fields.generalGoals.hint">
+            {{ fields.generalGoals.hint }}
+        </mat-hint>
 
-    <mat-hint *ngIf="fields.generalDescription.hint">
-      {{ fields.generalDescription.hint }}
-    </mat-hint>
+        <mat-error>
+            <app-validations [control]="form.get(fields.generalGoals.name)" [label]="fields.generalGoals.label">
+            </app-validations>
+        </mat-error>
+    </mat-form-field>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.generalDescription.name)"
-        [label]="fields.generalDescription.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.detailedGoals.label }}</mat-label>
+        <textarea matInput [formControlName]="fields.detailedGoals.name" [rows]="4" [placeholder]="fields.detailedGoals.placeholder" [required]="fields.detailedGoals.required"></textarea>
 
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.generalGoals.label }}</mat-label>
-    <textarea
-      matInput
-      [formControlName]="fields.generalGoals.name"
-      [rows]="4"
-      [placeholder]="fields.generalGoals.placeholder"
-      [required]="fields.generalGoals.required"
-    ></textarea>
+        <mat-hint *ngIf="fields.detailedGoals.hint">
+            {{ fields.detailedGoals.hint }}
+        </mat-hint>
 
-    <mat-hint *ngIf="fields.generalGoals.hint">
-      {{ fields.generalGoals.hint }}
-    </mat-hint>
+        <mat-error>
+            <app-validations [control]="form.get(fields.detailedGoals.name)" [label]="fields.detailedGoals.label">
+            </app-validations>
+        </mat-error>
+    </mat-form-field>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.generalGoals.name)"
-        [label]="fields.generalGoals.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+    <app-academic-certificates-form-field [control]="form.get(fields.academicCertificates.name)" [label]="fields.academicCertificates.label" [placeholder]="fields.academicCertificates.placeholder" [hint]="fields.academicCertificates.hint" [required]="fields.academicCertificates.required"
+        [fetchFn]="fields.academicCertificates.fetchFn" [mapperFn]="fields.academicCertificates.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-academic-certificates-form-field>
 
-  <mat-form-field floatLabel="always" appearance="outline">
-    <mat-label>{{ fields.detailedGoals.label }}</mat-label>
-    <textarea
-      matInput
-      [formControlName]="fields.detailedGoals.name"
-      [rows]="4"
-      [placeholder]="fields.detailedGoals.placeholder"
-      [required]="fields.detailedGoals.required"
-    ></textarea>
+    <app-training-certificates-form-field [control]="form.get(fields.trainingCertificates.name)" [label]="fields.trainingCertificates.label" [placeholder]="fields.trainingCertificates.placeholder" [hint]="fields.trainingCertificates.hint" [required]="fields.trainingCertificates.required"
+        [fetchFn]="fields.trainingCertificates.fetchFn" [mapperFn]="fields.trainingCertificates.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-training-certificates-form-field>
 
-    <mat-hint *ngIf="fields.detailedGoals.hint">
-      {{ fields.detailedGoals.hint }}
-    </mat-hint>
+    <app-professional-certifications-form-field [control]="form.get(fields.professionalCertificates.name)" [label]="fields.professionalCertificates.label" [placeholder]="fields.professionalCertificates.placeholder" [hint]="fields.professionalCertificates.hint"
+        [required]="fields.professionalCertificates.required" [fetchFn]="fields.professionalCertificates.fetchFn" [mapperFn]="fields.professionalCertificates.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-professional-certifications-form-field>
 
-    <mat-error>
-      <app-validations
-        [control]="form.get(fields.detailedGoals.name)"
-        [label]="fields.detailedGoals.label"
-      ></app-validations>
-    </mat-error>
-  </mat-form-field>
+    <app-soft-skills-form-field [control]="form.get(fields.softSkills.name)" [label]="fields.softSkills.label" [placeholder]="fields.softSkills.placeholder" [hint]="fields.softSkills.hint" [required]="fields.softSkills.required" [fetchFn]="fields.softSkills.fetchFn"
+        [mapperFn]="fields.softSkills.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single">
+    </app-soft-skills-form-field>
 
-  <app-leave-application-form-form-field
-    [control]="form.get(fields.leaves.name)"
-    [label]="fields.leaves.label"
-    [placeholder]="fields.leaves.placeholder"
-    [hint]="fields.leaves.hint"
-    [required]="fields.leaves.required"
-    [fetchFn]="fields.leaves.fetchFn"
-    [mapperFn]="fields.leaves.mapperFn"
-    [showCreate]="!modal"
-    [submitted]="ngForm.submitted"
-    mode="multiple"
-  ></app-leave-application-form-form-field>
+    <app-management-skills-form-field [control]="form.get(fields.managementSkills.name)" [label]="fields.managementSkills.label" [placeholder]="fields.managementSkills.placeholder" [hint]="fields.managementSkills.hint" [required]="fields.managementSkills.required"
+        [fetchFn]="fields.managementSkills.fetchFn" [mapperFn]="fields.managementSkills.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-management-skills-form-field>
 
-  <app-soft-skills-form-field
-    [control]="form.get(fields.personalAndTechnicalSkills.name)"
-    [label]="fields.personalAndTechnicalSkills.label"
-    [placeholder]="fields.personalAndTechnicalSkills.placeholder"
-    [hint]="fields.personalAndTechnicalSkills.hint"
-    [required]="fields.personalAndTechnicalSkills.required"
-    [fetchFn]="fields.personalAndTechnicalSkills.fetchFn"
-    [mapperFn]="fields.personalAndTechnicalSkills.mapperFn"
-    [showCreate]="!modal"
-    [submitted]="ngForm.submitted"
-    mode="single"
-  ></app-soft-skills-form-field>
+    <app-artistic-skills-form-field [control]="form.get(fields.artitistikSkills.name)" [label]="fields.artitistikSkills.label" [placeholder]="fields.artitistikSkills.placeholder" [hint]="fields.artitistikSkills.hint" [required]="fields.artitistikSkills.required"
+        [fetchFn]="fields.artitistikSkills.fetchFn" [mapperFn]="fields.artitistikSkills.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-artistic-skills-form-field>
 
-  <div
-    class="form-buttons"
-    [class.form-buttons-modal]="modal"
-  >
-    <button
-      mat-raised-button
-      [disabled]="saveLoading"
-      color="primary"
-      type="submit"
-    >
-      <mat-icon
-        inline
-        fontSet="far"
-        fontIcon="fa-save"
-      ></mat-icon
-      >&#160;
+    <app-job-frameworks-form-field [control]="form.get(fields.jobFramework.name)" [label]="fields.jobFramework.label" [placeholder]="fields.jobFramework.placeholder" [hint]="fields.jobFramework.hint" [required]="fields.jobFramework.required" [fetchFn]="fields.jobFramework.fetchFn"
+        [mapperFn]="fields.jobFramework.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single">
+    </app-job-frameworks-form-field>
+
+    <app-connection-level-form-field [control]="form.get(fields.connectionLevel.name)" [label]="fields.connectionLevel.label" [placeholder]="fields.connectionLevel.placeholder" [hint]="fields.connectionLevel.hint" [required]="fields.connectionLevel.required"
+        [fetchFn]="fields.connectionLevel.fetchFn" [mapperFn]="fields.connectionLevel.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-connection-level-form-field>
+
+    <app-common-comitees-form-field [control]="form.get(fields.commonCommittees.name)" [label]="fields.commonCommittees.label" [placeholder]="fields.commonCommittees.placeholder" [hint]="fields.commonCommittees.hint" [required]="fields.commonCommittees.required"
+        [fetchFn]="fields.commonCommittees.fetchFn" [mapperFn]="fields.commonCommittees.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="multiple"></app-common-comitees-form-field>
+
+    <app-job-requirments-form-field [control]="form.get(fields.jobRequirments.name)" [label]="fields.jobRequirments.label" [placeholder]="fields.jobRequirments.placeholder" [hint]="fields.jobRequirments.hint" [required]="fields.jobRequirments.required" [fetchFn]="fields.jobRequirments.fetchFn"
+        [mapperFn]="fields.jobRequirments.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single">
+    </app-job-requirments-form-field>
+
+    <app-job-path-form-field [control]="form.get(fields.jobPath.name)" [label]="fields.jobPath.label" [placeholder]="fields.jobPath.placeholder" [hint]="fields.jobPath.hint" [required]="fields.jobPath.required" [fetchFn]="fields.jobPath.fetchFn" [mapperFn]="fields.jobPath.mapperFn"
+        [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-job-path-form-field>
+
+    <app-tasks-duties-form-field [control]="form.get(fields.tasksDuties.name)" [label]="fields.tasksDuties.label" [placeholder]="fields.tasksDuties.placeholder" [hint]="fields.tasksDuties.hint" [required]="fields.tasksDuties.required" [fetchFn]="fields.tasksDuties.fetchFn"
+        [mapperFn]="fields.tasksDuties.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single">
+    </app-tasks-duties-form-field>
+
+    <app-administrative-financial-powers-form-field [control]="form.get(fields.administrativeFinancialPowers.name)" [label]="fields.administrativeFinancialPowers.label" [placeholder]="fields.administrativeFinancialPowers.placeholder" [hint]="fields.administrativeFinancialPowers.hint"
+        [required]="fields.administrativeFinancialPowers.required" [fetchFn]="fields.administrativeFinancialPowers.fetchFn" [mapperFn]="fields.administrativeFinancialPowers.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-administrative-financial-powers-form-field>
+
+    <app-card-information-form-field [control]="form.get(fields.cardInformation.name)" [label]="fields.cardInformation.label" [placeholder]="fields.cardInformation.placeholder" [hint]="fields.cardInformation.hint" [required]="fields.cardInformation.required"
+        [fetchFn]="fields.cardInformation.fetchFn" [mapperFn]="fields.cardInformation.mapperFn" [showCreate]="!modal" [submitted]="ngForm.submitted" mode="single"></app-card-information-form-field>
+
+    <div class="form-buttons" [class.form-buttons-modal]="modal">
+        <button mat-raised-button [disabled]="saveLoading" color="primary" type="submit">
+      <mat-icon inline fontSet="far" fontIcon="fa-save"></mat-icon>&#160;
       <app-i18n key="common.save"></app-i18n>
     </button>
-    <button
-      mat-flat-button
-      [disabled]="saveLoading"
-      (click)="doReset()"
-      type="button"
-    >
-      <mat-icon
-        inline
-        fontSet="fas"
-        fontIcon="fa-undo"
-      ></mat-icon
-      >&#160;
+        <button mat-flat-button [disabled]="saveLoading" (click)="doReset()" type="button">
+      <mat-icon inline fontSet="fas" fontIcon="fa-undo"></mat-icon>&#160;
       <app-i18n key="common.reset"></app-i18n>
     </button>
 
-    <button
-      mat-flat-button
-      [disabled]="saveLoading"
-      type="button"
-      (click)="cancel.emit()"
-    >
-      <mat-icon
-        inline
-        fontSet="fas"
-        fontIcon="fa-times"
-      ></mat-icon
-      >&#160;
+        <button mat-flat-button [disabled]="saveLoading" type="button" (click)="cancel.emit()">
+      <mat-icon inline fontSet="fas" fontIcon="fa-times"></mat-icon>&#160;
       <app-i18n key="common.cancel"></app-i18n>
     </button>
-  </div>
+    </div>
 </form>

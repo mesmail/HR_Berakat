@@ -1,10 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
-const moment_1 = __importDefault(require("moment"));
 function default_1(sequelize) {
     const tellProblem = sequelize.define('tellProblem', {
         id: {
@@ -15,22 +11,13 @@ function default_1(sequelize) {
         problemDescription: {
             type: sequelize_1.DataTypes.TEXT,
         },
-        occuranceDate: {
-            type: sequelize_1.DataTypes.DATEONLY,
-            get: function () {
-                // @ts-ignore
-                return this.getDataValue('occuranceDate')
-                    ? moment_1.default
-                        // @ts-ignore
-                        .utc(this.getDataValue('occuranceDate'))
-                        .format('YYYY-MM-DD')
-                    : null;
-            },
+        problemDate: {
+            type: sequelize_1.DataTypes.DATE,
         },
-        possibleCauses: {
+        problemCauses: {
             type: sequelize_1.DataTypes.TEXT,
         },
-        suggestedSolves: {
+        problemSolutions: {
             type: sequelize_1.DataTypes.TEXT,
         },
         importHash: {

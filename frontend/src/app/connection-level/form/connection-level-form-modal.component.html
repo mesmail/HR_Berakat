@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>
+  <app-i18n key="entities.connectionLevel.new.title"></app-i18n>
+</h1>
+<mat-dialog-content>
+  <app-connection-level-form
+    [saveLoading]="saveLoading"
+    (save)="doCreate($event)"
+    (cancel)="doCancel()"
+    [modal]="true"
+  ></app-connection-level-form>
+</mat-dialog-content>

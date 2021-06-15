@@ -1,0 +1,81 @@
+<div class="app-page-toolbar">
+  <button
+    *ngIf="hasPermissionToCreate"
+    [routerLink]="'/tasks-duties/new'"
+    mat-raised-button
+    color="primary"
+  >
+    <mat-icon
+      fontSet="fas"
+      fontIcon="fa-plus"
+      inline
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.new"></app-i18n>
+  </button>
+
+  <button
+    *ngIf="hasPermissionToImport"
+    [routerLink]="'/tasks-duties/import'"
+    mat-raised-button
+    color="primary"
+  >
+    <mat-icon
+      inline
+      fontSet="fas"
+      fontIcon="fa-file-import"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.import"></app-i18n>
+  </button>
+
+  <span
+    *ngIf="hasPermissionToDestroy"
+    [matTooltip]="destroyButtonTooltip"
+  >
+    <button
+      [disabled]="destroyButtonDisabled"
+      mat-raised-button
+      color="primary"
+      (click)="doDestroyAllSelected()"
+    >
+      <mat-icon
+        inline
+        fontSet="far"
+        fontIcon="fa-trash-alt"
+      ></mat-icon
+      >&#160;
+      <app-i18n key="common.destroy"></app-i18n>
+    </button>
+  </span>
+
+  <button
+    *ngIf="hasPermissionToAuditLogs"
+    mat-flat-button
+    [routerLink]="['/audit-log']"
+    [queryParams]="{ entityNames: 'tasksDuties' }"
+  >
+    <mat-icon
+      inline
+      fontSet="fas"
+      fontIcon="fa-history"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="auditLog.menu"></app-i18n>
+  </button>
+
+  <button
+    [disabled]="exportButtonDisabled"
+    [matTooltip]="exportButtonTooltip"
+    (click)="doExport()"
+    mat-flat-button
+  >
+    <mat-icon
+      inline
+      fontSet="far"
+      fontIcon="fa-file-excel"
+    ></mat-icon
+    >&#160;
+    <app-i18n key="common.export"></app-i18n>
+  </button>
+</div>

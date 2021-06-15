@@ -27,9 +27,9 @@ class TellProblemRepository {
       {
         ...lodash.pick(data, [
           'problemDescription',
-          'occuranceDate',
-          'possibleCauses',
-          'suggestedSolves',          
+          'problemDate',
+          'problemCauses',
+          'problemSolutions',          
           'importHash',
         ]),
 
@@ -88,9 +88,9 @@ class TellProblemRepository {
       {
         ...lodash.pick(data, [
           'problemDescription',
-          'occuranceDate',
-          'possibleCauses',
-          'suggestedSolves',          
+          'problemDate',
+          'problemCauses',
+          'problemSolutions',          
           'importHash',
         ]),
 
@@ -274,12 +274,12 @@ class TellProblemRepository {
         );
       }
 
-      if (filter.occuranceDateRange) {
-        const [start, end] = filter.occuranceDateRange;
+      if (filter.problemDateRange) {
+        const [start, end] = filter.problemDateRange;
 
         if (start !== undefined && start !== null && start !== '') {
           whereAnd.push({
-            occuranceDate: {
+            problemDate: {
               [Op.gte]: start,
             },
           });
@@ -287,29 +287,29 @@ class TellProblemRepository {
 
         if (end !== undefined && end !== null && end !== '') {
           whereAnd.push({
-            occuranceDate: {
+            problemDate: {
               [Op.lte]: end,
             },
           });
         }
       }
 
-      if (filter.possibleCauses) {
+      if (filter.problemCauses) {
         whereAnd.push(
           SequelizeFilterUtils.ilikeIncludes(
             'tellProblem',
-            'possibleCauses',
-            filter.possibleCauses,
+            'problemCauses',
+            filter.problemCauses,
           ),
         );
       }
 
-      if (filter.suggestedSolves) {
+      if (filter.problemSolutions) {
         whereAnd.push(
           SequelizeFilterUtils.ilikeIncludes(
             'tellProblem',
-            'suggestedSolves',
-            filter.suggestedSolves,
+            'problemSolutions',
+            filter.problemSolutions,
           ),
         );
       }

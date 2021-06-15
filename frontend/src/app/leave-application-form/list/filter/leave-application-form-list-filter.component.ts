@@ -86,7 +86,6 @@ export class LeaveApplicationFormListFilterComponent implements OnInit {
         this.fields.noBalanceRange,
         this.fields.remarks,
         this.fields.status,
-        this.fields.jobs,
       ],
       this.formBuilder,
     );

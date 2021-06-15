@@ -45,16 +45,14 @@
         ></app-table-item-relation-to-one>
       </td>
     </ng-container>
-    <ng-container [matColumnDef]="fields.department.name">
-      <th mat-header-cell *matHeaderCellDef>
+    <ng-container
+      [matColumnDef]="fields.department.name"
+    >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
         {{ fields.department.label }}
       </th>
       <td mat-cell *matCellDef="let row">
-        <app-table-item-relation-to-one
-          [url]="fields.department.viewUrl"
-          [permission]="fields.department.readPermission"
-          [value]="presenter(row, 'department')"
-        ></app-table-item-relation-to-one>
+        {{ presenter(row, 'department') }}
       </td>
     </ng-container>
     <ng-container
@@ -185,18 +183,6 @@
       </th>
       <td mat-cell *matCellDef="let row">
         {{ presenter(row, 'status') }}
-      </td>
-    </ng-container>
-    <ng-container [matColumnDef]="fields.jobs.name">
-      <th mat-header-cell *matHeaderCellDef>
-        {{ fields.jobs.label }}
-      </th>
-      <td mat-cell *matCellDef="let row">
-        <app-table-item-relation-to-one
-          [url]="fields.jobs.viewUrl"
-          [permission]="fields.jobs.readPermission"
-          [value]="presenter(row, 'jobs')"
-        ></app-table-item-relation-to-one>
       </td>
     </ng-container>
 

@@ -26,15 +26,21 @@ class EmploymentContractRepository {
             const tenant = sequelizeRepository_1.default.getCurrentTenant(options);
             const transaction = sequelizeRepository_1.default.getTransaction(options);
             const record = yield options.database.employmentContract.create(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
+                'contractDate',
+                'companyRepresentative',
+                'secondParty',
+                'nationality',
+                'passportNumber',
+                'passportIssueDate',
+                'email',
+                'jobTitle',
+                'dailyWorkingHours',
+                'weeklyWorkingHours',
+                'weekEndDay',
+                'workStartDate',
                 'employeeName',
-                'workingPeriod',
-                'employmentSalary',
-                'jobRoles',
-                'employeeContactEmail',
-                'mobileNumber',
-                'homeAddress',
-                'contractPeriod',
-                'startDate',
+                'positionName',
+                'basicSalary',
                 'importHash',
             ])), { tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
                 transaction,
@@ -59,15 +65,21 @@ class EmploymentContractRepository {
                 throw new Error404_1.default();
             }
             record = yield record.update(Object.assign(Object.assign({}, lodash_1.default.pick(data, [
+                'contractDate',
+                'companyRepresentative',
+                'secondParty',
+                'nationality',
+                'passportNumber',
+                'passportIssueDate',
+                'email',
+                'jobTitle',
+                'dailyWorkingHours',
+                'weeklyWorkingHours',
+                'weekEndDay',
+                'workStartDate',
                 'employeeName',
-                'workingPeriod',
-                'employmentSalary',
-                'jobRoles',
-                'employeeContactEmail',
-                'mobileNumber',
-                'homeAddress',
-                'contractPeriod',
-                'startDate',
+                'positionName',
+                'basicSalary',
                 'importHash',
             ])), { updatedById: currentUser.id }), {
                 transaction,
@@ -163,98 +175,130 @@ class EmploymentContractRepository {
                         ['id']: sequelizeFilterUtils_1.default.uuid(filter.id),
                     });
                 }
+                if (filter.contractDateRange) {
+                    const [start, end] = filter.contractDateRange;
+                    if (start !== undefined && start !== null && start !== '') {
+                        whereAnd.push({
+                            contractDate: {
+                                [Op.gte]: start,
+                            },
+                        });
+                    }
+                    if (end !== undefined && end !== null && end !== '') {
+                        whereAnd.push({
+                            contractDate: {
+                                [Op.lte]: end,
+                            },
+                        });
+                    }
+                }
+                if (filter.companyRepresentative) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'companyRepresentative', filter.companyRepresentative));
+                }
+                if (filter.secondParty) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'secondParty', filter.secondParty));
+                }
+                if (filter.nationality) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'nationality', filter.nationality));
+                }
+                if (filter.passportNumber) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'passportNumber', filter.passportNumber));
+                }
+                if (filter.passportIssueDateRange) {
+                    const [start, end] = filter.passportIssueDateRange;
+                    if (start !== undefined && start !== null && start !== '') {
+                        whereAnd.push({
+                            passportIssueDate: {
+                                [Op.gte]: start,
+                            },
+                        });
+                    }
+                    if (end !== undefined && end !== null && end !== '') {
+                        whereAnd.push({
+                            passportIssueDate: {
+                                [Op.lte]: end,
+                            },
+                        });
+                    }
+                }
+                if (filter.email) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'email', filter.email));
+                }
+                if (filter.jobTitle) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'jobTitle', filter.jobTitle));
+                }
+                if (filter.dailyWorkingHoursRange) {
+                    const [start, end] = filter.dailyWorkingHoursRange;
+                    if (start !== undefined && start !== null && start !== '') {
+                        whereAnd.push({
+                            dailyWorkingHours: {
+                                [Op.gte]: start,
+                            },
+                        });
+                    }
+                    if (end !== undefined && end !== null && end !== '') {
+                        whereAnd.push({
+                            dailyWorkingHours: {
+                                [Op.lte]: end,
+                            },
+                        });
+                    }
+                }
+                if (filter.weeklyWorkingHoursRange) {
+                    const [start, end] = filter.weeklyWorkingHoursRange;
+                    if (start !== undefined && start !== null && start !== '') {
+                        whereAnd.push({
+                            weeklyWorkingHours: {
+                                [Op.gte]: start,
+                            },
+                        });
+                    }
+                    if (end !== undefined && end !== null && end !== '') {
+                        whereAnd.push({
+                            weeklyWorkingHours: {
+                                [Op.lte]: end,
+                            },
+                        });
+                    }
+                }
+                if (filter.weekEndDay) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'weekEndDay', filter.weekEndDay));
+                }
+                if (filter.workStartDateRange) {
+                    const [start, end] = filter.workStartDateRange;
+                    if (start !== undefined && start !== null && start !== '') {
+                        whereAnd.push({
+                            workStartDate: {
+                                [Op.gte]: start,
+                            },
+                        });
+                    }
+                    if (end !== undefined && end !== null && end !== '') {
+                        whereAnd.push({
+                            workStartDate: {
+                                [Op.lte]: end,
+                            },
+                        });
+                    }
+                }
                 if (filter.employeeName) {
                     whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'employeeName', filter.employeeName));
                 }
-                if (filter.workingPeriodRange) {
-                    const [start, end] = filter.workingPeriodRange;
+                if (filter.positionName) {
+                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'positionName', filter.positionName));
+                }
+                if (filter.basicSalaryRange) {
+                    const [start, end] = filter.basicSalaryRange;
                     if (start !== undefined && start !== null && start !== '') {
                         whereAnd.push({
-                            workingPeriod: {
+                            basicSalary: {
                                 [Op.gte]: start,
                             },
                         });
                     }
                     if (end !== undefined && end !== null && end !== '') {
                         whereAnd.push({
-                            workingPeriod: {
-                                [Op.lte]: end,
-                            },
-                        });
-                    }
-                }
-                if (filter.employmentSalaryRange) {
-                    const [start, end] = filter.employmentSalaryRange;
-                    if (start !== undefined && start !== null && start !== '') {
-                        whereAnd.push({
-                            employmentSalary: {
-                                [Op.gte]: start,
-                            },
-                        });
-                    }
-                    if (end !== undefined && end !== null && end !== '') {
-                        whereAnd.push({
-                            employmentSalary: {
-                                [Op.lte]: end,
-                            },
-                        });
-                    }
-                }
-                if (filter.jobRoles) {
-                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'jobRoles', filter.jobRoles));
-                }
-                if (filter.employeeContactEmail) {
-                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'employeeContactEmail', filter.employeeContactEmail));
-                }
-                if (filter.mobileNumberRange) {
-                    const [start, end] = filter.mobileNumberRange;
-                    if (start !== undefined && start !== null && start !== '') {
-                        whereAnd.push({
-                            mobileNumber: {
-                                [Op.gte]: start,
-                            },
-                        });
-                    }
-                    if (end !== undefined && end !== null && end !== '') {
-                        whereAnd.push({
-                            mobileNumber: {
-                                [Op.lte]: end,
-                            },
-                        });
-                    }
-                }
-                if (filter.homeAddress) {
-                    whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('employmentContract', 'homeAddress', filter.homeAddress));
-                }
-                if (filter.contractPeriodRange) {
-                    const [start, end] = filter.contractPeriodRange;
-                    if (start !== undefined && start !== null && start !== '') {
-                        whereAnd.push({
-                            contractPeriod: {
-                                [Op.gte]: start,
-                            },
-                        });
-                    }
-                    if (end !== undefined && end !== null && end !== '') {
-                        whereAnd.push({
-                            contractPeriod: {
-                                [Op.lte]: end,
-                            },
-                        });
-                    }
-                }
-                if (filter.startDateRange) {
-                    const [start, end] = filter.startDateRange;
-                    if (start !== undefined && start !== null && start !== '') {
-                        whereAnd.push({
-                            startDate: {
-                                [Op.gte]: start,
-                            },
-                        });
-                    }
-                    if (end !== undefined && end !== null && end !== '') {
-                        whereAnd.push({
-                            startDate: {
+                            basicSalary: {
                                 [Op.lte]: end,
                             },
                         });

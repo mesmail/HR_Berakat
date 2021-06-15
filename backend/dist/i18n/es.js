@@ -71,17 +71,12 @@ const es = {
         error: 'Lo sentimos, esta operación no está permitida en el modo de vista previa.',
     },
     entities: {
-        candidates: {
-            errors: {
-                unique: {}
-            }
-        },
         jobs: {
             errors: {
                 unique: {}
             }
         },
-        departments: {
+        candidates: {
             errors: {
                 unique: {}
             }
@@ -139,14 +134,46 @@ const es = {
                 unique: {}
             }
         },
-        claim: {
+        employmentContract: {
             errors: {
                 unique: {}
             }
         },
-        advancedPayment: {
+        connectionLevel: {
             errors: {
                 unique: {}
+            }
+        },
+        commonComitees: {
+            errors: {
+                unique: {}
+            }
+        },
+        jobRequirments: {
+            errors: {
+                unique: {}
+            }
+        },
+        jobPath: {
+            errors: {
+                unique: {}
+            }
+        },
+        tasksDuties: {
+            errors: {
+                unique: {}
+            }
+        },
+        administrativeFinancialPowers: {
+            errors: {
+                unique: {}
+            }
+        },
+        cardInformation: {
+            errors: {
+                unique: {
+                    version: 'الإصدار debe ser único',
+                }
             }
         },
         tellProblem: {
@@ -154,7 +181,7 @@ const es = {
                 unique: {}
             }
         },
-        employmentContract: {
+        departments: {
             errors: {
                 unique: {}
             }

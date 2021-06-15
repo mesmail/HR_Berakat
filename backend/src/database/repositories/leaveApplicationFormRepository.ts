@@ -27,6 +27,7 @@ class LeaveApplicationFormRepository {
       {
         ...lodash.pick(data, [
           'name',
+          'department',
           'date',
           'contactNo',
           'employeeNo',
@@ -43,8 +44,6 @@ class LeaveApplicationFormRepository {
           'importHash',
         ]),
         positionId: data.position || null,
-        departmentId: data.department || null,
-        jobsId: data.jobs || null,
         tenantId: tenant.id,
         createdById: currentUser.id,
         updatedById: currentUser.id,
@@ -100,6 +99,7 @@ class LeaveApplicationFormRepository {
       {
         ...lodash.pick(data, [
           'name',
+          'department',
           'date',
           'contactNo',
           'employeeNo',
@@ -116,8 +116,6 @@ class LeaveApplicationFormRepository {
           'importHash',
         ]),
         positionId: data.position || null,
-        departmentId: data.department || null,
-        jobsId: data.jobs || null,
         updatedById: currentUser.id,
       },
       {
@@ -183,14 +181,6 @@ class LeaveApplicationFormRepository {
       {
         model: options.database.jobs,
         as: 'position',
-      },
-      {
-        model: options.database.departments,
-        as: 'department',
-      },
-      {
-        model: options.database.jobs,
-        as: 'jobs',
       },
     ];
 
@@ -288,14 +278,6 @@ class LeaveApplicationFormRepository {
       {
         model: options.database.jobs,
         as: 'position',
-      },
-      {
-        model: options.database.departments,
-        as: 'department',
-      },
-      {
-        model: options.database.jobs,
-        as: 'jobs',
       },      
     ];
 
@@ -329,11 +311,13 @@ class LeaveApplicationFormRepository {
       }
 
       if (filter.department) {
-        whereAnd.push({
-          ['departmentId']: SequelizeFilterUtils.uuid(
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'leaveApplicationForm',
+            'department',
             filter.department,
           ),
-        });
+        );
       }
 
       if (filter.dateRange) {
@@ -515,14 +499,6 @@ class LeaveApplicationFormRepository {
       if (filter.status) {
         whereAnd.push({
           status: filter.status,
-        });
-      }
-
-      if (filter.jobs) {
-        whereAnd.push({
-          ['jobsId']: SequelizeFilterUtils.uuid(
-            filter.jobs,
-          ),
         });
       }
 

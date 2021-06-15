@@ -8,7 +8,7 @@ function default_1(sequelize) {
             defaultValue: sequelize_1.DataTypes.UUIDV4,
             primaryKey: true,
         },
-        departmentName: {
+        departments: {
             type: sequelize_1.DataTypes.TEXT,
         },
         importHash: {

@@ -2,7 +2,7 @@
  * I18n dictionary for the en.
  */
 
- const en = {
+const en = {
   app: {
     title: 'Application',
   },
@@ -88,13 +88,6 @@
   },
 
   entities: {
-    candidates: {
-      errors: {
-        unique: {
-
-        }
-      }
-    },
     jobs: {
       errors: {
         unique: {
@@ -102,7 +95,7 @@
         }
       }
     },
-    departments: {
+    candidates: {
       errors: {
         unique: {
 
@@ -174,6 +167,76 @@
       }
     },
     leaveApplicationForm: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    employmentContract: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    connectionLevel: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    commonComitees: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    jobRequirments: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    jobPath: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    tasksDuties: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    administrativeFinancialPowers: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    cardInformation: {
+      errors: {
+        unique: {
+          version: 'الإصدار must be unique',
+        }
+      }
+    },
+    tellProblem: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    departments: {
       errors: {
         unique: {
 

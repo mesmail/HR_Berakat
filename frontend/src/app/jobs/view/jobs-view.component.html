@@ -17,12 +17,12 @@
       [value]="presenter(record, 'positionName')"
     ></app-view-item-text>
 
-    <app-view-item-relation-to-one
+    <app-view-item-relation-to-many
       [label]="fields.department.label"
       [url]="fields.department.viewUrl"
       [permission]="fields.department.readPermission"
       [value]="presenter(record, 'department')"
-    ></app-view-item-relation-to-one>
+    ></app-view-item-relation-to-many>
 
     <app-view-item-relation-to-one
       [label]="fields.supervisor.label"
@@ -42,11 +42,6 @@
     ></app-view-item-text>
 
     <app-view-item-text
-      [label]="fields.releaseDate.label"
-      [value]="presenter(record, 'releaseDate')"
-    ></app-view-item-text>
-
-    <app-view-item-text
       [label]="fields.generalDescription.label"
       [value]="presenter(record, 'generalDescription')"
     ></app-view-item-text>
@@ -61,18 +56,102 @@
       [value]="presenter(record, 'detailedGoals')"
     ></app-view-item-text>
 
+    <app-view-item-relation-to-one
+      [label]="fields.academicCertificates.label"
+      [url]="fields.academicCertificates.viewUrl"
+      [permission]="fields.academicCertificates.readPermission"
+      [value]="presenter(record, 'academicCertificates')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.trainingCertificates.label"
+      [url]="fields.trainingCertificates.viewUrl"
+      [permission]="fields.trainingCertificates.readPermission"
+      [value]="presenter(record, 'trainingCertificates')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.professionalCertificates.label"
+      [url]="fields.professionalCertificates.viewUrl"
+      [permission]="fields.professionalCertificates.readPermission"
+      [value]="presenter(record, 'professionalCertificates')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.softSkills.label"
+      [url]="fields.softSkills.viewUrl"
+      [permission]="fields.softSkills.readPermission"
+      [value]="presenter(record, 'softSkills')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.managementSkills.label"
+      [url]="fields.managementSkills.viewUrl"
+      [permission]="fields.managementSkills.readPermission"
+      [value]="presenter(record, 'managementSkills')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.artitistikSkills.label"
+      [url]="fields.artitistikSkills.viewUrl"
+      [permission]="fields.artitistikSkills.readPermission"
+      [value]="presenter(record, 'artitistikSkills')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.jobFramework.label"
+      [url]="fields.jobFramework.viewUrl"
+      [permission]="fields.jobFramework.readPermission"
+      [value]="presenter(record, 'jobFramework')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.connectionLevel.label"
+      [url]="fields.connectionLevel.viewUrl"
+      [permission]="fields.connectionLevel.readPermission"
+      [value]="presenter(record, 'connectionLevel')"
+    ></app-view-item-relation-to-one>
+
     <app-view-item-relation-to-many
-      [label]="fields.leaves.label"
-      [url]="fields.leaves.viewUrl"
-      [permission]="fields.leaves.readPermission"
-      [value]="presenter(record, 'leaves')"
+      [label]="fields.commonCommittees.label"
+      [url]="fields.commonCommittees.viewUrl"
+      [permission]="fields.commonCommittees.readPermission"
+      [value]="presenter(record, 'commonCommittees')"
     ></app-view-item-relation-to-many>
 
     <app-view-item-relation-to-one
-      [label]="fields.personalAndTechnicalSkills.label"
-      [url]="fields.personalAndTechnicalSkills.viewUrl"
-      [permission]="fields.personalAndTechnicalSkills.readPermission"
-      [value]="presenter(record, 'personalAndTechnicalSkills')"
+      [label]="fields.jobRequirments.label"
+      [url]="fields.jobRequirments.viewUrl"
+      [permission]="fields.jobRequirments.readPermission"
+      [value]="presenter(record, 'jobRequirments')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.jobPath.label"
+      [url]="fields.jobPath.viewUrl"
+      [permission]="fields.jobPath.readPermission"
+      [value]="presenter(record, 'jobPath')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.tasksDuties.label"
+      [url]="fields.tasksDuties.viewUrl"
+      [permission]="fields.tasksDuties.readPermission"
+      [value]="presenter(record, 'tasksDuties')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.administrativeFinancialPowers.label"
+      [url]="fields.administrativeFinancialPowers.viewUrl"
+      [permission]="fields.administrativeFinancialPowers.readPermission"
+      [value]="presenter(record, 'administrativeFinancialPowers')"
+    ></app-view-item-relation-to-one>
+
+    <app-view-item-relation-to-one
+      [label]="fields.cardInformation.label"
+      [url]="fields.cardInformation.viewUrl"
+      [permission]="fields.cardInformation.readPermission"
+      [value]="presenter(record, 'cardInformation')"
     ></app-view-item-relation-to-one>
   </div>
 </div>

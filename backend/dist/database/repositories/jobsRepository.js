@@ -30,15 +30,17 @@ class JobsRepository {
                 'positionName',
                 'jobLocation',
                 'jobCode',
-                'releaseDate',
                 'generalDescription',
                 'generalGoals',
                 'detailedGoals',
                 'importHash',
-            ])), { departmentId: data.department || null, supervisorId: data.supervisor || null, personalAndTechnicalSkillsId: data.personalAndTechnicalSkills || null, tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
+            ])), { supervisorId: data.supervisor || null, academicCertificatesId: data.academicCertificates || null, trainingCertificatesId: data.trainingCertificates || null, professionalCertificatesId: data.professionalCertificates || null, softSkillsId: data.softSkills || null, managementSkillsId: data.managementSkills || null, artitistikSkillsId: data.artitistikSkills || null, jobFrameworkId: data.jobFramework || null, connectionLevelId: data.connectionLevel || null, jobRequirmentsId: data.jobRequirments || null, jobPathId: data.jobPath || null, tasksDutiesId: data.tasksDuties || null, administrativeFinancialPowersId: data.administrativeFinancialPowers || null, cardInformationId: data.cardInformation || null, tenantId: tenant.id, createdById: currentUser.id, updatedById: currentUser.id }), {
                 transaction,
             });
-            yield record.setLeaves(data.leaves || [], {
+            yield record.setDepartment(data.department || [], {
+                transaction,
+            });
+            yield record.setCommonCommittees(data.commonCommittees || [], {
                 transaction,
             });
             yield this._createAuditLog(auditLogRepository_1.default.CREATE, record, data, options);
@@ -64,15 +66,17 @@ class JobsRepository {
                 'positionName',
                 'jobLocation',
                 'jobCode',
-                'releaseDate',
                 'generalDescription',
                 'generalGoals',
                 'detailedGoals',
                 'importHash',
-            ])), { departmentId: data.department || null, supervisorId: data.supervisor || null, personalAndTechnicalSkillsId: data.personalAndTechnicalSkills || null, updatedById: currentUser.id }), {
+            ])), { supervisorId: data.supervisor || null, academicCertificatesId: data.academicCertificates || null, trainingCertificatesId: data.trainingCertificates || null, professionalCertificatesId: data.professionalCertificates || null, softSkillsId: data.softSkills || null, managementSkillsId: data.managementSkills || null, artitistikSkillsId: data.artitistikSkills || null, jobFrameworkId: data.jobFramework || null, connectionLevelId: data.connectionLevel || null, jobRequirmentsId: data.jobRequirments || null, jobPathId: data.jobPath || null, tasksDutiesId: data.tasksDuties || null, administrativeFinancialPowersId: data.administrativeFinancialPowers || null, cardInformationId: data.cardInformation || null, updatedById: currentUser.id }), {
                 transaction,
             });
-            yield record.setLeaves(data.leaves || [], {
+            yield record.setDepartment(data.department || [], {
+                transaction,
+            });
+            yield record.setCommonCommittees(data.commonCommittees || [], {
                 transaction,
             });
             yield this._createAuditLog(auditLogRepository_1.default.UPDATE, record, data, options);
@@ -104,16 +108,60 @@ class JobsRepository {
             const transaction = sequelizeRepository_1.default.getTransaction(options);
             const include = [
                 {
-                    model: options.database.departments,
-                    as: 'department',
-                },
-                {
                     model: options.database.user,
                     as: 'supervisor',
                 },
                 {
+                    model: options.database.academicCertificates,
+                    as: 'academicCertificates',
+                },
+                {
+                    model: options.database.trainingCertificates,
+                    as: 'trainingCertificates',
+                },
+                {
+                    model: options.database.professionalCertifications,
+                    as: 'professionalCertificates',
+                },
+                {
                     model: options.database.softSkills,
-                    as: 'personalAndTechnicalSkills',
+                    as: 'softSkills',
+                },
+                {
+                    model: options.database.managementSkills,
+                    as: 'managementSkills',
+                },
+                {
+                    model: options.database.artisticSkills,
+                    as: 'artitistikSkills',
+                },
+                {
+                    model: options.database.jobFrameworks,
+                    as: 'jobFramework',
+                },
+                {
+                    model: options.database.connectionLevel,
+                    as: 'connectionLevel',
+                },
+                {
+                    model: options.database.jobRequirments,
+                    as: 'jobRequirments',
+                },
+                {
+                    model: options.database.jobPath,
+                    as: 'jobPath',
+                },
+                {
+                    model: options.database.tasksDuties,
+                    as: 'tasksDuties',
+                },
+                {
+                    model: options.database.administrativeFinancialPowers,
+                    as: 'administrativeFinancialPowers',
+                },
+                {
+                    model: options.database.cardInformation,
+                    as: 'cardInformation',
                 },
             ];
             const currentTenant = sequelizeRepository_1.default.getCurrentTenant(options);
@@ -171,16 +219,60 @@ class JobsRepository {
             let whereAnd = [];
             let include = [
                 {
-                    model: options.database.departments,
-                    as: 'department',
-                },
-                {
                     model: options.database.user,
                     as: 'supervisor',
                 },
                 {
+                    model: options.database.academicCertificates,
+                    as: 'academicCertificates',
+                },
+                {
+                    model: options.database.trainingCertificates,
+                    as: 'trainingCertificates',
+                },
+                {
+                    model: options.database.professionalCertifications,
+                    as: 'professionalCertificates',
+                },
+                {
                     model: options.database.softSkills,
-                    as: 'personalAndTechnicalSkills',
+                    as: 'softSkills',
+                },
+                {
+                    model: options.database.managementSkills,
+                    as: 'managementSkills',
+                },
+                {
+                    model: options.database.artisticSkills,
+                    as: 'artitistikSkills',
+                },
+                {
+                    model: options.database.jobFrameworks,
+                    as: 'jobFramework',
+                },
+                {
+                    model: options.database.connectionLevel,
+                    as: 'connectionLevel',
+                },
+                {
+                    model: options.database.jobRequirments,
+                    as: 'jobRequirments',
+                },
+                {
+                    model: options.database.jobPath,
+                    as: 'jobPath',
+                },
+                {
+                    model: options.database.tasksDuties,
+                    as: 'tasksDuties',
+                },
+                {
+                    model: options.database.administrativeFinancialPowers,
+                    as: 'administrativeFinancialPowers',
+                },
+                {
+                    model: options.database.cardInformation,
+                    as: 'cardInformation',
                 },
             ];
             whereAnd.push({
@@ -195,11 +287,6 @@ class JobsRepository {
                 if (filter.positionName) {
                     whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('jobs', 'positionName', filter.positionName));
                 }
-                if (filter.department) {
-                    whereAnd.push({
-                        ['departmentId']: sequelizeFilterUtils_1.default.uuid(filter.department),
-                    });
-                }
                 if (filter.supervisor) {
                     whereAnd.push({
                         ['supervisorId']: sequelizeFilterUtils_1.default.uuid(filter.supervisor),
@@ -211,23 +298,6 @@ class JobsRepository {
                 if (filter.jobCode) {
                     whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('jobs', 'jobCode', filter.jobCode));
                 }
-                if (filter.releaseDateRange) {
-                    const [start, end] = filter.releaseDateRange;
-                    if (start !== undefined && start !== null && start !== '') {
-                        whereAnd.push({
-                            releaseDate: {
-                                [Op.gte]: start,
-                            },
-                        });
-                    }
-                    if (end !== undefined && end !== null && end !== '') {
-                        whereAnd.push({
-                            releaseDate: {
-                                [Op.lte]: end,
-                            },
-                        });
-                    }
-                }
                 if (filter.generalDescription) {
                     whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('jobs', 'generalDescription', filter.generalDescription));
                 }
@@ -237,9 +307,69 @@ class JobsRepository {
                 if (filter.detailedGoals) {
                     whereAnd.push(sequelizeFilterUtils_1.default.ilikeIncludes('jobs', 'detailedGoals', filter.detailedGoals));
                 }
-                if (filter.personalAndTechnicalSkills) {
+                if (filter.academicCertificates) {
                     whereAnd.push({
-                        ['personalAndTechnicalSkillsId']: sequelizeFilterUtils_1.default.uuid(filter.personalAndTechnicalSkills),
+                        ['academicCertificatesId']: sequelizeFilterUtils_1.default.uuid(filter.academicCertificates),
+                    });
+                }
+                if (filter.trainingCertificates) {
+                    whereAnd.push({
+                        ['trainingCertificatesId']: sequelizeFilterUtils_1.default.uuid(filter.trainingCertificates),
+                    });
+                }
+                if (filter.professionalCertificates) {
+                    whereAnd.push({
+                        ['professionalCertificatesId']: sequelizeFilterUtils_1.default.uuid(filter.professionalCertificates),
+                    });
+                }
+                if (filter.softSkills) {
+                    whereAnd.push({
+                        ['softSkillsId']: sequelizeFilterUtils_1.default.uuid(filter.softSkills),
+                    });
+                }
+                if (filter.managementSkills) {
+                    whereAnd.push({
+                        ['managementSkillsId']: sequelizeFilterUtils_1.default.uuid(filter.managementSkills),
+                    });
+                }
+                if (filter.artitistikSkills) {
+                    whereAnd.push({
+                        ['artitistikSkillsId']: sequelizeFilterUtils_1.default.uuid(filter.artitistikSkills),
+                    });
+                }
+                if (filter.jobFramework) {
+                    whereAnd.push({
+                        ['jobFrameworkId']: sequelizeFilterUtils_1.default.uuid(filter.jobFramework),
+                    });
+                }
+                if (filter.connectionLevel) {
+                    whereAnd.push({
+                        ['connectionLevelId']: sequelizeFilterUtils_1.default.uuid(filter.connectionLevel),
+                    });
+                }
+                if (filter.jobRequirments) {
+                    whereAnd.push({
+                        ['jobRequirmentsId']: sequelizeFilterUtils_1.default.uuid(filter.jobRequirments),
+                    });
+                }
+                if (filter.jobPath) {
+                    whereAnd.push({
+                        ['jobPathId']: sequelizeFilterUtils_1.default.uuid(filter.jobPath),
+                    });
+                }
+                if (filter.tasksDuties) {
+                    whereAnd.push({
+                        ['tasksDutiesId']: sequelizeFilterUtils_1.default.uuid(filter.tasksDuties),
+                    });
+                }
+                if (filter.administrativeFinancialPowers) {
+                    whereAnd.push({
+                        ['administrativeFinancialPowersId']: sequelizeFilterUtils_1.default.uuid(filter.administrativeFinancialPowers),
+                    });
+                }
+                if (filter.cardInformation) {
+                    whereAnd.push({
+                        ['cardInformationId']: sequelizeFilterUtils_1.default.uuid(filter.cardInformation),
                     });
                 }
                 if (filter.createdAtRange) {
@@ -312,7 +442,7 @@ class JobsRepository {
         return __awaiter(this, void 0, void 0, function* () {
             let values = {};
             if (data) {
-                values = Object.assign(Object.assign({}, record.get({ plain: true })), { leavesIds: data.leaves });
+                values = Object.assign(Object.assign({}, record.get({ plain: true })), { departmentIds: data.department, commonCommitteesIds: data.commonCommittees });
             }
             yield auditLogRepository_1.default.log({
                 entityName: 'jobs',
@@ -337,8 +467,11 @@ class JobsRepository {
             }
             const output = record.get({ plain: true });
             const transaction = sequelizeRepository_1.default.getTransaction(options);
+            output.department = yield record.getDepartment({
+                transaction,
+            });
             output.supervisor = userRepository_1.default.cleanupForRelationships(output.supervisor);
-            output.leaves = yield record.getLeaves({
+            output.commonCommittees = yield record.getCommonCommittees({
                 transaction,
             });
             return output;

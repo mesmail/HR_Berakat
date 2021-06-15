@@ -6,8 +6,6 @@ import DateTimeRangeField from 'src/app/shared/fields/date-time-range-field';
 import IntegerField from 'src/app/shared/fields/integer-field';
 import IntegerRangeField from 'src/app/shared/fields/integer-range-field';
 import StringField from 'src/app/shared/fields/string-field';
-import DecimalRangeField from 'src/app/shared/fields/decimal-range-field';
-import DecimalField from 'src/app/shared/fields/decimal-field';
 import DateField from 'src/app/shared/fields/date-field';
 import DateRangeField from 'src/app/shared/fields/date-range-field';
 
@@ -19,46 +17,63 @@ function placeholder(name) {
   return i18n(`entities.employmentContract.placeholders.${name}`);
 }
 
-function hint(name) {
-  return i18n(`entities.employmentContract.hints.${name}`);
-}
-
 const fields = {
   id: new IdField('id', label('id')),
+  contractDate: new DateField('contractDate', label('contractDate'), {
+    "required": true
+  }),
+  companyRepresentative: new StringField('companyRepresentative', label('companyRepresentative'), {
+    "placeholder": placeholder('companyRepresentative'),
+    "required": true
+  }),
+  secondParty: new StringField('secondParty', label('secondParty'), {
+    "placeholder": placeholder('secondParty'),
+    "required": true
+  }),
+  nationality: new StringField('nationality', label('nationality'), {
+    "placeholder": placeholder('nationality'),
+    "required": true
+  }),
+  passportNumber: new StringField('passportNumber', label('passportNumber'), {
+    "placeholder": placeholder('passportNumber'),
+    "required": true
+  }),
+  passportIssueDate: new DateField('passportIssueDate', label('passportIssueDate'), {
+    "required": true
+  }),
+  email: new StringField('email', label('email'), {
+    "placeholder": placeholder('email'),
+    "required": true
+  }),
+  jobTitle: new StringField('jobTitle', label('jobTitle'), {
+    "placeholder": placeholder('jobTitle'),
+    "required": true
+  }),
+  dailyWorkingHours: new IntegerField('dailyWorkingHours', label('dailyWorkingHours'), {
+    "placeholder": placeholder('dailyWorkingHours'),
+    "required": true
+  }),
+  weeklyWorkingHours: new IntegerField('weeklyWorkingHours', label('weeklyWorkingHours'), {
+    "placeholder": placeholder('weeklyWorkingHours'),
+    "required": true
+  }),
+  weekEndDay: new StringField('weekEndDay', label('weekEndDay'), {
+    "placeholder": placeholder('weekEndDay'),
+    "required": true
+  }),
+  workStartDate: new DateField('workStartDate', label('workStartDate'), {
+    "required": true
+  }),
   employeeName: new StringField('employeeName', label('employeeName'), {
     "placeholder": placeholder('employeeName'),
     "required": true
   }),
-  workingPeriod: new IntegerField('workingPeriod', label('workingPeriod'), {
-    "placeholder": placeholder('workingPeriod'),
+  positionName: new StringField('positionName', label('positionName'), {
+    "placeholder": placeholder('positionName'),
     "required": true
   }),
-  employmentSalary: new DecimalField('employmentSalary', label('employmentSalary'), {
-    "placeholder": placeholder('employmentSalary'),
-    "required": true
-  }),
-  jobRoles: new StringField('jobRoles', label('jobRoles'), {
-    "placeholder": placeholder('jobRoles'),
-    "required": true
-  }),
-  employeeContactEmail: new StringField('employeeContactEmail', label('employeeContactEmail'), {
-    "placeholder": placeholder('employeeContactEmail'),
-    "required": true
-  }),
-  mobileNumber: new IntegerField('mobileNumber', label('mobileNumber'), {
-    "placeholder": placeholder('mobileNumber'),
-    "required": true
-  }),
-  homeAddress: new StringField('homeAddress', label('homeAddress'), {
-    "placeholder": placeholder('homeAddress'),
-    "required": true
-  }),
-  contractPeriod: new IntegerField('contractPeriod', label('contractPeriod'), {
-    "placeholder": placeholder('contractPeriod'),
-    "hint": hint('contractPeriod'),
-    "required": true
-  }),
-  startDate: new DateField('startDate', label('startDate'), {
+  basicSalary: new IntegerField('basicSalary', label('basicSalary'), {
+    "placeholder": placeholder('basicSalary'),
     "required": true
   }),
   createdAt: new DateTimeField(
@@ -73,25 +88,29 @@ const fields = {
     'createdAtRange',
     label('createdAtRange'),
   ),
-  workingPeriodRange: new IntegerRangeField(
-    'workingPeriodRange',
-    label('workingPeriodRange'),
+  contractDateRange: new DateRangeField(
+    'contractDateRange',
+    label('contractDateRange'),
   ),
-  employmentSalaryRange: new DecimalRangeField(
-    'employmentSalaryRange',
-    label('employmentSalaryRange'),
+  passportIssueDateRange: new DateRangeField(
+    'passportIssueDateRange',
+    label('passportIssueDateRange'),
   ),
-  mobileNumberRange: new IntegerRangeField(
-    'mobileNumberRange',
-    label('mobileNumberRange'),
+  dailyWorkingHoursRange: new IntegerRangeField(
+    'dailyWorkingHoursRange',
+    label('dailyWorkingHoursRange'),
   ),
-  contractPeriodRange: new IntegerRangeField(
-    'contractPeriodRange',
-    label('contractPeriodRange'),
+  weeklyWorkingHoursRange: new IntegerRangeField(
+    'weeklyWorkingHoursRange',
+    label('weeklyWorkingHoursRange'),
   ),
-  startDateRange: new DateRangeField(
-    'startDateRange',
-    label('startDateRange'),
+  workStartDateRange: new DateRangeField(
+    'workStartDateRange',
+    label('workStartDateRange'),
+  ),
+  basicSalaryRange: new IntegerRangeField(
+    'basicSalaryRange',
+    label('basicSalaryRange'),
   ),
 };
 

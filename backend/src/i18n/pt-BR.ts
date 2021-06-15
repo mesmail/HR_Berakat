@@ -86,13 +86,6 @@ const ptBR = {
   },
 
   entities: {
-    candidates: {
-      errors: {
-        unique: {
-
-        }
-      }
-    },
     jobs: {
       errors: {
         unique: {
@@ -100,7 +93,7 @@ const ptBR = {
         }
       }
     },
-    departments: {
+    candidates: {
       errors: {
         unique: {
 
@@ -178,17 +171,59 @@ const ptBR = {
         }
       }
     },
-    claim: {
+    employmentContract: {
       errors: {
         unique: {
 
         }
       }
     },
-    advancedPayment: {
+    connectionLevel: {
       errors: {
         unique: {
 
+        }
+      }
+    },
+    commonComitees: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    jobRequirments: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    jobPath: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    tasksDuties: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    administrativeFinancialPowers: {
+      errors: {
+        unique: {
+
+        }
+      }
+    },
+    cardInformation: {
+      errors: {
+        unique: {
+          version: 'الإصدار deve ser único',
         }
       }
     },
@@ -199,7 +234,7 @@ const ptBR = {
         }
       }
     },
-    employmentContract: {
+    departments: {
       errors: {
         unique: {
 

@@ -1,0 +1,72 @@
+<form class="form" (ngSubmit)="doSave()" [formGroup]="form" #ngForm="ngForm" *ngIf="form">
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.version.label }}</mat-label>
+        <input matInput [formControlName]="fields.version.name" [placeholder]="fields.version.placeholder" [required]="fields.version.required" appAutofocus />
+
+        <mat-hint *ngIf="fields.version.hint">
+            {{ fields.version.hint }}
+        </mat-hint>
+
+        <mat-error>
+            <app-validations [control]="form.get(fields.version.name)" [label]="fields.version.label"></app-validations>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.date.label }}</mat-label>
+        <input matInput [formControlName]="fields.date.name" [placeholder]="fields.date.placeholder" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [required]="fields.date.required" />
+
+        <owl-date-time #dt1></owl-date-time>
+
+        <mat-hint *ngIf="fields.date.hint">
+            {{ fields.date.hint }}
+        </mat-hint>
+
+        <mat-error>
+            <app-validations [control]="form.get(fields.date.name)" [label]="fields.date.label"></app-validations>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.generalManager.label }}</mat-label>
+        <input matInput [formControlName]="fields.generalManager.name" [placeholder]="fields.generalManager.placeholder" [required]="fields.generalManager.required" />
+
+        <mat-hint *ngIf="fields.generalManager.hint">
+            {{ fields.generalManager.hint }}
+        </mat-hint>
+
+        <mat-error>
+            <app-validations [control]="form.get(fields.generalManager.name)" [label]="fields.generalManager.label">
+            </app-validations>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always" appearance="outline">
+        <mat-label>{{ fields.hRManager.label }}</mat-label>
+        <input matInput [formControlName]="fields.hRManager.name" [placeholder]="fields.hRManager.placeholder" [required]="fields.hRManager.required" />
+
+        <mat-hint *ngIf="fields.hRManager.hint">
+            {{ fields.hRManager.hint }}
+        </mat-hint>
+
+        <mat-error>
+            <app-validations [control]="form.get(fields.hRManager.name)" [label]="fields.hRManager.label"></app-validations>
+        </mat-error>
+    </mat-form-field>
+
+    <div class="form-buttons" [class.form-buttons-modal]="modal">
+        <button mat-raised-button [disabled]="saveLoading" color="primary" type="submit">
+      <mat-icon inline fontSet="far" fontIcon="fa-save"></mat-icon>&#160;
+      <app-i18n key="common.save"></app-i18n>
+    </button>
+        <button mat-flat-button [disabled]="saveLoading" (click)="doReset()" type="button">
+      <mat-icon inline fontSet="fas" fontIcon="fa-undo"></mat-icon>&#160;
+      <app-i18n key="common.reset"></app-i18n>
+    </button>
+
+        <button mat-flat-button [disabled]="saveLoading" type="button" (click)="cancel.emit()">
+      <mat-icon inline fontSet="fas" fontIcon="fa-times"></mat-icon>&#160;
+      <app-i18n key="common.cancel"></app-i18n>
+    </button>
+    </div>
+</form>

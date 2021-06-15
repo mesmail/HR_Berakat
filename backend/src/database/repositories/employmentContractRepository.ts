@@ -26,15 +26,21 @@ class EmploymentContractRepository {
     const record = await options.database.employmentContract.create(
       {
         ...lodash.pick(data, [
+          'contractDate',
+          'companyRepresentative',
+          'secondParty',
+          'nationality',
+          'passportNumber',
+          'passportIssueDate',
+          'email',
+          'jobTitle',
+          'dailyWorkingHours',
+          'weeklyWorkingHours',
+          'weekEndDay',
+          'workStartDate',
           'employeeName',
-          'workingPeriod',
-          'employmentSalary',
-          'jobRoles',
-          'employeeContactEmail',
-          'mobileNumber',
-          'homeAddress',
-          'contractPeriod',
-          'startDate',          
+          'positionName',
+          'basicSalary',          
           'importHash',
         ]),
 
@@ -92,15 +98,21 @@ class EmploymentContractRepository {
     record = await record.update(
       {
         ...lodash.pick(data, [
+          'contractDate',
+          'companyRepresentative',
+          'secondParty',
+          'nationality',
+          'passportNumber',
+          'passportIssueDate',
+          'email',
+          'jobTitle',
+          'dailyWorkingHours',
+          'weeklyWorkingHours',
+          'weekEndDay',
+          'workStartDate',
           'employeeName',
-          'workingPeriod',
-          'employmentSalary',
-          'jobRoles',
-          'employeeContactEmail',
-          'mobileNumber',
-          'homeAddress',
-          'contractPeriod',
-          'startDate',          
+          'positionName',
+          'basicSalary',          
           'importHash',
         ]),
 
@@ -274,6 +286,176 @@ class EmploymentContractRepository {
         });
       }
 
+      if (filter.contractDateRange) {
+        const [start, end] = filter.contractDateRange;
+
+        if (start !== undefined && start !== null && start !== '') {
+          whereAnd.push({
+            contractDate: {
+              [Op.gte]: start,
+            },
+          });
+        }
+
+        if (end !== undefined && end !== null && end !== '') {
+          whereAnd.push({
+            contractDate: {
+              [Op.lte]: end,
+            },
+          });
+        }
+      }
+
+      if (filter.companyRepresentative) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'companyRepresentative',
+            filter.companyRepresentative,
+          ),
+        );
+      }
+
+      if (filter.secondParty) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'secondParty',
+            filter.secondParty,
+          ),
+        );
+      }
+
+      if (filter.nationality) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'nationality',
+            filter.nationality,
+          ),
+        );
+      }
+
+      if (filter.passportNumber) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'passportNumber',
+            filter.passportNumber,
+          ),
+        );
+      }
+
+      if (filter.passportIssueDateRange) {
+        const [start, end] = filter.passportIssueDateRange;
+
+        if (start !== undefined && start !== null && start !== '') {
+          whereAnd.push({
+            passportIssueDate: {
+              [Op.gte]: start,
+            },
+          });
+        }
+
+        if (end !== undefined && end !== null && end !== '') {
+          whereAnd.push({
+            passportIssueDate: {
+              [Op.lte]: end,
+            },
+          });
+        }
+      }
+
+      if (filter.email) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'email',
+            filter.email,
+          ),
+        );
+      }
+
+      if (filter.jobTitle) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'jobTitle',
+            filter.jobTitle,
+          ),
+        );
+      }
+
+      if (filter.dailyWorkingHoursRange) {
+        const [start, end] = filter.dailyWorkingHoursRange;
+
+        if (start !== undefined && start !== null && start !== '') {
+          whereAnd.push({
+            dailyWorkingHours: {
+              [Op.gte]: start,
+            },
+          });
+        }
+
+        if (end !== undefined && end !== null && end !== '') {
+          whereAnd.push({
+            dailyWorkingHours: {
+              [Op.lte]: end,
+            },
+          });
+        }
+      }
+
+      if (filter.weeklyWorkingHoursRange) {
+        const [start, end] = filter.weeklyWorkingHoursRange;
+
+        if (start !== undefined && start !== null && start !== '') {
+          whereAnd.push({
+            weeklyWorkingHours: {
+              [Op.gte]: start,
+            },
+          });
+        }
+
+        if (end !== undefined && end !== null && end !== '') {
+          whereAnd.push({
+            weeklyWorkingHours: {
+              [Op.lte]: end,
+            },
+          });
+        }
+      }
+
+      if (filter.weekEndDay) {
+        whereAnd.push(
+          SequelizeFilterUtils.ilikeIncludes(
+            'employmentContract',
+            'weekEndDay',
+            filter.weekEndDay,
+          ),
+        );
+      }
+
+      if (filter.workStartDateRange) {
+        const [start, end] = filter.workStartDateRange;
+
+        if (start !== undefined && start !== null && start !== '') {
+          whereAnd.push({
+            workStartDate: {
+              [Op.gte]: start,
+            },
+          });
+        }
+
+        if (end !== undefined && end !== null && end !== '') {
+          whereAnd.push({
+            workStartDate: {
+              [Op.lte]: end,
+            },
+          });
+        }
+      }
+
       if (filter.employeeName) {
         whereAnd.push(
           SequelizeFilterUtils.ilikeIncludes(
@@ -284,72 +466,22 @@ class EmploymentContractRepository {
         );
       }
 
-      if (filter.workingPeriodRange) {
-        const [start, end] = filter.workingPeriodRange;
-
-        if (start !== undefined && start !== null && start !== '') {
-          whereAnd.push({
-            workingPeriod: {
-              [Op.gte]: start,
-            },
-          });
-        }
-
-        if (end !== undefined && end !== null && end !== '') {
-          whereAnd.push({
-            workingPeriod: {
-              [Op.lte]: end,
-            },
-          });
-        }
-      }
-
-      if (filter.employmentSalaryRange) {
-        const [start, end] = filter.employmentSalaryRange;
-
-        if (start !== undefined && start !== null && start !== '') {
-          whereAnd.push({
-            employmentSalary: {
-              [Op.gte]: start,
-            },
-          });
-        }
-
-        if (end !== undefined && end !== null && end !== '') {
-          whereAnd.push({
-            employmentSalary: {
-              [Op.lte]: end,
-            },
-          });
-        }
-      }
-
-      if (filter.jobRoles) {
+      if (filter.positionName) {
         whereAnd.push(
           SequelizeFilterUtils.ilikeIncludes(
             'employmentContract',
-            'jobRoles',
-            filter.jobRoles,
+            'positionName',
+            filter.positionName,
           ),
         );
       }
 
-      if (filter.employeeContactEmail) {
-        whereAnd.push(
-          SequelizeFilterUtils.ilikeIncludes(
-            'employmentContract',
-            'employeeContactEmail',
-            filter.employeeContactEmail,
-          ),
-        );
-      }
-
-      if (filter.mobileNumberRange) {
-        const [start, end] = filter.mobileNumberRange;
+      if (filter.basicSalaryRange) {
+        const [start, end] = filter.basicSalaryRange;
 
         if (start !== undefined && start !== null && start !== '') {
           whereAnd.push({
-            mobileNumber: {
+            basicSalary: {
               [Op.gte]: start,
             },
           });
@@ -357,57 +489,7 @@ class EmploymentContractRepository {
 
         if (end !== undefined && end !== null && end !== '') {
           whereAnd.push({
-            mobileNumber: {
-              [Op.lte]: end,
-            },
-          });
-        }
-      }
-
-      if (filter.homeAddress) {
-        whereAnd.push(
-          SequelizeFilterUtils.ilikeIncludes(
-            'employmentContract',
-            'homeAddress',
-            filter.homeAddress,
-          ),
-        );
-      }
-
-      if (filter.contractPeriodRange) {
-        const [start, end] = filter.contractPeriodRange;
-
-        if (start !== undefined && start !== null && start !== '') {
-          whereAnd.push({
-            contractPeriod: {
-              [Op.gte]: start,
-            },
-          });
-        }
-
-        if (end !== undefined && end !== null && end !== '') {
-          whereAnd.push({
-            contractPeriod: {
-              [Op.lte]: end,
-            },
-          });
-        }
-      }
-
-      if (filter.startDateRange) {
-        const [start, end] = filter.startDateRange;
-
-        if (start !== undefined && start !== null && start !== '') {
-          whereAnd.push({
-            startDate: {
-              [Op.gte]: start,
-            },
-          });
-        }
-
-        if (end !== undefined && end !== null && end !== '') {
-          whereAnd.push({
-            startDate: {
+            basicSalary: {
               [Op.lte]: end,
             },
           });

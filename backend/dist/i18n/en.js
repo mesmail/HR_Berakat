@@ -74,17 +74,12 @@ const en = {
         error: 'Sorry, this operation is not allowed in preview mode.',
     },
     entities: {
-        candidates: {
-            errors: {
-                unique: {}
-            }
-        },
         jobs: {
             errors: {
                 unique: {}
             }
         },
-        departments: {
+        candidates: {
             errors: {
                 unique: {}
             }
@@ -142,14 +137,46 @@ const en = {
                 unique: {}
             }
         },
-        claim: {
+        employmentContract: {
             errors: {
                 unique: {}
             }
         },
-        advancedPayment: {
+        connectionLevel: {
             errors: {
                 unique: {}
+            }
+        },
+        commonComitees: {
+            errors: {
+                unique: {}
+            }
+        },
+        jobRequirments: {
+            errors: {
+                unique: {}
+            }
+        },
+        jobPath: {
+            errors: {
+                unique: {}
+            }
+        },
+        tasksDuties: {
+            errors: {
+                unique: {}
+            }
+        },
+        administrativeFinancialPowers: {
+            errors: {
+                unique: {}
+            }
+        },
+        cardInformation: {
+            errors: {
+                unique: {
+                    version: 'الإصدار must be unique',
+                }
             }
         },
         tellProblem: {
@@ -157,7 +184,7 @@ const en = {
                 unique: {}
             }
         },
-        employmentContract: {
+        departments: {
             errors: {
                 unique: {}
             }

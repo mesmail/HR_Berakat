@@ -16,8 +16,20 @@ const Error400_1 = __importDefault(require("../errors/Error400"));
 const sequelizeRepository_1 = __importDefault(require("../database/repositories/sequelizeRepository"));
 const jobsRepository_1 = __importDefault(require("../database/repositories/jobsRepository"));
 const departmentsRepository_1 = __importDefault(require("../database/repositories/departmentsRepository"));
-const leaveApplicationFormRepository_1 = __importDefault(require("../database/repositories/leaveApplicationFormRepository"));
+const academicCertificatesRepository_1 = __importDefault(require("../database/repositories/academicCertificatesRepository"));
+const trainingCertificatesRepository_1 = __importDefault(require("../database/repositories/trainingCertificatesRepository"));
+const professionalCertificationsRepository_1 = __importDefault(require("../database/repositories/professionalCertificationsRepository"));
 const softSkillsRepository_1 = __importDefault(require("../database/repositories/softSkillsRepository"));
+const managementSkillsRepository_1 = __importDefault(require("../database/repositories/managementSkillsRepository"));
+const artisticSkillsRepository_1 = __importDefault(require("../database/repositories/artisticSkillsRepository"));
+const jobFrameworksRepository_1 = __importDefault(require("../database/repositories/jobFrameworksRepository"));
+const connectionLevelRepository_1 = __importDefault(require("../database/repositories/connectionLevelRepository"));
+const commonComiteesRepository_1 = __importDefault(require("../database/repositories/commonComiteesRepository"));
+const jobRequirmentsRepository_1 = __importDefault(require("../database/repositories/jobRequirmentsRepository"));
+const jobPathRepository_1 = __importDefault(require("../database/repositories/jobPathRepository"));
+const tasksDutiesRepository_1 = __importDefault(require("../database/repositories/tasksDutiesRepository"));
+const administrativeFinancialPowersRepository_1 = __importDefault(require("../database/repositories/administrativeFinancialPowersRepository"));
+const cardInformationRepository_1 = __importDefault(require("../database/repositories/cardInformationRepository"));
 const userRepository_1 = __importDefault(require("../database/repositories/userRepository"));
 class JobsService {
     constructor(options) {
@@ -27,10 +39,22 @@ class JobsService {
         return __awaiter(this, void 0, void 0, function* () {
             const transaction = yield sequelizeRepository_1.default.createTransaction(this.options.database);
             try {
-                data.department = yield departmentsRepository_1.default.filterIdInTenant(data.department, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.department = yield departmentsRepository_1.default.filterIdsInTenant(data.department, Object.assign(Object.assign({}, this.options), { transaction }));
                 data.supervisor = yield userRepository_1.default.filterIdInTenant(data.supervisor, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.leaves = yield leaveApplicationFormRepository_1.default.filterIdsInTenant(data.leaves, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.personalAndTechnicalSkills = yield softSkillsRepository_1.default.filterIdInTenant(data.personalAndTechnicalSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.academicCertificates = yield academicCertificatesRepository_1.default.filterIdInTenant(data.academicCertificates, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.trainingCertificates = yield trainingCertificatesRepository_1.default.filterIdInTenant(data.trainingCertificates, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.professionalCertificates = yield professionalCertificationsRepository_1.default.filterIdInTenant(data.professionalCertificates, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.softSkills = yield softSkillsRepository_1.default.filterIdInTenant(data.softSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.managementSkills = yield managementSkillsRepository_1.default.filterIdInTenant(data.managementSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.artitistikSkills = yield artisticSkillsRepository_1.default.filterIdInTenant(data.artitistikSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.jobFramework = yield jobFrameworksRepository_1.default.filterIdInTenant(data.jobFramework, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.connectionLevel = yield connectionLevelRepository_1.default.filterIdInTenant(data.connectionLevel, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.commonCommittees = yield commonComiteesRepository_1.default.filterIdsInTenant(data.commonCommittees, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.jobRequirments = yield jobRequirmentsRepository_1.default.filterIdInTenant(data.jobRequirments, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.jobPath = yield jobPathRepository_1.default.filterIdInTenant(data.jobPath, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.tasksDuties = yield tasksDutiesRepository_1.default.filterIdInTenant(data.tasksDuties, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.administrativeFinancialPowers = yield administrativeFinancialPowersRepository_1.default.filterIdInTenant(data.administrativeFinancialPowers, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.cardInformation = yield cardInformationRepository_1.default.filterIdInTenant(data.cardInformation, Object.assign(Object.assign({}, this.options), { transaction }));
                 const record = yield jobsRepository_1.default.create(data, Object.assign(Object.assign({}, this.options), { transaction }));
                 yield sequelizeRepository_1.default.commitTransaction(transaction);
                 return record;
@@ -46,10 +70,22 @@ class JobsService {
         return __awaiter(this, void 0, void 0, function* () {
             const transaction = yield sequelizeRepository_1.default.createTransaction(this.options.database);
             try {
-                data.department = yield departmentsRepository_1.default.filterIdInTenant(data.department, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.department = yield departmentsRepository_1.default.filterIdsInTenant(data.department, Object.assign(Object.assign({}, this.options), { transaction }));
                 data.supervisor = yield userRepository_1.default.filterIdInTenant(data.supervisor, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.leaves = yield leaveApplicationFormRepository_1.default.filterIdsInTenant(data.leaves, Object.assign(Object.assign({}, this.options), { transaction }));
-                data.personalAndTechnicalSkills = yield softSkillsRepository_1.default.filterIdInTenant(data.personalAndTechnicalSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.academicCertificates = yield academicCertificatesRepository_1.default.filterIdInTenant(data.academicCertificates, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.trainingCertificates = yield trainingCertificatesRepository_1.default.filterIdInTenant(data.trainingCertificates, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.professionalCertificates = yield professionalCertificationsRepository_1.default.filterIdInTenant(data.professionalCertificates, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.softSkills = yield softSkillsRepository_1.default.filterIdInTenant(data.softSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.managementSkills = yield managementSkillsRepository_1.default.filterIdInTenant(data.managementSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.artitistikSkills = yield artisticSkillsRepository_1.default.filterIdInTenant(data.artitistikSkills, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.jobFramework = yield jobFrameworksRepository_1.default.filterIdInTenant(data.jobFramework, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.connectionLevel = yield connectionLevelRepository_1.default.filterIdInTenant(data.connectionLevel, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.commonCommittees = yield commonComiteesRepository_1.default.filterIdsInTenant(data.commonCommittees, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.jobRequirments = yield jobRequirmentsRepository_1.default.filterIdInTenant(data.jobRequirments, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.jobPath = yield jobPathRepository_1.default.filterIdInTenant(data.jobPath, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.tasksDuties = yield tasksDutiesRepository_1.default.filterIdInTenant(data.tasksDuties, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.administrativeFinancialPowers = yield administrativeFinancialPowersRepository_1.default.filterIdInTenant(data.administrativeFinancialPowers, Object.assign(Object.assign({}, this.options), { transaction }));
+                data.cardInformation = yield cardInformationRepository_1.default.filterIdInTenant(data.cardInformation, Object.assign(Object.assign({}, this.options), { transaction }));
                 const record = yield jobsRepository_1.default.update(id, data, Object.assign(Object.assign({}, this.options), { transaction }));
                 yield sequelizeRepository_1.default.commitTransaction(transaction);
                 return record;

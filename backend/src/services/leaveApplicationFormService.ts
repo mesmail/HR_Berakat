@@ -3,7 +3,6 @@ import SequelizeRepository from '../database/repositories/sequelizeRepository';
 import { IServiceOptions } from './IServiceOptions';
 import LeaveApplicationFormRepository from '../database/repositories/leaveApplicationFormRepository';
 import JobsRepository from '../database/repositories/jobsRepository';
-import DepartmentsRepository from '../database/repositories/departmentsRepository';
 
 export default class LeaveApplicationFormService {
   options: IServiceOptions;
@@ -19,8 +18,6 @@ export default class LeaveApplicationFormService {
 
     try {
       data.position = await JobsRepository.filterIdInTenant(data.position, { ...this.options, transaction });
-      data.department = await DepartmentsRepository.filterIdInTenant(data.department, { ...this.options, transaction });
-      data.jobs = await JobsRepository.filterIdInTenant(data.jobs, { ...this.options, transaction });
 
       const record = await LeaveApplicationFormRepository.create(data, {
         ...this.options,
@@ -54,8 +51,6 @@ export default class LeaveApplicationFormService {
 
     try {
       data.position = await JobsRepository.filterIdInTenant(data.position, { ...this.options, transaction });
-      data.department = await DepartmentsRepository.filterIdInTenant(data.department, { ...this.options, transaction });
-      data.jobs = await JobsRepository.filterIdInTenant(data.jobs, { ...this.options, transaction });
 
       const record = await LeaveApplicationFormRepository.update(
         id,

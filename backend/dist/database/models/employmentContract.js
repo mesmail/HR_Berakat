@@ -12,6 +12,104 @@ function default_1(sequelize) {
             defaultValue: sequelize_1.DataTypes.UUIDV4,
             primaryKey: true,
         },
+        contractDate: {
+            type: sequelize_1.DataTypes.DATEONLY,
+            get: function () {
+                // @ts-ignore
+                return this.getDataValue('contractDate')
+                    ? moment_1.default
+                        // @ts-ignore
+                        .utc(this.getDataValue('contractDate'))
+                        .format('YYYY-MM-DD')
+                    : null;
+            },
+            allowNull: false,
+        },
+        companyRepresentative: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        secondParty: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        nationality: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        passportNumber: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        passportIssueDate: {
+            type: sequelize_1.DataTypes.DATEONLY,
+            get: function () {
+                // @ts-ignore
+                return this.getDataValue('passportIssueDate')
+                    ? moment_1.default
+                        // @ts-ignore
+                        .utc(this.getDataValue('passportIssueDate'))
+                        .format('YYYY-MM-DD')
+                    : null;
+            },
+            allowNull: false,
+        },
+        email: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        jobTitle: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        dailyWorkingHours: {
+            type: sequelize_1.DataTypes.INTEGER,
+            allowNull: false,
+            validate: {}
+        },
+        weeklyWorkingHours: {
+            type: sequelize_1.DataTypes.INTEGER,
+            allowNull: false,
+            validate: {}
+        },
+        weekEndDay: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        workStartDate: {
+            type: sequelize_1.DataTypes.DATEONLY,
+            get: function () {
+                // @ts-ignore
+                return this.getDataValue('workStartDate')
+                    ? moment_1.default
+                        // @ts-ignore
+                        .utc(this.getDataValue('workStartDate'))
+                        .format('YYYY-MM-DD')
+                    : null;
+            },
+            allowNull: false,
+        },
         employeeName: {
             type: sequelize_1.DataTypes.TEXT,
             allowNull: false,
@@ -19,59 +117,17 @@ function default_1(sequelize) {
                 notEmpty: true,
             }
         },
-        workingPeriod: {
-            type: sequelize_1.DataTypes.INTEGER,
-            allowNull: false,
-            validate: {}
-        },
-        employmentSalary: {
-            type: sequelize_1.DataTypes.DECIMAL,
-            allowNull: false,
-            validate: {}
-        },
-        jobRoles: {
+        positionName: {
             type: sequelize_1.DataTypes.TEXT,
             allowNull: false,
             validate: {
                 notEmpty: true,
             }
         },
-        employeeContactEmail: {
-            type: sequelize_1.DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-            }
-        },
-        mobileNumber: {
+        basicSalary: {
             type: sequelize_1.DataTypes.INTEGER,
             allowNull: false,
             validate: {}
-        },
-        homeAddress: {
-            type: sequelize_1.DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-            }
-        },
-        contractPeriod: {
-            type: sequelize_1.DataTypes.INTEGER,
-            allowNull: false,
-            validate: {}
-        },
-        startDate: {
-            type: sequelize_1.DataTypes.DATEONLY,
-            get: function () {
-                // @ts-ignore
-                return this.getDataValue('startDate')
-                    ? moment_1.default
-                        // @ts-ignore
-                        .utc(this.getDataValue('startDate'))
-                        .format('YYYY-MM-DD')
-                    : null;
-            },
-            allowNull: false,
         },
         importHash: {
             type: sequelize_1.DataTypes.STRING(255),
